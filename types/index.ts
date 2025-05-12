@@ -1,0 +1,1 @@
+export type StepScore = 'clear' | 'unclear' | 'contradictory';

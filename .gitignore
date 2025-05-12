@@ -1,0 +1,54 @@
+# Build output
+.next/
+dist/
+out/
+
+# Cypress (if used)
+cypress/screenshots/
+cypress/videos/
+
+# Editor folders
+.idea/
+.vscode/
+
+# Env files
+.env
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Playwright (if used)
+playwright-report/
+test-results/
+
+# Supabase local files
+supabase/.temp/
+supabase/migrations/.history/
+
+# Testing
+coverage/
+.nyc_output/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Vim swap files
+*.swp
+*.swo
+
+# Turbo repo cache (optional monorepo support)
+.turbo/
