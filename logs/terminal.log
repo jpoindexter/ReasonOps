@@ -1,0 +1,17 @@
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % pnpm init
+Wrote to /Users/jasonpoindexter/Documents/GitHub/ReasonOps/package.json
+
+{
+  "name": "ReasonOps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0"
+}
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % 

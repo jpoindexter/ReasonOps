@@ -1,0 +1,42 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "@backend/*": ["backend/*"],
+      "@backend/api/*": ["backend/api/*"],
+      "@backend/lib/*": ["backend/lib/*"],
+      "@backend/lib/llm/*": ["backend/lib/llm/*"],
+      "@backend/lib/scoring/*": ["backend/lib/scoring/*"],
+      "@backend/lib/parsing/*": ["backend/lib/parsing/*"],
+      "@backend/metrics/*": ["backend/lib/metrics/*"],
+      "@backend/schemas/*": ["backend/schemas/*"],
+      "@backend/services/*": ["backend/services/*"],
+      "@backend/exporters/*": ["backend/exporters/*"],
+      "@backend/jobs/*": ["backend/jobs/*"],
+      "@backend/config/*": ["backend/config/*"],
+      "@backend/analytics/*": ["backend/analytics/*"],
+      "@backend/events/*": ["backend/events/*"],
+
+      "@frontend/*": ["frontend/*"],
+      "@frontend/components/*": ["frontend/components/*"],
+      "@frontend/components/panels/*": ["frontend/components/panels/*"],
+      "@frontend/components/layout/*": ["frontend/components/layout/*"],
+      "@frontend/components/ui/*": ["frontend/components/ui/*"],
+      "@frontend/lib/*": ["frontend/lib/*"],
+      "@frontend/types/*": ["frontend/types/*"],
+      "@frontend/schemas/*": ["frontend/schemas/*"],
+      "@frontend/hooks/*": ["frontend/hooks/*"]
+    },
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["frontend", "backend", "tests", "scripts"]
+}

@@ -19,7 +19,7 @@ Coming soon — hosted on [Vercel](https://vercel.com)
 - Score each reasoning step for clarity, coherence, and contradiction
 - Compare completions from multiple models
 - Export curated data for fine-tuning or analysis (JSONL)
-- Build trustable, human-in-the-loop AI evaluation pipelines
+- Build trustable, human-in-the-loop AI evaluation pipelines supporting async jobs, plugin adapters, and audit-grade evaluation
 
 ---
 
@@ -58,13 +58,38 @@ Have ideas, issues, or feedback? Reach out:
 ## 📁 Folder Structure
 
 ```
-app/               # Pages: task, evaluate, compare, API
-components/        # StepScoringPanel, TaskForm, etc.
-lib/               # LLM adapters, helpers
-schemas/           # Zod schemas for task, step, judgment
-types/             # Global types
-tests/             # Unit + UI tests
-public/            # Static assets
+frontend/
+├── app/                  # App Router routes (task, evaluate, compare)
+├── components/           # UI kit
+│   ├── panels/           # Evaluation UI panels
+│   ├── layout/           # Shell structure
+│   └── ui/               # Buttons, inputs, controls
+├── lib/                  # UI helpers (e.g. fetchers, tokens)
+├── hooks/                # Zustand state, form hooks
+├── schemas/              # Zod validation for UI
+├── types/                # TS types shared across components
+└── public/               # Static assets
+
+backend/
+├── api/                  # HTTP endpoints for task, step, judgment, etc.
+├── handlers/             # Internal logic entrypoints
+├── services/             # Business logic orchestrators
+├── lib/
+│   ├── llm/              # Claude, GPT, Ollama adapters
+│   ├── parsing/          # Completion → Step tokenizer
+│   ├── scoring/          # Step judgment logic
+│   └── metrics/          # Observability, audit trails
+├── adapters/             # External bindings (Supabase, S3, etc.)
+├── schemas/              # Validation layers per domain
+├── exporters/            # JSONL dataset writers
+├── jobs/                 # Async queue workers
+├── events/               # System-level event emitters
+├── config/               # Runtime and environment configuration
+└── analytics/            # Usage logs, telemetry
+
+docs/                     # API reference, schema docs, prompts, architecture
+scripts/                  # CI tools, scaffolders, migrations
+tests/                    # Unit, integration, and fixtures
 ```
 
 ---
