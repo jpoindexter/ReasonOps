@@ -1,87 +1,97 @@
-# 🗺 ReasonOps Development Roadmap
+# 🗺 ReasonOps Production Roadmap (v1+)
 
-This roadmap defines the phased development plan for ReasonOps — a platform for reasoning evaluation, scoring, and export. It includes core system milestones, internal tooling, evaluation logic, ecosystem expansion, and enterprise deployment.
-
----
-
-## ✅ Phase 1: MVP Core System (Complete)
-
-| Area       | Feature                                                 |
-| ---------- | ------------------------------------------------------- |
-| Schema     | Task, Completion, Step, Judgment models with Zod + docs |
-| Evaluation | Manual step-level scoring (UI + export)                 |
-| Frontend   | Task creator, scoring interface, completion viewer      |
-| Backend    | LLM adapter (Claude, GPT, Ollama), API routes           |
-| Storage    | Supabase Postgres integration                           |
-| Export     | JSONL format, schema v1.0.0                             |
-| Docs       | Full production-ready schema & system documentation     |
+This roadmap defines the phased execution path for ReasonOps as a production-grade, reasoning evaluation platform. It includes core logic, UI scaffolding, export integrity, scoring, prompt versioning, reviewer analytics, and dataset delivery.
 
 ---
 
-## 🚧 Phase 2: Internal Tooling + DX
+## ✅ Phase 1: MVP Core System (✅ Complete)
 
-| Area       | Feature                                                     |
-| ---------- | ----------------------------------------------------------- |
-| Testing    | Snapshot tests, component tests, export contract validation |
-| CLI Tools  | `export`, `score`, and `parse` utilities                    |
-| Dataset QA | Validation scripts, confidence filters, export preview      |
-| Test Seeds | Sample completions + judgments for dev + demo               |
+| Area     | Feature                                                                |
+| -------- | ---------------------------------------------------------------------- |
+| Schema   | Zod models for Task, Completion, Step, Judgment                        |
+| Frontend | TaskForm, StepScoringPanel, layout shell                               |
+| Backend  | `scoreStep.ts`, `parseCompletion.ts`, LLM adapters                     |
+| Storage  | Supabase w/ RLS + prompt/judgment versioning                           |
+| Export   | `generateDataset.ts` + JSONL v1.0.0                                    |
+| Examples | `task.json`, `completion.json`, `steps.json`, `judgment.json`          |
+| Docs     | Full production suite in `docs/`, including schema, tasklist, security |
+
+---
+
+## 🚧 Phase 2: Tooling + Developer Experience
+
+| Area        | Feature                                               |
+| ----------- | ----------------------------------------------------- |
+| Test Infra  | Vitest + coverage + CI enforcement (≥ 90%)            |
+| Lint/Types  | ESLint + Prettier + strict tsconfig                   |
+| Dev Seeds   | Dev seeding scripts using JSON fixtures               |
+| Snapshots   | CI export snapshot diff + validation checks           |
+| Scaffolders | `scripts/scaffold.ts` for new routes, panels, schemas |
+| CI Pipeline | Typecheck, lint, export verify, auth token checks     |
+| ENV         | Hardened `.env.local` + CI secret enforcement         |
 
 ---
 
 ## 🧠 Phase 3: Evaluation Logic Expansion
 
-| Area                 | Feature                                        |
-| -------------------- | ---------------------------------------------- |
-| AI Judge             | Claude/GPT scoring pipeline via prompt         |
-| Prompt Registry      | Reusable, versioned prompt templates           |
-| Multi-Model Eval     | Compare completions across models              |
-| Reviewer Analytics   | Annotator agreement, disagreement flags        |
-| Structured Critiques | Reasoning chain rewrites, scoring explanations |
+| Area             | Feature                                                           |
+| ---------------- | ----------------------------------------------------------------- |
+| AI Scoring       | Claude / GPT-based auto-judging + `model` + `rubricVersion` trace |
+| Multi-Model Eval | Compare completions from different agents (Claude vs GPT)         |
+| Critique Mode    | Structured rewrites + reasoning step critique scoring             |
+| Prompt Registry  | Prompt versioning + rubric enforcement (`promptVersion`)          |
+| Reviewer Logs    | Judgment streaks, latency, confidence distribution                |
+| Step Types       | Step classification (reasoning vs assertion vs hallucination)     |
 
 ---
 
-## 📦 Phase 4: Production Features
+## 📦 Phase 4: Production-Level App Features
 
-| Area            | Feature                                       |
-| --------------- | --------------------------------------------- |
-| Auth & Access   | Clerk or Supabase Auth + RBAC                 |
-| Multi-Project   | Project IDs, workspace switcher               |
-| Export Service  | Download center, signed URL JSONL             |
-| UI Refinement   | Evaluation status badges, completion filters  |
-| Background Jobs | Cron-driven model runs and parsing            |
-| Cloud Packaging | Docker + custom deploy targets (Railway, AWS) |
+| Area            | Feature                                                           |
+| --------------- | ----------------------------------------------------------------- |
+| Auth & RBAC     | Reviewer/admin scoped tokens + Supabase user access controls      |
+| Project Mode    | Multi-project support, scoped export + UI filtering               |
+| Export Manager  | Download center with signed URLs + version metadata               |
+| UI Layering     | Status chips, scoring badges, completion version drill-down       |
+| Error Handling  | Full toast feedback, edge case validation, step mismatch handlers |
+| Audit Logging   | Judgment + scoring metadata captured (IP, timestamp, rubric hash) |
+| Background Jobs | Cron-based scoring + export previews (worker-mode)                |
 
 ---
 
-## 🔗 Phase 5: Ecosystem & Open Source
+## 🔌 Phase 5: Ecosystem + Open Source
 
-| Area             | Feature                                           |
-| ---------------- | ------------------------------------------------- |
-| OSS Mode         | Export public-core repo, update license           |
-| Plugin Framework | Add new scorers, adapters, data processors        |
-| Eval SDK         | NPM package for JSONL eval parsing                |
-| Docs Portal      | Live schema explorer, sandbox viewer              |
-| AI Ops Bridge    | Connect to fine-tuning or eval queues via webhook |
+| Area               | Feature                                                         |
+| ------------------ | --------------------------------------------------------------- |
+| OSS Mode           | Public split of schema, scoring lib, export utils               |
+| Plugin Adapter API | Drop-in scoring adapters for models or formats                  |
+| Dataset SDK        | NPM package to consume JSONL + schemas programmatically         |
+| Docs Portal        | Live schema + prompt explorer + route tester                    |
+| Bridge Mode        | Export to ClearOps, FineTuneOps, or external LLM eval platforms |
+| Governance Layer   | Version freeze, rubric tagging, integrity snapshot hashes       |
 
 ---
 
 ## 🧭 Long-Term Vision
 
-- LLM Evaluation-as-a-Service (EaaS)
-- AI safety + reasoning alignment audit mode
-- Agent reasoning tracking tools
-- Benchmarking suite (HELMeval-compatible)
-- Fine-tune dataset authoring for internal or OSS models
+- Human-LLM scoring blend with traceable justification
+- Audit-grade `.jsonl` lineage + CI-diffable datasets
+- Rubric evolution tracking and regression monitoring
+- HELMeval compatibility
+- Third-party prompt + response verifiers
+- Zero-leakage benchmark authoring interface
 
 ---
 
-## 🧪 Roadmap Rules
+## 📑 Roadmap Execution Rules
 
-- All major features must:
-  - Include schema update (if applicable)
-  - Be tested and export-compatible
-  - Include a UI + CLI usage path
-  - Update documentation and versioning files
+All completed features must:
 
-For architectural guidance, see [`docs/ARCHITECTURE.md`](./ARCHITECTURE.md).
+- [x] Include Zod schema or contract types
+- [x] Pass lint, typecheck, and test coverage
+- [x] Be exportable via `generateDataset.ts`
+- [x] Be documented in `docs/`
+- [x] Maintain JSONL audit structure
+- [x] Use semantic commits + changelog entries
+
+For architectural structure, see [`docs/architecture/`](./architecture/).

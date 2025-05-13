@@ -52,3 +52,53 @@ coverage/
 
 # Turbo repo cache (optional monorepo support)
 .turbo/
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
+
+# Build output
+.next/
+dist/
+out/
+.vite/
+.vercel/
+
+# Editor configs
+.idea/
+.vscode/
+*.code-workspace
+
+# Env vars
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Test outputs
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+vitest-report.html
+
+# Test frameworks
+cypress/screenshots/
+cypress/videos/
+supabase/.temp/
+supabase/migrations/.history/
+
+# Monorepo / TurboRepo / Task runners
+.turbo/
+.cache/
+.pnpm-store/
