@@ -68,6 +68,46 @@ It provides deep technical structure for how tasks, completions, steps, scoring,
 
 ---
 
+## 🗂 Monorepo Structure
+
+ReasonOps is structured as a modular monorepo with clear domain separation. This supports testability, scalability, and contributor ownership across a unified codebase.
+
+### Root Modules
+
+| Folder      | Purpose                                         |
+| ----------- | ----------------------------------------------- |
+| `frontend/` | App Router UI, scoring panels, forms, schema    |
+| `backend/`  | Scoring engine, API routes, LLM adapters        |
+| `docs/`     | Schema specs, deployment, architecture, prompts |
+| `scripts/`  | Local scaffolding, CI tools                     |
+| `tests/`    | Unit + integration testing, fixtures            |
+
+### Backend Substructure
+
+| Subfolder          | Description                               |
+| ------------------ | ----------------------------------------- |
+| `api/`             | HTTP endpoints per domain                 |
+| `services/`        | Orchestration of scoring and task logic   |
+| `lib/llm/`         | Claude/GPT/Ollama model bindings          |
+| `lib/scoring/`     | Step scoring, comparison, rubric logic    |
+| `lib/parsing/`     | Step extraction from LLM completions      |
+| `exporters/jsonl/` | Audit-safe export formatting              |
+| `guards/`          | Auth enforcement (e.g., reviewer role)    |
+| `jobs/`            | Async queues for scoring + export         |
+| `analytics/`       | Metrics, usage logs, performance tracking |
+
+### Frontend Substructure
+
+| Subfolder            | Description                              |
+| -------------------- | ---------------------------------------- |
+| `components/ui/`     | Design system primitives (Button, Input) |
+| `components/layout/` | Shell, sidebar, header                   |
+| `components/panels/` | Task list, scoring panel, export UI      |
+| `hooks/`             | Client state + fetch logic               |
+| `schemas/`           | Zod validation for task/judgment forms   |
+
+---
+
 ## ✅ Contributor Guidelines
 
 - All new components must be schema-valid and audit-safe

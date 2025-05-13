@@ -1,13 +1,36 @@
 {
-  "name": "ReasonOps",
+  "name": "reasonops",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modular evaluation platform for reasoning-based LLM judgment and step scoring.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --coverage",
+    "format": "prettier --write .",
+    "scaffold": "node scripts/scaffold.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "reasoning",
+    "llm",
+    "evaluation",
+    "scoring",
+    "jsonl",
+    "nextjs",
+    "supabase"
+  ],
+  "author": "THEFT Studio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpoindexter/ReasonOps"
+  },
+  "bugs": {
+    "url": "https://github.com/jpoindexter/ReasonOps/issues"
+  },
+  "homepage": "https://github.com/jpoindexter/ReasonOps#readme",
   "packageManager": "pnpm@10.9.0"
 }

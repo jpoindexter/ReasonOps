@@ -1,0 +1,13 @@
+{
+  "taskId": "task_82df11",
+  "title": "Causes of Ocean Acidification",
+  "prompt": "Explain the primary causes and consequences of ocean acidification in a concise, logical sequence.",
+  "version": "1.0.3",
+  "metadata": {
+    "domain": "environment",
+    "difficulty": "medium",
+    "promptType": "reasoning",
+    "createdBy": "admin_user"
+  },
+  "createdAt": "2025-05-13T15:41:00Z"
+}

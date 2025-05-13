@@ -29,10 +29,14 @@ cd reasonops
 ## 🛠 2. Install Dependencies
 
 ```bash
+corepack enable
+corepack prepare pnpm@latest --activate
 pnpm install
-# or
-npm install
 ```
+
+- Required: Node ≥ 20.x (see `.nvmrc`)
+- Required: `pnpm` — no `npm` or `yarn` allowed
+- Lockfile: `pnpm-lock.yaml` must always be committed
 
 ---
 
@@ -47,7 +51,8 @@ OPENAI_API_KEY=
 CLAUDE_API_KEY=
 ```
 
-Use Vercel or Supabase dashboard to obtain secrets.
+- Never commit `.env.local` to version control
+- Use [`docs/deployment/env.md`](../docs/deployment/env.md) for full variable definitions
 
 ---
 
@@ -72,44 +77,85 @@ pnpm dev
 
 ---
 
-## 🧪 6. Run Tests
+## 🧪 6. Run Tests (CI Requirements)
 
 ```bash
-pnpm test
-# uses Vitest + React Testing Library
+pnpm test         # Vitest full suite
+pnpm typecheck    # TS coverage
+pnpm lint         # ESLint + Prettier enforcement
 ```
 
-To test components:
-
-```bash
-pnpm test:ui
-```
+- Minimum coverage: 90% (unit + integration)
+- All export output must match schema snapshot
+- Test files must exist for:
+  - Scoring logic
+  - LLM routing
+  - Panels + forms
+  - Task + judgment APIs
 
 ---
 
-## 🧭 7. Folder Structure
+## 📁 7. Folder Structure
 
-| Folder         | Purpose                        |
-| -------------- | ------------------------------ |
-| `/app/`        | Next.js routes and API logic   |
-| `/components/` | React UI blocks for evaluation |
-| `/lib/`        | LLM adapter, parsing utilities |
-| `/schemas/`    | Zod validation types           |
-| `/types/`      | Shared type definitions        |
-| `/tests/`      | Unit and UI test files         |
-| `/public/`     | Static files and assets        |
+See also: [`docs/tasklist/setup.md`](../docs/tasklist/setup.md) for full tooling contract.
+
+ReasonOps follows a modular monorepo architecture:
+
+### Frontend
+
+| Folder                        | Description                                |
+| ----------------------------- | ------------------------------------------ |
+| `frontend/app/`               | App Router pages (task, evaluate, compare) |
+| `frontend/components/ui/`     | Design system primitives (buttons, inputs) |
+| `frontend/components/panels/` | Task panels, scoring panels                |
+| `frontend/components/layout/` | Shell UI, header, sidebar                  |
+| `frontend/hooks/`             | Zustand stores, state logic                |
+| `frontend/lib/`               | Client-side fetchers and helpers           |
+| `frontend/schemas/`           | Zod schemas for task and judgment forms    |
+| `frontend/types/`             | Frontend type definitions                  |
+
+### Backend
+
+| Folder                     | Description                               |
+| -------------------------- | ----------------------------------------- |
+| `backend/api/`             | REST endpoints (task, completion, etc.)   |
+| `backend/services/`        | Task and scoring orchestration            |
+| `backend/lib/llm/`         | Claude, GPT, Ollama adapters              |
+| `backend/lib/scoring/`     | Rubric application and scoring logic      |
+| `backend/lib/parsing/`     | Step extraction and normalization         |
+| `backend/exporters/jsonl/` | Export routines for dataset generation    |
+| `backend/jobs/`            | Queue-based workers (scoring, export)     |
+| `backend/guards/`          | Auth/RBAC enforcement                     |
+| `backend/analytics/`       | Usage logging, audit events               |
+| `backend/schemas/`         | Zod validation per domain (task, step...) |
+
+### Other
+
+| Folder     | Description                            |
+| ---------- | -------------------------------------- |
+| `scripts/` | CI helpers, dev tooling, generators    |
+| `docs/`    | Prompts, schema, architecture, exports |
+| `tests/`   | Unit, integration, and fixtures        |
 
 ---
 
-## ✅ 8. Coding Conventions
+## ✅ 8. Tooling & Code Conventions
 
-- TypeScript + ESM
-- Tailwind for styling
-- Zod for runtime validation
-- Use import aliases like `@lib`, `@components`
-- Prefer async/await over `.then()`
-- All components must be testable and modular
-- Use `metadata` fields for extensions, not core logic
+- ✅ TypeScript + ESM only (TS ≥ 5.x)
+- ✅ Tailwind + Prettier + ESLint
+- ✅ All schema logic via Zod
+- ✅ Imports must use:
+  - `@frontend/components/*`
+  - `@backend/services/*`
+  - `@types/*`
+- ❌ Do not use relative `../../lib/...` imports
+- ❌ Do not place shared logic outside `frontend/` or `backend/`
+- ✅ All code must pass:
+  ```bash
+  pnpm lint
+  pnpm typecheck
+  pnpm test
+  ```
 
 ---
 
@@ -127,9 +173,11 @@ See [`docs/schema/dataset-format.md`](./schema/dataset-format.md) for the export
 
 ## 🧩 10. Next Steps
 
-- Review the [Architecture](./ARCHITECTURE.md)
-- Explore the [Schema](./schema/README.md)
-- Start building tasks and evaluating completions!
+- [ ] Explore [`docs/tasklist/index.md`](../docs/tasklist/index.md) for project-level execution
+- [ ] Read [`docs/architecture/README.md`](../docs/architecture/README.md)
+- [ ] Review [`docs/schema/README.md`](../docs/schema/README.md) and rubric system
+- [ ] Deploy frontend with [`docs/deployment/vercel.md`](../docs/deployment/vercel.md)
+- [ ] Begin at `frontend/app/task/page.tsx` or `backend/api/task/route.ts`
 
 ---
 

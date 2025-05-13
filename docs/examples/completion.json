@@ -1,0 +1,7 @@
+{
+  "completionId": "comp_fa22cc",
+  "taskId": "task_82df11",
+  "model": "claude",
+  "prompt": "What are the main causes of ocean acidification?",
+  "response": "Ocean acidification is primarily caused by increased levels of atmospheric carbon dioxide (CO2). Here's how it works:\n\n1. The ocean absorbs a large portion of CO2 emitted by human activities, such as the burning of fossil fuels.\n2. When CO2 dissolves in seawater, it forms carbonic acid.\n3. This acid lowers the pH of the ocean, making it more acidic.\n4. Increased acidity reduces the availability of carbonate ions, which are essential for marine organisms to form calcium carbonate shells and skeletons.\n5. As a result, coral reefs and shellfish populations are at risk, disrupting marine ecosystems."
+}

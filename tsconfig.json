@@ -1,9 +1,13 @@
-// tsconfig.json
 {
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "Node",
     "baseUrl": ".",
+    "outDir": "dist",
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+
     "paths": {
       "@backend/*": ["backend/*"],
       "@backend/api/*": ["backend/api/*"],
@@ -30,13 +34,20 @@
       "@frontend/schemas/*": ["frontend/schemas/*"],
       "@frontend/hooks/*": ["frontend/hooks/*"]
     },
-    "moduleResolution": "Node",
+
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowJs": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
   },
   "include": ["frontend", "backend", "tests", "scripts"]
 }

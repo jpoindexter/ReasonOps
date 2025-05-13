@@ -1,0 +1,30 @@
+[
+  {
+    "stepId": "step_0041a1",
+    "completionId": "comp_fa22cc",
+    "taskId": "task_82df11",
+    "text": "Ocean acidification is mainly caused by carbon dioxide (CO2) emissions.",
+    "index": 0
+  },
+  {
+    "stepId": "step_0041a2",
+    "completionId": "comp_fa22cc",
+    "taskId": "task_82df11",
+    "text": "When CO2 dissolves in seawater, it forms carbonic acid, reducing ocean pH.",
+    "index": 1
+  },
+  {
+    "stepId": "step_0041a3",
+    "completionId": "comp_fa22cc",
+    "taskId": "task_82df11",
+    "text": "Acidification limits carbonate ions needed by shell-building organisms.",
+    "index": 2
+  },
+  {
+    "stepId": "step_0041a4",
+    "completionId": "comp_fa22cc",
+    "taskId": "task_82df11",
+    "text": "This process threatens coral reefs, shellfish, and marine biodiversity.",
+    "index": 3
+  }
+]
