@@ -1,1 +1,4 @@
-export const ulabel = () => <div>ulabel TODO</div>;
+import React from 'react';
+export const ulabel = (): JSX.Element => {
+  return <div />;
+};

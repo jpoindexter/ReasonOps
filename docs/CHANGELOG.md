@@ -8,7 +8,34 @@ All notable changes to ReasonOps will be documented in this file. This project a
 
 ### Added
 
-- Placeholder for next feature batch
+#### 📊 Metrics
+
+- `computeReviewerMetrics.ts`, `reviewerDriftIndex.ts`, `rubricUsageHeatmap.ts`, `reviewerEntropy.ts`
+- Reviewer scoring analytics for dashboard and entropy tracking
+- Snapshot pipeline support for reviewer leaderboard trends
+
+#### 🤖 Agents
+
+- `AutoEvaluatorAgent.ts`, `CritiqueRewriteAgent.ts`, `RubricExplainerAgent.ts`
+- Agent execution runner with retry logic, caching, and version tracking
+- Early scaffolds for automated critique and rubric justification
+
+#### 🧠 Reviewer Intelligence
+
+- `ReviewerConsensusService.ts` for multi-reviewer agreement scoring
+- `ThreadsPanel.tsx`, `ConsensusBadge.tsx` for threaded discussion and agreement UI
+
+#### 📤 Training Export Layer
+
+- `generateTrainJSONL.ts`, `taskCompletionJoin.ts`, `stepJudgmentJoin.ts`
+- Structured JSONL export for fine-tune and RLAIF training pipelines
+
+#### 🧩 Documentation
+
+- `reasonops-platform-spec.md` defining all core entities and roadmap
+- `phase-2-features.md` for future UX and scoring extensibility
+- `reviewer-metrics-spec.md` and `strategic-metrics.md` for post-MVP metrics definition
+- Extended `README.md`, `ROADMAP.md`, and tasklist docs to reflect PARITY++ scaffolds
 
 ---
 

@@ -1,1 +1,3 @@
-export function useScorePanel() { return {}; }
+export const useScorePanel = (): void => {
+  // TODO: implement
+};

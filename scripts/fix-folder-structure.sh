@@ -1,138 +1,86 @@
+
+
 #!/bin/bash
 
-echo "🔧 Running ReasonOps folder normalization..."
+set -euo pipefail
 
-# 1. Delete top-level UI index if present
-if [ -f frontend/components/ui/index.ts ]; then
-  rm frontend/components/ui/index.ts
-  echo "🧹 Removed redundant ui/index.ts"
-fi
+bold=$(tput bold || true)
+normal=$(tput sgr0 || true)
+green=$(tput setaf 2 || true)
+cyan=$(tput setaf 6 || true)
 
-# 2. Remove duplicate test files if they're also in component subfolders
-if [ -d tests/frontend/components/ui ]; then
-  for test_file in tests/frontend/components/ui/*.test.tsx; do
-    [ -e "$test_file" ] || continue
-    base=$(basename "$test_file")
-    comp_name="${base%.test.tsx}"
-    sub_test="frontend/components/ui/${comp_name}/${comp_name}.test.tsx"
-    if [ -f "$sub_test" ]; then
-      rm "$test_file"
-      echo "🗑️  Removed duplicate test: $test_file"
-    fi
-  done
-fi
-
-# 3. Verify all components are inside their own folders
-echo "🔎 Verifying UI components structure..."
-shopt -s nullglob
-for file in frontend/components/ui/*.tsx frontend/components/ui/*.test.tsx; do
-  fname=$(basename "$file")
-  # skip if directory
-  [ -f "$file" ] || continue
-  echo "⚠️  File $file should be inside its own folder. Please move it."
-done
-shopt -u nullglob
-
-# 4. Check backend/frontend schema alignment
-echo "🔍 Checking schema alignment..."
-if [ -d backend/schemas ]; then
-  for dir in backend/schemas/*; do
-    [ -d "$dir" ] || continue
-    schema_name=$(basename "$dir")
-    if [ "$schema_name" != "shared" ] && [ ! -d "frontend/schemas/$schema_name" ]; then
-      echo "⚠️  Missing frontend schema folder for: $schema_name"
-    fi
-  done
-fi
-
-# 5. Final checklist for optional enhancements
-echo
-echo "📋 Optional Enhancements Checklist:"
-if [ ! -f ".env.example" ]; then
-  echo "⚠️  .env.example is missing"
-fi
-if [ ! -f "frontend/middleware.ts" ]; then
-  echo "⚠️  Consider adding middleware.ts for auth/routing"
-fi
-if [ ! -f "frontend/styles/theme.ts" ]; then
-  echo "⚠️  Consider adding theme.ts for Tailwind token design system"
-fi
-if [ ! -d "shared" ]; then
-  echo "⚠️  shared/ folder not found — recommend adding for shared types/schemas"
-fi
-
-# Create missing files with initial content
-
-# .env.example
-if [ ! -f ".env.example" ]; then
-  cat > .env.example <<EOF
-# Example environment variables
-NEXT_PUBLIC_API_URL=http://localhost:3000/api
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_ANON_KEY=your-anon-key
-EOF
-  echo "✨ Created .env.example"
-fi
-
-# frontend/middleware.ts
-if [ ! -f "frontend/middleware.ts" ]; then
-  mkdir -p frontend
-  cat > frontend/middleware.ts <<EOF
-import { NextRequest, NextResponse } from "next/server";
-
-export function middleware(request: NextRequest) {
-  // Example: route protection or logging
-  return NextResponse.next();
+log() {
+  echo "${bold}${cyan}==>${normal} $1"
 }
-EOF
-  echo "✨ Created frontend/middleware.ts"
-fi
 
-# frontend/styles/theme.ts
-if [ ! -f "frontend/styles/theme.ts" ]; then
-  mkdir -p frontend/styles
-  cat > frontend/styles/theme.ts <<EOF
-export const theme = {
-  colors: {
-    primary: "var(--color-primary)",
-    secondary: "var(--color-secondary)",
-    background: "var(--color-background)",
-    foreground: "var(--color-foreground)",
-  },
-  spacing: {
-    sm: "0.5rem",
-    md: "1rem",
-    lg: "2rem",
-  },
-};
-EOF
-  echo "✨ Created frontend/styles/theme.ts"
-fi
-
-# shared/README.md
-if [ ! -d "shared" ]; then
-  mkdir -p shared/types
-  cat > shared/README.md <<EOF
-# Shared
-
-Central location for shared logic (types, utils, constants).
-Use this folder to house common code across frontend and backend.
-EOF
-  echo "✨ Created shared/README.md"
-fi
-
-# shared/types/index.ts
-if [ ! -f "shared/types/index.ts" ]; then
-  mkdir -p shared/types
-  cat > shared/types/index.ts <<EOF
-// Shared cross-platform types
-export interface ReasonOpsError {
-  message: string;
-  code?: string;
+confirm_created() {
+  echo "${green}✔${normal} $1"
 }
-EOF
-  echo "✨ Created shared/types/index.ts"
-fi
 
-echo
-echo "✅ Folder structure audit complete. Run 'pnpm lint && pnpm test && pnpm typecheck' to validate."
+create_file() {
+  local dir="$1"
+  local file="$2"
+  mkdir -p "$dir"
+  local path="$dir/$file"
+  if [ ! -e "$path" ]; then
+    touch "$path"
+    confirm_created "$path"
+  else
+    echo "↪ Skipped (exists): $path"
+  fi
+}
+
+log "🚀 ReasonOps: Scaffolding PARITY++ feature files..."
+
+# --- Reviewer Metrics + Performance Intelligence ---
+log "[metrics] Reviewer intelligence"
+create_file backend/metrics computeReviewerMetrics.ts
+create_file backend/metrics reviewerDriftIndex.ts
+create_file backend/metrics rubricUsageHeatmap.ts
+create_file backend/metrics reviewerEntropy.ts
+create_file backend/services ReviewerInsightsService.ts
+
+# --- LLM Evaluation Intelligence ---
+log "[metrics] Model evaluation"
+create_file backend/metrics modelScoreDelta.ts
+create_file backend/metrics modelVersionDrift.ts
+create_file backend/metrics semanticRegressionDetector.ts
+create_file backend/metrics regretScoreTracker.ts
+
+# --- Rubric Intelligence & Drift Tracking ---
+log "[rubric] Usage + drift"
+create_file backend/metrics rubricScoreDrift.ts
+create_file backend/metrics rubricAdoptionRate.ts
+create_file backend/services RubricAnalysisService.ts
+
+# --- Reviewer Collaboration & Consensus ---
+log "[collab] Reviewer interaction layer"
+create_file backend/services ReviewerCollaborationService.ts
+create_file backend/services ReviewerConsensusService.ts
+create_file frontend/components/review ThreadsPanel.tsx
+create_file frontend/components/review ConsensusBadge.tsx
+
+# --- Agent + AI Integrations ---
+log "[ai] Scoring agents"
+create_file backend/agents AutoEvaluatorAgent.ts
+create_file backend/agents CritiqueRewriteAgent.ts
+create_file backend/agents RubricExplainerAgent.ts
+create_file backend/agents PromptSummarizerAgent.ts
+create_file backend/services AgentExecutionService.ts
+
+# --- Dataset + Training Export Tools ---
+log "[ml] Training & finetune prep"
+create_file backend/exporters/finetune generateTrainJSONL.ts
+create_file backend/exporters/finetune taskCompletionJoin.ts
+create_file backend/exporters/finetune stepJudgmentJoin.ts
+
+# --- Documentation ---
+log "[docs] Metrics + roadmap"
+create_file docs/metrics README.md
+create_file docs/metrics strategic-metrics.md
+create_file docs/metrics reviewer-metrics-spec.md
+create_file docs/product PARITY_PLAN.md
+create_file docs/product PLATFORM_OVERVIEW.md
+create_file docs/product plans-and-tiers.md
+
+log "✅ Scaffolding complete. PARITY++ feature set now tracked."

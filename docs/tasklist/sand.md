@@ -107,3 +107,17 @@ All tasks in this list must be complete to ship a stable `v1.1.0` or higher:
 - [x] All LLM model failures are caught + logged
 - [x] No TODOs or console.log in deployed code
 - [x] All imports follow alias structure
+
+---
+
+## 🧩 PARITY++ Readiness Checks
+
+- [ ] All reviewer metric pipelines return complete profile objects
+- [ ] Agent execution output is stored and version-tracked
+- [ ] Critique + rewrite agents are test-covered and snapshot-logged
+- [ ] Rubric drift analysis auto-triggers if rubricVersion changes
+- [ ] ReviewerConsensusService computes agreement with fallback rules
+- [ ] ThreadsPanel.tsx renders per-step comment threads with mention support
+- [ ] All exported JSONL files include versioned rubric and model IDs
+- [ ] Platform spec doc is linked in main README
+- [ ] All Phase 2 features tracked in `phase-2-features.md` are assigned or scoped

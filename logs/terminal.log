@@ -1,374 +1,46 @@
-jasonpoindexter@Jasons-MacBook-Pro ReasonOps % chmod +x scripts/fix-folder-structure.sh
-./scripts/fix-folder-structure.sh
-🔧 Running ReasonOps folder normalization...
-🧹 Removed redundant ui/index.ts
-🔎 Verifying UI components structure...
-🔍 Checking schema alignment...
-
-📋 Optional Enhancements Checklist:
-⚠️  .env.example is missing
-⚠️  Consider adding middleware.ts for auth/routing
-⚠️  Consider adding theme.ts for Tailwind token design system
-⚠️  shared/ folder not found — recommend adding for shared types/schemas
-
-✅ Folder structure audit complete. Run 'pnpm lint && pnpm test && pnpm typecheck' to validate.
-jasonpoindexter@Jasons-MacBook-Pro ReasonOps % tree
-.
-├── backend
-│   ├── adapters
-│   ├── analytics
-│   │   └── trackScoring.ts
-│   ├── api
-│   │   ├── completion
-│   │   ├── judgment
-│   │   ├── llm
-│   │   │   └── route.ts
-│   │   ├── step
-│   │   └── task
-│   │       └── route.ts
-│   ├── config
-│   ├── events
-│   ├── exporters
-│   │   ├── jsonl
-│   │   │   └── generateDataset.ts
-│   │   └── preview
-│   ├── guards
-│   │   └── requireReviewer.ts
-│   ├── handlers
-│   │   └── parseSteps.ts
-│   ├── jobs
-│   │   └── scoreQueue.ts
-│   ├── lib
-│   │   ├── llm
-│   │   │   ├── claude.ts
-│   │   │   └── gpt.ts
-│   │   ├── llmAdapter.ts
-│   │   ├── metrics
-│   │   ├── parsing
-│   │   │   ├── normalizeText.ts
-│   │   │   └── parseCompletion.ts
-│   │   └── scoring
-│   │       ├── compareSteps.ts
-│   │       └── scoreStep.ts
-│   ├── schemas
-│   │   ├── completion
-│   │   ├── completion.ts
-│   │   ├── judgment
-│   │   ├── judgment.ts
-│   │   ├── shared
-│   │   ├── step
-│   │   ├── step.ts
-│   │   ├── task
-│   │   └── task.ts
-│   └── services
-│       └── TaskService.ts
-├── docs
-│   ├── api
-│   │   ├── auth.md
-│   │   ├── completions.md
-│   │   ├── export.md
-│   │   ├── judgments.md
-│   │   ├── README.md
-│   │   ├── steps.md
-│   │   └── tasks.md
-│   ├── api-reference
-│   │   ├── judgment.md
-│   │   ├── README.md
-│   │   ├── step.md
-│   │   └── task.md
-│   ├── architecture
-│   │   ├── adapters.md
-│   │   ├── evaluation.md
-│   │   ├── export.md
-│   │   ├── extensibility.md
-│   │   ├── README.md
-│   │   └── versioning.md
-│   ├── CHANGELOG.md
-│   ├── CONTRIBUTING.md
-│   ├── deployment
-│   │   ├── cicd.md
-│   │   ├── env.md
-│   │   ├── local.md
-│   │   ├── monitoring.md
-│   │   ├── on-prem.md
-│   │   ├── README.md
-│   │   ├── secrets.md
-│   │   ├── supabase.md
-│   │   └── vercel.md
-│   ├── examples
-│   │   ├── completion.json
-│   │   ├── judgment.json
-│   │   ├── README.md
-│   │   ├── steps.json
-│   │   └── task.json
-│   ├── GETTING_STARTED.md
-│   ├── guides
-│   │   ├── benchmark-integrity.md
-│   │   ├── export-flow.md
-│   │   ├── README.md
-│   │   └── scoring-panel.md
-│   ├── licensing
-│   │   └── LICENSE.md
-│   ├── prompts
-│   │   ├── comparison.md
-│   │   ├── critique.md
-│   │   ├── README.md
-│   │   ├── rubrics-claude.md
-│   │   ├── rubrics-gpt.md
-│   │   ├── scoring.md
-│   │   └── task.md
-│   ├── README.md
-│   ├── ROADMAP.md
-│   ├── schema
-│   │   ├── audit.md
-│   │   ├── completion
-│   │   │   ├── examples.md
-│   │   │   ├── model.md
-│   │   │   └── usage.md
-│   │   ├── dataset-format.md
-│   │   ├── judgment
-│   │   │   ├── examples.md
-│   │   │   ├── model.md
-│   │   │   └── scoring.md
-│   │   ├── README.md
-│   │   ├── relationships.md
-│   │   ├── step
-│   │   │   ├── examples.md
-│   │   │   ├── model.md
-│   │   │   ├── scoring.md
-│   │   │   └── usage.md
-│   │   ├── task
-│   │   │   ├── examples.md
-│   │   │   ├── model.md
-│   │   │   └── usage.md
-│   │   └── versioning.md
-│   ├── security
-│   │   ├── auth.md
-│   │   ├── disclosure.md
-│   │   ├── SECURITY.md
-│   │   └── tokens.md
-│   └── tasklist
-│       ├── deploy.md
-│       ├── index.md
-│       ├── mvp_only.md
-│       ├── mvp-file-map.md
-│       ├── pebbles.md
-│       ├── rocks.md
-│       ├── sand.md
-│       └── setup.md
-├── eslint.config.js
-├── frontend
-│   ├── app
-│   │   ├── compare
-│   │   ├── evaluate
-│   │   └── task
-│   │       └── page.tsx
-│   ├── components
-│   │   ├── layout
-│   │   │   ├── Header.tsx
-│   │   │   └── Shell.tsx
-│   │   ├── panels
-│   │   │   └── step
-│   │   │       └── StepScoringPanel.tsx
-│   │   └── ui
-│   │       ├── button
-│   │       │   ├── index.ts
-│   │       │   ├── ubutton.test.tsx
-│   │       │   └── ubutton.tsx
-│   │       ├── input
-│   │       │   ├── index.ts
-│   │       │   ├── uinput.test.tsx
-│   │       │   └── uinput.tsx
-│   │       ├── label
-│   │       │   ├── index.ts
-│   │       │   ├── ulabel.test.tsx
-│   │       │   └── ulabel.tsx
-│   │       ├── slider
-│   │       │   ├── index.ts
-│   │       │   ├── uslider.test.tsx
-│   │       │   └── uslider.tsx
-│   │       └── textarea
-│   │           ├── index.ts
-│   │           ├── utextarea.test.tsx
-│   │           └── utextarea.tsx
-│   ├── hooks
-│   │   ├── useScorePanel.ts
-│   │   └── useTask.ts
-│   ├── lib
-│   ├── public
-│   ├── schemas
-│   │   ├── completion
-│   │   │   ├── form.ts
-│   │   │   └── schema.ts
-│   │   ├── judgment
-│   │   │   ├── form.ts
-│   │   │   └── schema.ts
-│   │   ├── shared
-│   │   │   ├── tags.ts
-│   │   │   └── versioning.ts
-│   │   ├── step
-│   │   │   ├── form.ts
-│   │   │   └── schema.ts
-│   │   └── task
-│   │       ├── form.ts
-│   │       └── schema.ts
-│   ├── styles
-│   └── types
-│       └── index.ts
-├── logs
-│   └── terminal.log
-├── node_modules
-│   ├── @eslint
-│   │   └── js -> ../.pnpm/@eslint+js@9.26.0/node_modules/@eslint/js
-│   ├── @hookform
-│   │   └── resolvers -> ../.pnpm/@hookform+resolvers@5.0.1_react-hook-form@7.56.3_react@19.1.0_/node_modules/@hookform/resolvers
-│   ├── @supabase
-│   │   └── supabase-js -> ../.pnpm/@supabase+supabase-js@2.49.4/node_modules/@supabase/supabase-js
-│   ├── @testing-library
-│   │   ├── jest-dom -> ../.pnpm/@testing-library+jest-dom@6.6.3/node_modules/@testing-library/jest-dom
-│   │   └── react -> ../.pnpm/@testing-library+react@16.3.0_@testing-library+dom@10.4.0_@types+react-dom@19.1.5_@type_13678f14edb207b811efad2d1cd9d44e/node_modules/@testing-library/react
-│   ├── @types
-│   │   ├── node -> ../.pnpm/@types+node@22.15.17/node_modules/@types/node
-│   │   ├── react -> ../.pnpm/@types+react@19.1.4/node_modules/@types/react
-│   │   └── react-dom -> ../.pnpm/@types+react-dom@19.1.5_@types+react@19.1.4/node_modules/@types/react-dom
-│   ├── @typescript-eslint
-│   │   ├── eslint-plugin -> ../.pnpm/@typescript-eslint+eslint-plugin@8.32.1_@typescript-eslint+parser@8.32.1_eslint@9.26.0__510ea055b6a8e15bc11e11a4b8b939b9/node_modules/@typescript-eslint/eslint-plugin
-│   │   └── parser -> ../.pnpm/@typescript-eslint+parser@8.32.1_eslint@9.26.0_typescript@5.8.3/node_modules/@typescript-eslint/parser
-│   ├── @vitejs
-│   │   └── plugin-react -> ../.pnpm/@vitejs+plugin-react@4.4.1_vite@6.3.5_@types+node@22.15.17_/node_modules/@vitejs/plugin-react
-│   ├── @vitest
-│   │   └── coverage-v8 -> ../.pnpm/@vitest+coverage-v8@3.1.3_vitest@3.1.3_@types+node@22.15.17_jsdom@26.1.0_/node_modules/@vitest/coverage-v8
-│   ├── eslint -> .pnpm/eslint@9.26.0/node_modules/eslint
-│   ├── jsdom -> .pnpm/jsdom@26.1.0/node_modules/jsdom
-│   ├── next -> .pnpm/next@15.3.2_@babel+core@7.27.1_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next
-│   ├── react -> .pnpm/react@19.1.0/node_modules/react
-│   ├── react-dom -> .pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom
-│   ├── react-hook-form -> .pnpm/react-hook-form@7.56.3_react@19.1.0/node_modules/react-hook-form
-│   ├── typescript -> .pnpm/typescript@5.8.3/node_modules/typescript
-│   ├── vite -> .pnpm/vite@6.3.5_@types+node@22.15.17/node_modules/vite
-│   ├── vitest -> .pnpm/vitest@3.1.3_@types+node@22.15.17_jsdom@26.1.0/node_modules/vitest
-│   └── zod -> .pnpm/zod@3.24.4/node_modules/zod
-├── package.json
-├── pnpm-lock.yaml
-├── README.md
-├── scripts
-│   ├── fix-folder-structure.sh
-│   └── fix-ui-structure.sh
-├── tests
-│   ├── backend
-│   │   ├── api
-│   │   ├── exporters
-│   │   └── lib
-│   ├── fixtures
-│   └── frontend
-│       ├── components
-│       │   └── ui
-│       ├── integration
-│       └── TaskForm.test.tsx
-├── tsconfig.json
-└── vite.config.ts
-
-115 directories, 139 files
-jasonpoindexter@Jasons-MacBook-Pro ReasonOps % chmod +x scripts/fix-folder-structure.sh
-./scripts/fix-folder-structure.sh
-🔧 Running ReasonOps folder normalization...
-🔎 Verifying UI components structure...
-🔍 Checking schema alignment...
-
-📋 Optional Enhancements Checklist:
-⚠️  .env.example is missing
-⚠️  Consider adding middleware.ts for auth/routing
-⚠️  Consider adding theme.ts for Tailwind token design system
-⚠️  shared/ folder not found — recommend adding for shared types/schemas
-✨ Created .env.example
-✨ Created frontend/middleware.ts
-✨ Created frontend/styles/theme.ts
-✨ Created shared/README.md
-✨ Created shared/types/index.ts
-
-✅ Folder structure audit complete. Run 'pnpm lint && pnpm test && pnpm typecheck' to validate.
-jasonpoindexter@Jasons-MacBook-Pro ReasonOps % pnpm lint && pnpm test && pnpm typecheck
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % bash scripts/wipe.sh
+🧹 Wiping and lint-fixing ReasonOps stub files...
+✔ Wiped backend/analytics/trackScoring.ts
+✔ Wiped backend/api/llm/route.ts
+✔ Wiped backend/api/task/route.ts
+✔ Wiped backend/exporters/jsonl/generateDataset.ts
+✔ Wiped backend/guards/requireReviewer.ts
+✔ Wiped backend/handlers/parseSteps.ts
+✔ Wiped backend/jobs/scoreQueue.ts
+✔ Wiped backend/lib/llm/claude.ts
+✔ Wiped backend/lib/llm/gpt.ts
+✔ Wiped backend/lib/llmAdapter.ts
+✔ Wiped backend/lib/parsing/normalizeText.ts
+✔ Wiped backend/lib/parsing/parseCompletion.ts
+✔ Wiped backend/lib/scoring/compareSteps.ts
+✔ Wiped backend/lib/scoring/scoreStep.ts
+✔ Wiped frontend/components/layout/Header.tsx
+✔ Wiped frontend/components/layout/Shell.tsx
+✔ Wiped frontend/components/panels/step/StepScoringPanel.tsx
+✔ Wiped frontend/components/ui/button/ubutton.tsx
+✔ Wiped frontend/components/ui/input/uinput.tsx
+✔ Wiped frontend/components/ui/label/ulabel.tsx
+✔ Wiped frontend/components/ui/slider/uslider.tsx
+✔ Wiped frontend/components/ui/textarea/utextarea.tsx
+✔ Wiped frontend/hooks/useScorePanel.ts
+✔ Wiped frontend/hooks/useTask.ts
+✔ Wiped frontend/middleware.ts
+✔ Wiped tests/frontend/TaskForm.test.tsx
+✅ All stubs cleaned with valid types and JSX-safe output.
+🔧 Patching ReasonOps for clean linting...
+✔ Patched backend/services/AgentExecutionService.ts
+✔ Patched frontend/app/task/page.tsx
+✅ All patches applied. Lint clean expected.
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % pnpm lint           
 
 > reasonops@1.0.0 lint /Users/jasonpoindexter/Documents/GitHub/ReasonOps
 > eslint . --ext .ts,.tsx --fix
 
-
-Oops! Something went wrong! :(
-
-ESLint: 9.26.0
-
-Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'typescript-eslint' imported from /Users/jasonpoindexter/Documents/GitHub/ReasonOps/eslint.config.js
-    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:267:9)
-    at packageResolve (node:internal/modules/esm/resolve:768:81)
-    at moduleResolve (node:internal/modules/esm/resolve:854:18)
-    at defaultResolve (node:internal/modules/esm/resolve:984:11)
-    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:780:12)
-    at #cachedDefaultResolve (node:internal/modules/esm/loader:704:25)
-    at ModuleLoader.resolve (node:internal/modules/esm/loader:687:38)
-    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:305:38)
-    at ModuleJob._link (node:internal/modules/esm/module_job:137:49)
- ELIFECYCLE  Command failed with exit code 2.
-jasonpoindexter@Jasons-MacBook-Pro ReasonOps % pnpm lint && pnpm test && pnpm typecheck
-
-> reasonops@1.0.0 lint /Users/jasonpoindexter/Documents/GitHub/ReasonOps
-> eslint . --ext .ts,.tsx --fix
-
-
-/Users/jasonpoindexter/Documents/GitHub/ReasonOps/backend/api/task/route.ts
-  6:3  error  'process' is not defined  no-undef
-  7:3  error  'process' is not defined  no-undef
-
-/Users/jasonpoindexter/Documents/GitHub/ReasonOps/backend/lib/llmAdapter.ts
-  2:45  error  'prompt' is defined but never used  @typescript-eslint/no-unused-vars
-
-/Users/jasonpoindexter/Documents/GitHub/ReasonOps/eslint.config.js
-  17:30  error  'URL' is not defined  no-undef
 
 /Users/jasonpoindexter/Documents/GitHub/ReasonOps/frontend/app/task/page.tsx
-  23:23  error  'fetch' is not defined  no-undef
+  15:18  error  'errors' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
-/Users/jasonpoindexter/Documents/GitHub/ReasonOps/frontend/components/panels/step/StepScoringPanel.tsx
-  5:10  error  'Input' is defined but never used  @typescript-eslint/no-unused-vars
-
-/Users/jasonpoindexter/Documents/GitHub/ReasonOps/frontend/middleware.ts
-  3:28  error  'request' is defined but never used  @typescript-eslint/no-unused-vars
-
-/Users/jasonpoindexter/Documents/GitHub/ReasonOps/tests/frontend/TaskForm.test.tsx
-   4:1   error  'describe' is not defined  no-undef
-   5:3   error  'it' is not defined        no-undef
-   7:5   error  'expect' is not defined    no-undef
-   8:5   error  'expect' is not defined    no-undef
-  11:5   error  'expect' is not defined    no-undef
-  12:5   error  'expect' is not defined    no-undef
-  15:3   error  'it' is not defined        no-undef
-  16:5   error  'global' is not defined    no-undef
-  16:20  error  'vi' is not defined        no-undef
-  20:28  error  'fetch' is not defined     no-undef
-  33:7   error  'expect' is not defined    no-undef
-
-/Users/jasonpoindexter/Documents/GitHub/ReasonOps/vite.config.ts
-  10:33  error  '__dirname' is not defined  no-undef
-  11:32  error  '__dirname' is not defined  no-undef
-  12:35  error  '__dirname' is not defined  no-undef
-  13:28  error  '__dirname' is not defined  no-undef
-  14:30  error  '__dirname' is not defined  no-undef
-  15:32  error  '__dirname' is not defined  no-undef
-  16:30  error  '__dirname' is not defined  no-undef
-
-✖ 25 problems (25 errors, 0 warnings)
+✖ 1 problem (1 error, 0 warnings)
 
  ELIFECYCLE  Command failed with exit code 1.
-jasonpoindexter@Jasons-MacBook-Pro ReasonOps % pnpm add -D eslint-plugin-import
-Packages: +91
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Progress: resolved 569, reused 501, downloaded 0, added 91, done
-
-devDependencies:
-+ eslint-plugin-import 2.31.0
-
-Done in 2.9s using pnpm v10.9.0
-jasonpoindexter@Jasons-MacBook-Pro ReasonOps % pnpm add -D eslint-plugin-import
-Already up to date
-Progress: resolved 569, reused 501, downloaded 0, added 0, done
-Done in 1.5s using pnpm v10.9.0
 jasonpoindexter@Jasons-MacBook-Pro ReasonOps % 

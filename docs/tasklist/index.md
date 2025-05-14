@@ -6,6 +6,19 @@ Each task domain reflects an enterprise delivery pattern using the "pickle jar t
 
 ---
 
+## 🧩 Extended Task Phases (PARITY++)
+
+In addition to the core tasklist above, the following extensions track platform-wide, post-MVP features—including metrics, AI agents, and extensibility for future vertical slices:
+
+| File                                                                                       | Scope Covered                                  |
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| [`phase-2-features.md`](./phase-2-features.md)                                             | Reviewer collaboration, plugin SDK, agent loop |
+| [`../architecture/reasonops-platform-spec.md`](../architecture/reasonops-platform-spec.md) | Platform entities, API layers, feature roadmap |
+
+These files support reasoning intelligence, agent infrastructure, extensibility, and future SaaS delivery layers.
+
+---
+
 ## 📦 Tasklist Modules
 
 | File                         | Scope Covered                                                 |

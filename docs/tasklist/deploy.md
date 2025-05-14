@@ -74,3 +74,16 @@ This document defines the production-grade deployment and release process for Re
 - [ ] `/docs/GETTING_STARTED.md` with full setup + API walkthrough
 - [ ] `/docs/deployment/vercel.md` and `supabase.md` with cloud config
 - [ ] `/docs/prompts/README.md` with current scoring rubric
+
+---
+
+## ✅ PARITY++ Deployment Validation
+
+- [ ] `backend/metrics/` directory is deployed with all analysis modules
+- [ ] `backend/agents/` available and registered in `AgentExecutionService.ts`
+- [ ] `ReviewerInsightsService.ts`, `RubricAnalysisService.ts`, and `ReviewerConsensusService.ts` are live
+- [ ] Finetune exports (`generateTrainJSONL.ts`, `stepJudgmentJoin.ts`) are reachable from API
+- [ ] Reviewer-facing components (`ThreadsPanel.tsx`, `ConsensusBadge.tsx`) render in staging
+- [ ] All metric exports are snapshot-validated in CI
+- [ ] Drift and entropy scores logged in event system
+- [ ] Platform spec (`reasonops-platform-spec.md`) included in release tag

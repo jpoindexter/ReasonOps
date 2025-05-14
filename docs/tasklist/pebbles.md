@@ -4,6 +4,46 @@ This module defines the full ReasonOps task track for frontend components, adapt
 
 ---
 
+## 🧠 PARITY++ Metric & Agent Infrastructure (Post-MVP)
+
+### `backend/metrics/`
+
+- [ ] `computeReviewerMetrics.ts`
+- [ ] `reviewerDriftIndex.ts`
+- [ ] `rubricUsageHeatmap.ts`
+- [ ] `reviewerEntropy.ts`
+- [ ] `modelScoreDelta.ts`
+- [ ] `modelVersionDrift.ts`
+- [ ] `semanticRegressionDetector.ts`
+- [ ] `rubricScoreDrift.ts`
+- [ ] `rubricAdoptionRate.ts`
+
+### `backend/services/`
+
+- [ ] `ReviewerInsightsService.ts`
+- [ ] `RubricAnalysisService.ts`
+- [ ] `ReviewerConsensusService.ts`
+- [ ] `ReviewerCollaborationService.ts`
+
+### `backend/agents/`
+
+- [ ] `AutoEvaluatorAgent.ts`
+- [ ] `CritiqueRewriteAgent.ts`
+- [ ] `RubricExplainerAgent.ts`
+- [ ] `PromptSummarizerAgent.ts`
+- [ ] `AgentExecutionService.ts`
+
+### `frontend/components/review/`
+
+- [ ] `ThreadsPanel.tsx`
+- [ ] `ConsensusBadge.tsx`
+
+### `backend/exporters/finetune/`
+
+- [ ] `generateTrainJSONL.ts`
+- [ ] `taskCompletionJoin.ts`
+- [ ] `stepJudgmentJoin.ts`
+
 ## 🧱 UI Routes & Page Surfaces
 
 ### `frontend/app/`

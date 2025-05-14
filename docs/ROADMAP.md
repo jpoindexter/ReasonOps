@@ -1,6 +1,6 @@
 # 🗺 ReasonOps Production Roadmap (v1+)
 
-This roadmap defines the phased execution path for ReasonOps as a production-grade, reasoning evaluation platform. It includes core logic, UI scaffolding, export integrity, scoring, prompt versioning, reviewer analytics, and dataset delivery.
+This roadmap defines the phased execution path for ReasonOps as a production-grade, reasoning evaluation platform. It includes core logic, UI scaffolding, export integrity, scoring, prompt versioning, reviewer analytics, dataset delivery, enterprise auditability, snapshot validation, diffing, and schema version enforcement.
 
 ---
 
@@ -34,41 +34,52 @@ This roadmap defines the phased execution path for ReasonOps as a production-gra
 
 ## 🧠 Phase 3: Evaluation Logic Expansion
 
-| Area             | Feature                                                           |
-| ---------------- | ----------------------------------------------------------------- |
-| AI Scoring       | Claude / GPT-based auto-judging + `model` + `rubricVersion` trace |
-| Multi-Model Eval | Compare completions from different agents (Claude vs GPT)         |
-| Critique Mode    | Structured rewrites + reasoning step critique scoring             |
-| Prompt Registry  | Prompt versioning + rubric enforcement (`promptVersion`)          |
-| Reviewer Logs    | Judgment streaks, latency, confidence distribution                |
-| Step Types       | Step classification (reasoning vs assertion vs hallucination)     |
+| Area               | Feature                                                           |
+| ------------------ | ----------------------------------------------------------------- |
+| AI Scoring         | Claude / GPT-based auto-judging + `model` + `rubricVersion` trace |
+| AI Agent Execution | Modular scorer queue + agent orchestration (Claude/GPT/custom)    |
+| Multi-Model Eval   | Compare completions from different agents (Claude vs GPT)         |
+| Critique Mode      | Structured rewrites + reasoning step critique scoring             |
+| Prompt Registry    | Prompt versioning + rubric enforcement (`promptVersion`)          |
+| Reviewer Logs      | Judgment streaks, latency, confidence distribution                |
+| Step Types         | Step classification (reasoning vs assertion vs hallucination)     |
+| Snapshot Engine    | Version diffing, hash compare, semantic mismatch validation       |
+| Rubric Drift       | Rubric version guards + model-version alignment (`requireRubric`) |
 
 ---
 
 ## 📦 Phase 4: Production-Level App Features
 
-| Area            | Feature                                                           |
-| --------------- | ----------------------------------------------------------------- |
-| Auth & RBAC     | Reviewer/admin scoped tokens + Supabase user access controls      |
-| Project Mode    | Multi-project support, scoped export + UI filtering               |
-| Export Manager  | Download center with signed URLs + version metadata               |
-| UI Layering     | Status chips, scoring badges, completion version drill-down       |
-| Error Handling  | Full toast feedback, edge case validation, step mismatch handlers |
-| Audit Logging   | Judgment + scoring metadata captured (IP, timestamp, rubric hash) |
-| Background Jobs | Cron-based scoring + export previews (worker-mode)                |
+| Area                      | Feature                                                           |
+| ------------------------- | ----------------------------------------------------------------- |
+| Auth & RBAC               | Reviewer/admin scoped tokens + Supabase user access controls      |
+| Project Mode              | Multi-project support, scoped export + UI filtering               |
+| Export Manager            | Download center with signed URLs + version metadata               |
+| UI Layering               | Status chips, scoring badges, completion version drill-down       |
+| Reviewer Threads          | Per-step comments, mentions, consensus UI                         |
+| Error Handling            | Full toast feedback, edge case validation, step mismatch handlers |
+| Audit Logging             | Judgment + scoring metadata (IP, reviewerId, rubric hash, time)   |
+| Reviewer Metrics          | Accuracy tracking + inter-reviewer variance scoring               |
+| Reviewer Intelligence     | Drift index, rubric usage heatmap, scoring entropy analysis       |
+| Reviewer Agreement Matrix | Score consensus matrix + disagreement detection                   |
+| Admin Dashboards          | Admin analytics panels + ReviewerStats module                     |
+| History Viewer            | EvaluationHistoryService + /evaluate/history screen               |
+| Prompt Replay Evaluator   | Replay prompt against archived models to compare version drift    |
+| Rubric Builder UI         | Visual rubric editor with version preview                         |
 
 ---
 
 ## 🔌 Phase 5: Ecosystem + Open Source
 
-| Area               | Feature                                                         |
-| ------------------ | --------------------------------------------------------------- |
-| OSS Mode           | Public split of schema, scoring lib, export utils               |
-| Plugin Adapter API | Drop-in scoring adapters for models or formats                  |
-| Dataset SDK        | NPM package to consume JSONL + schemas programmatically         |
-| Docs Portal        | Live schema + prompt explorer + route tester                    |
-| Bridge Mode        | Export to ClearOps, FineTuneOps, or external LLM eval platforms |
-| Governance Layer   | Version freeze, rubric tagging, integrity snapshot hashes       |
+| Area                   | Feature                                                         |
+| ---------------------- | --------------------------------------------------------------- |
+| OSS Mode               | Public split of schema, scoring lib, export utils               |
+| Plugin Adapter API     | Drop-in scoring adapters for models or formats                  |
+| Dataset SDK            | NPM package to consume JSONL + schemas programmatically         |
+| Fine-tune Export Layer | JSONL generators for RLHF / RLAIF training pipelines            |
+| Docs Portal            | Live schema + prompt explorer + route tester                    |
+| Bridge Mode            | Export to ClearOps, FineTuneOps, or external LLM eval platforms |
+| Governance Layer       | Version freeze, rubric tagging, integrity snapshot hashes       |
 
 ---
 
@@ -80,18 +91,8 @@ This roadmap defines the phased execution path for ReasonOps as a production-gra
 - HELMeval compatibility
 - Third-party prompt + response verifiers
 - Zero-leakage benchmark authoring interface
-
----
-
-## 📑 Roadmap Execution Rules
-
-All completed features must:
-
-- [x] Include Zod schema or contract types
-- [x] Pass lint, typecheck, and test coverage
-- [x] Be exportable via `generateDataset.ts`
-- [x] Be documented in `docs/`
-- [x] Maintain JSONL audit structure
-- [x] Use semantic commits + changelog entries
-
-For architectural structure, see [`docs/architecture/`](./architecture/).
+- Reviewer reliability charts + scoring confidence histograms
+- Failure mode clustering (hallucination, vague, invalid logic)
+- Evaluation ROI dashboards (cost-of-quality per model/prompt)
+- Semantic slice benchmarking (focus on model behavior by step category)
+- Prompt-to-score explainability trail (trace how rubric score links to completion structure)

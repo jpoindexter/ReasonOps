@@ -1,1 +1,4 @@
-export const utextarea = () => <div>utextarea TODO</div>;
+import React from 'react';
+export const utextarea = (): JSX.Element => {
+  return <div />;
+};

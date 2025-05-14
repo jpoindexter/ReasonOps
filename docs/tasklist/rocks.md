@@ -133,3 +133,83 @@ This track covers ReasonOps' core reasoning engine, including LLM orchestration,
 - [ ] All API inputs validated via `Zod`
 - [ ] Output types conform to `Step`, `Judgment`, `ScoreResult` models
 - [ ] All scoring results traceable to `model`, `stepId`, and `rubricVersion`
+
+---
+
+## 📊 Reviewer Metrics & Drift Intelligence
+
+### `backend/metrics/computeReviewerMetrics.ts`
+
+- [ ] Aggregate reviewer performance metrics
+- [ ] Calculate step count, average score, time-to-score
+- [ ] Output reviewer summary object
+
+### `backend/metrics/reviewerDriftIndex.ts`
+
+- [ ] Compare reviewer scores over time
+- [ ] Identify drift vs rubric gold or self-drift
+
+### `backend/metrics/rubricUsageHeatmap.ts`
+
+- [ ] Build matrix of rubric score usage
+- [ ] Surface over- or under-used rubric labels
+
+### `backend/metrics/reviewerEntropy.ts`
+
+- [ ] Compute entropy per reviewer over rubric use
+- [ ] Identify ambiguous or inconsistent scoring patterns
+
+---
+
+## 🧠 AI Agents & Critique Flows
+
+### `backend/agents/AutoEvaluatorAgent.ts`
+
+- [ ] Accept step text + rubric
+- [ ] Return score, rationale, confidence
+- [ ] Log output + scoring latency
+
+### `backend/agents/CritiqueRewriteAgent.ts`
+
+- [ ] Generate critique of step text
+- [ ] Suggest improved reasoning or structure
+- [ ] Tag issues (e.g. contradiction, vague, hallucinated)
+
+### `backend/services/AgentExecutionService.ts`
+
+- [ ] Unified runner for registered agents
+- [ ] Retry logic, caching, model tracking
+
+---
+
+## 🤝 Reviewer Consensus & Collaboration
+
+### `backend/services/ReviewerConsensusService.ts`
+
+- [ ] Track multiple judgments per step
+- [ ] Compute consensus score (avg or rule-based)
+- [ ] Flag high disagreement
+
+### `frontend/components/review/ThreadsPanel.tsx`
+
+- [ ] UI for per-step reviewer threads
+- [ ] Mention support, resolution toggle
+
+### `frontend/components/review/ConsensusBadge.tsx`
+
+- [ ] Inline UI showing consensus status
+- [ ] Tooltip w/ agreement stats
+
+---
+
+## 🧪 Rubric Drift & Analysis Services
+
+### `backend/metrics/rubricScoreDrift.ts`
+
+- [ ] Detect rubric-level scoring shifts over time
+- [ ] Track per-reviewer and per-rubric version
+
+### `backend/services/RubricAnalysisService.ts`
+
+- [ ] Aggregate rubric usage trends
+- [ ] Output rubric adoption timeline + score variance

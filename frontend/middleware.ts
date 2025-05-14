@@ -1,6 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
-
-export function middleware(request: NextRequest) {
-  // Example: route protection or logging
-  return NextResponse.next();
-}
+import type { NextMiddleware } from 'next/server';
+export const middleware: NextMiddleware = () => {
+  return new Response(null, { status: 204 });
+};

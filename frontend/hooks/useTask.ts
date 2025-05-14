@@ -1,1 +1,3 @@
-export function useTask() { return {}; }
+export const useTask = (): void => {
+  // TODO: implement
+};

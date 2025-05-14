@@ -31,6 +31,8 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Completion parser     | `backend/lib/parsing/parseCompletion.ts`               |
 | StepScoringPanel UI   | `frontend/components/panels/step/StepScoringPanel.tsx` |
 | Step schema           | `frontend/schemas/step/schema.ts`                      |
+| Step scoring diff     | `backend/lib/scoring/diffSteps.ts`                     |
+| Comparison schema     | `backend/schemas/comparison.ts`                        |
 
 ---
 
@@ -44,6 +46,8 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Judgment panel UI        | `frontend/components/forms/JudgmentForm.tsx`      |
 | Judgment example fixture | `docs/examples/judgment.json`                     |
 | Judgment tests           | `tests/frontend/components/JudgmentForm.test.tsx` |
+| Reviewer schema          | `backend/schemas/reviewer.ts`                     |
+| Reviewer guard           | `backend/guards/requireRubricVersion.ts`          |
 
 ---
 
@@ -55,6 +59,34 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Preview transformer  | `backend/exporters/preview/index.ts`         |
 | Export API docs      | `docs/api/export.md`                         |
 | Export flow guide    | `docs/guides/export-flow.md`                 |
+| JSONL validator      | `backend/lib/schema/validateExport.ts`       |
+| Export snapshot test | `backend/validators/snapshot.ts`             |
+| Audit export event   | `backend/audit/LogReviewEvent.ts`            |
+
+---
+
+## 📊 Reviewer Analytics
+
+| Feature                    | File                                              |
+| -------------------------- | ------------------------------------------------- |
+| Accuracy tracking logic    | `backend/metrics/trackReviewerAccuracy.ts`        |
+| ReviewerStats UI           | `frontend/components/dashboard/ReviewerStats.tsx` |
+| Reviewer analytics service | `backend/admin/ReviewerAnalyticsService.ts`       |
+| Reviewer analytics docs    | `docs/guides/advanced/reviewer-analytics.md`      |
+| Reviewer history page      | `frontend/app/evaluate/history/page.tsx`          |
+| Reviewer history service   | `backend/services/EvaluationHistoryService.ts`    |
+| History schema             | `backend/schemas/history.ts`                      |
+
+---
+
+## 🛡️ Traceability + Admin
+
+| Feature              | File                                        |
+| -------------------- | ------------------------------------------- |
+| Audit log schema     | `docs/schema/audit/audit-log-format.md`     |
+| Reviewer versioning  | `backend/guards/requireRubricVersion.ts`    |
+| Admin dashboard page | `frontend/app/admin/page.tsx`               |
+| Admin service logic  | `backend/admin/ReviewerAnalyticsService.ts` |
 
 ---
 
@@ -66,3 +98,20 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Component tests          | `tests/frontend/components/ui/*.test.tsx`    |
 | Snapshot coverage config | `vitest.config.ts`                           |
 | Testing utilities        | `frontend/lib/test-utils.ts` (if applicable) |
+
+---
+
+## 🧭 Phase 2: AI Agents & Reviewer Collaboration (Scaffolded)
+
+| Feature                    | File                                            |
+| -------------------------- | ----------------------------------------------- |
+| Reviewer drift metric      | `backend/metrics/reviewerDriftIndex.ts`         |
+| Rubric usage heatmap       | `backend/metrics/rubricUsageHeatmap.ts`         |
+| Reviewer entropy score     | `backend/metrics/reviewerEntropy.ts`            |
+| Reviewer insights service  | `backend/services/ReviewerInsightsService.ts`   |
+| Auto scoring agent logic   | `backend/agents/AutoEvaluatorAgent.ts`          |
+| Critique rewrite agent     | `backend/agents/CritiqueRewriteAgent.ts`        |
+| Rubric explainer agent     | `backend/agents/RubricExplainerAgent.ts`        |
+| Reviewer consensus service | `backend/services/ReviewerConsensusService.ts`  |
+| Reviewer threads panel UI  | `frontend/components/review/ThreadsPanel.tsx`   |
+| Consensus badge component  | `frontend/components/review/ConsensusBadge.tsx` |

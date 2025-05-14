@@ -51,4 +51,40 @@ pnpm dev
 # http://localhost:3000/task
 ```
 
-Your ReasonOps environment is now ready to ship with strict repeatability across devs and CI.
+---
+
+## ✅ PARITY++ Scaffold Verification
+
+These directories and files should exist after running the full setup script (`fix-folder-structure.sh`):
+
+### Metric Infrastructure
+
+- `backend/metrics/computeReviewerMetrics.ts`
+- `backend/metrics/reviewerDriftIndex.ts`
+- `backend/metrics/rubricUsageHeatmap.ts`
+- `backend/metrics/reviewerEntropy.ts`
+
+### Agent & AI Components
+
+- `backend/agents/AutoEvaluatorAgent.ts`
+- `backend/agents/CritiqueRewriteAgent.ts`
+- `backend/agents/RubricExplainerAgent.ts`
+- `backend/services/AgentExecutionService.ts`
+
+### Reviewer Intelligence
+
+- `backend/services/ReviewerInsightsService.ts`
+- `backend/services/ReviewerConsensusService.ts`
+
+### Frontend UI Support
+
+- `frontend/components/review/ThreadsPanel.tsx`
+- `frontend/components/review/ConsensusBadge.tsx`
+
+### Training Export Support
+
+- `backend/exporters/finetune/generateTrainJSONL.ts`
+- `backend/exporters/finetune/taskCompletionJoin.ts`
+- `backend/exporters/finetune/stepJudgmentJoin.ts`
+
+Ensure these files exist to verify that the platform's scaffolding is ready for advanced metrics, AI agents, and reasoning intelligence.

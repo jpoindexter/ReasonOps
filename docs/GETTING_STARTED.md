@@ -181,5 +181,63 @@ See [`docs/schema/dataset-format.md`](./schema/dataset-format.md) for the export
 
 ---
 
+## 🧠 11. PARITY++ Verification (Optional)
+
+To confirm your local ReasonOps instance includes the full reasoning analytics and agent infrastructure, validate that the following are present:
+
+- `backend/metrics/` and `backend/agents/` folders exist
+- `ReviewerConsensusService.ts` and `ReviewerInsightsService.ts` exist
+- `ThreadsPanel.tsx` renders in UI layer
+- `generateTrainJSONL.ts` is wired for export
+- `docs/architecture/reasonops-platform-spec.md` is committed
+- `docs/tasklist/phase-2-features.md` is up to date
+
+You can automate this with:
+
+```bash
+pnpm exec check:parity
+```
+
+See also:
+
+- [`docs/tasklist/phase-2-features.md`](../docs/tasklist/phase-2-features.md)
+- [`docs/architecture/reasonops-platform-spec.md`](../docs/architecture/reasonops-platform-spec.md)
+
+---
+
+## 🧠 12. Local Model Integration (Ollama)
+
+ReasonOps supports using local LLMs via [Ollama](https://ollama.com) for evaluation agents. These models can power auto-scorers, critique tools, rubric explainers, and more.
+
+### ✅ Recommended Models
+
+| Alias          | Ollama Model ID    | Purpose                             |
+| -------------- | ------------------ | ----------------------------------- |
+| `fast-score`   | `phi4:latest`      | Quick rubric-based step scoring     |
+| `reason-judge` | `llama3.1:latest`  | Full scoring + rubric explanation   |
+| `deep-judge`   | `deepseek-r1:14b`  | Longform judgment and critique      |
+| `rewrite`      | `codestral:22b`    | Advanced code/chain critique agent  |
+| `embedder`     | `nomic-embed-text` | Step similarity, failure clustering |
+
+### ⚙️ Environment Setup
+
+1. Install [Ollama](https://ollama.com) and run:
+
+   ```bash
+   ollama list
+   ollama run phi4
+   ```
+
+2. Add to `.env.local`:
+
+   ```env
+   REASONOPS_LLM_ENDPOINT=http://localhost:11434/api/generate
+   REASONOPS_LLM_MODEL=phi4
+   ```
+
+3. Models will auto-resolve via `AgentExecutionService.ts` using local agents.
+
+See [`docs/models/ollama-model-map.md`](../models/ollama-model-map.md) for full usage.
+
 Welcome aboard 🧠✨  
 Let’s build trustworthy AI reasoning systems together.

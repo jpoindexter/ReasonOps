@@ -1,213 +1,180 @@
-# 🚀 ReasonOps MVP: Vertical Slice to Production
+# 🚀 ReasonOps MVP Checklist: Enterprise Execution Edition
 
-This document defines the leanest vertical feature set required to launch ReasonOps as a reasoning evaluation platform. It outlines the end-to-end flow: from prompt creation → LLM response → step scoring → JSONL export — all under CI and schema validation.
+> ℹ️ **See Also**:  
+> [Phase 2 Feature Roadmap](./phase-2-features.md) — Collaboration, plugins, AI agents, extensibility  
+> [ReasonOps Platform Spec](../architecture/reasonops-platform-spec.md) — Full platform scope + roadmap
 
----
-
-## ✅ MVP Goal
-
-Let a user:
-
-1. Submit a reasoning prompt
-2. Use Claude/GPT to generate a completion
-3. Parse that response into discrete reasoning steps
-4. Score each step using a rubric
-5. Export everything in a structured `.jsonl` format
+This document transforms the MVP spec into a full execution-ready tasklist for shipping ReasonOps as a production-grade platform. Each section is broken into backend, frontend, and analytics requirements with detailed subtasks to track completion.
 
 ---
 
-## 🛠 Core Feature Checklist
+## 🧠 Phase 1: Task Creation
 
-### 🧠 Task Creation
+### Backend
 
-- [ ] UI: `TaskForm.tsx` — prompt input + metadata (version, domain)
-- [ ] API: `POST /api/task` — creates task record
-- [ ] Schema: `taskForm.ts` (Zod)
+- [ ] `POST /api/task` endpoint
 
----
+  - [ ] Validate Zod schema
+  - [ ] Create record in Supabase
+  - [ ] Return `taskId`
+  - [ ] Handle error + missing fields
+  - [ ] Fire `logReviewEvent('task_created')`
 
-### 📤 Completion Inference
+- [ ] `TaskService.ts`
+  - [ ] Add input contract + output formatting
+  - [ ] Attach `reviewerId` via token
 
-- [ ] API: `POST /api/llm`
-- [ ] Logic: Uses `llmAdapter.ts` → calls Claude/GPT
-- [ ] Store response in `completions` table
-- [ ] Output `completionId` linked to task
+### Frontend
 
----
-
-### ✂️ Step Parsing
-
-- [ ] Logic: `parseCompletion.ts` (tokenize and normalize text)
-- [ ] Handler: `parseSteps.ts` → transforms `completion.response` → `step[]`
-- [ ] Output: stored steps with `stepId`, `index`, `taskId`, `completionId`
-
----
-
-### ✅ Step Scoring (Judgment)
-
-- [ ] UI: `StepScoringPanel.tsx`
-- [ ] Schema: `judgmentForm.ts` (Zod)
-- [ ] API: `POST /api/judgment` — store `score`, `comment`, `model`, `rubricVersion`, `confidence`
+- [ ] `TaskForm.tsx`
+  - [ ] Form w/ `title`, `prompt`, `model`, `version`, `tags`
+  - [ ] Zod schema + validation state
+  - [ ] Submit onClick → API → success UX
+  - [ ] Block if missing fields or invalid
 
 ---
 
-### 📦 Export Dataset
+## 📤 Phase 2: Completion Inference (LLM Run)
 
-- [ ] Logic: `generateDataset.ts`
-- [ ] Trigger: `GET /api/export/tasks/:taskId`
-- [ ] Output: `.jsonl` with full traceable fields:
-  - `taskId`, `prompt`, `completion`, `step[]`, `judgment[]`, `rubricVersion`, `model`, `timestamp`
+### Backend
 
----
+- [ ] `POST /api/llm`
 
-## 🔐 Minimum Safeguards
+  - [ ] Accept taskId + model
+  - [ ] Route to Claude or GPT
+  - [ ] Return `completionId`
+  - [ ] Log token usage
 
-| Safety Layer    | Mechanism                                                 |
-| --------------- | --------------------------------------------------------- |
-| Auth            | Supabase reviewer session or token                        |
-| RLS             | Enforced by reviewer/project scope                        |
-| Schema Validity | Zod on all forms + backend handlers                       |
-| CI Snapshot     | Export output must match JSON schema                      |
-| Required Fields | `rubricVersion`, `stepId`, `model`, `confidence` enforced |
+- [ ] `llmAdapter.ts`
 
----
+  - [ ] Model switch for Claude / GPT / Ollama
 
-## 🧪 Required Tests
-
-- [ ] `taskForm.test.tsx` — create/edit task via UI, schema validation, failure cases
-- [ ] `parseSteps.spec.ts` — step parsing from raw LLM completions, edge cases
-- [ ] `scoreStep.spec.ts` — score logic unit test, rubric application
-- [ ] `StepScoringPanel.test.tsx` — UI scoring, a11y, conditional requirements
-- [ ] `generateDataset.spec.ts` — snapshot-based CI export tests, row validation
-- [ ] `export-endpoint.test.ts` — full API test for `GET /api/export/tasks/:taskId`
-- [ ] E2E test suite:
-  - Uses: `task.json`, `completion.json`, `steps.json`, `judgment.json`
-  - Flow: Submit task → inference → parse → score → export
-
----
-
-## 🧾 Done Criteria
-
-- [x] Task → Completion → Step → Judgment → Export runs cleanly
-- [x] All code passes `pnpm lint`, `pnpm test`, `pnpm typecheck`
-- [x] Output is versioned, reproducible, CI-tested `.jsonl`
-- [x] All steps linked to prompt version + model
-- [x] No mock data in production path
-
-# 🚀 ReasonOps MVP: Vertical Slice to Production
-
-This document defines the full production-ready MVP scope for ReasonOps — from prompt intake to rubric-aligned step scoring and traceable dataset export. It integrates backend logic, UI, Supabase integration, schema enforcement, CI snapshotting, and test coverage across all layers of the system.
-
----
-
-## ✅ MVP Goal
-
-Let a user:
-
-1. Submit a structured prompt via UI
-2. Trigger Claude/GPT to generate a raw response
-3. Parse that response into normalized reasoning steps
-4. Score each step with a rubric (manual or AI)
-5. Export all steps, scores, and metadata in `.jsonl` format
-6. Pass all tests, schema validation, and CI coverage
-
----
-
-## 🧠 Phase 1: Task Creation (Prompt Intake)
-
-| Layer       | Component/File                    | Requirement                                            |
-| ----------- | --------------------------------- | ------------------------------------------------------ |
-| Frontend UI | `TaskForm.tsx`                    | Controlled inputs + Zod validation                     |
-| Schema      | `taskForm.ts`                     | Zod-enforced: `title`, `prompt`, `version`, `metadata` |
-| Backend API | `POST /api/task`                  | Inserts into Supabase, returns `taskId`                |
-| DB Access   | `supabase.from('tasks').insert()` | Must log errors, return task ID cleanly                |
-| Dev Fixture | `task.json`                       | Used for E2E test, test coverage base                  |
-
----
-
-## 📤 Phase 2: Completion Inference (Claude/GPT)
-
-| Layer       | Component/File             | Requirement                                   |
-| ----------- | -------------------------- | --------------------------------------------- |
-| Backend API | `POST /api/llm`            | Accepts `taskId`, calls Claude/GPT            |
-| Adapter     | `llmAdapter.ts`            | Supports `claude`, `gpt` via `model` param    |
-| Env Setup   | `.env.local`               | Requires `OPENAI_API_KEY`, `CLAUDE_API_KEY`   |
-| Output      | `completionId`             | Stored and returned via Supabase              |
-| Dev Fixture | `completion.json`          | Mirrors inference output                      |
-| Logging     | Token usage must be logged | For LLM transparency and rate limit debugging |
+- [ ] `logReviewEvent('completion_generated')`
 
 ---
 
 ## ✂️ Phase 3: Step Parsing
 
-| Layer       | Component/File                 | Requirement                                          |
-| ----------- | ------------------------------ | ---------------------------------------------------- |
-| Logic       | `parseCompletion.ts`           | Tokenizes `completion.response`, strips junk         |
-| Handler     | `parseSteps.ts`                | Maps → `step[]` array with `stepId`, `index`, `text` |
-| Backend API | `POST /api/steps` (optional)   | Can auto-trigger post-LLM if desired                 |
-| Storage     | Supabase `steps` table         | Must retain `completionId`, `taskId`, `index`        |
-| Dev Fixture | `steps.json`                   | Used for test + export                               |
-| Validation  | Step count, empty/null filters | Assert no missing or duplicated `step[]`             |
+### Backend
+
+- [ ] `parseCompletion.ts`
+
+  - [ ] Split completion text to logical steps
+  - [ ] Normalize + strip boilerplate
+
+- [ ] `parseSteps.ts`
+  - [ ] Attach `stepId`, `taskId`, `index`
+  - [ ] Error if 0 steps parsed
+  - [ ] Store in Supabase
+  - [ ] Log `logReviewEvent('steps_parsed')`
+
+### Testing
+
+- [ ] `parseSteps.spec.ts`
+  - [ ] Validate >1 step required
+  - [ ] Assert shape of output
 
 ---
 
 ## ✅ Phase 4: Judgment Submission (Step Scoring)
 
-| Layer        | Component/File                              | Requirement                                                   |
-| ------------ | ------------------------------------------- | ------------------------------------------------------------- |
-| UI Component | `StepScoringPanel.tsx`                      | Radio rubric (`clear`, `unclear`, etc), comment, confidence   |
-| Hook         | `useScorePanel.ts`                          | Tracks judgment state by `stepId`                             |
-| Form Schema  | `judgmentForm.ts`                           | Zod-validated: `score`, `comment`, `confidence`, `model`      |
-| Backend API  | `POST /api/judgment`                        | Stores Supabase record, attaches `rubricVersion`, `timestamp` |
-| Dev Fixture  | `judgment.json`                             | Snapshot-ready, CI-stable input                               |
-| RLS/Auth     | Token-scope enforced                        | Supabase `reviewerId`, `model`, or session scoped             |
-| Error UX     | Form validation + required comment fallback | If score ≠ clear, comment is required                         |
+### Backend
+
+- [ ] `POST /api/judgment`
+
+  - [ ] Zod validation
+  - [ ] Enforce `rubricVersion`
+  - [ ] Require comment if score = 0
+  - [ ] Log `logReviewEvent('judgment_submitted')`
+  - [ ] Update reviewer metrics
+
+- [ ] `trackReviewerAccuracy.ts`
+  - [ ] Compute `avgScore`, `entropy`, `rubric usage`
+
+### Frontend
+
+- [ ] `StepScoringPanel.tsx`
+
+  - [ ] Radio rubric (0–2)
+  - [ ] Required comment field
+  - [ ] Confidence dropdown
+  - [ ] Progress tracker (x/y steps)
+
+- [ ] `useScorePanel.ts`
+  - [ ] State hook per `stepId`
 
 ---
 
 ## 📦 Phase 5: Dataset Export
 
-| Layer       | Component/File                  | Requirement                                                                                             |
-| ----------- | ------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Logic       | `generateDataset.ts`            | Composes full dataset rows across all sources                                                           |
-| Output      | `.jsonl`                        | Includes: `task`, `prompt`, `completion`, `step[]`, `judgment[]`, `rubricVersion`, `model`, `timestamp` |
-| API Trigger | `GET /api/export/tasks/:taskId` | Returns `.jsonl` blob or download stream                                                                |
-| CI Snapshot | `generateDataset.spec.ts`       | Validates schema shape + row count                                                                      |
-| Export Hash | Each row hashable (optional)    | Add `stepHash`, `rowId` if needed                                                                       |
+### Backend
+
+- [ ] `generateDataset.ts`
+
+  - [ ] Join task, completion, step, judgment
+  - [ ] Output structured JSONL
+  - [ ] Add `stepHash`, `rubricVersion`, `timestamp`
+
+- [ ] `snapshot.ts`
+
+  - [ ] Compare to last known-good export
+  - [ ] Flag row mismatch or schema drift
+
+- [ ] `GET /api/export/tasks/:taskId`
+  - [ ] Return blob or streaming `.jsonl`
+
+### CI
+
+- [ ] `generateDataset.spec.ts`
+  - [ ] Assert schema shape
+  - [ ] Assert known row count
+  - [ ] Assert export is deterministic
 
 ---
 
-## 🔐 Minimum Safeguards
+## 🧠 Phase 6: Reviewer Analytics + Admin Panel
 
-| Layer            | Requirement                                    |
-| ---------------- | ---------------------------------------------- |
-| Schema Contracts | All frontend forms Zod-enforced                |
-| RLS Enforcement  | Supabase row-level auth: reviewer, task, scope |
-| Reviewer Tokens  | Stored + verified via `reviewer_tokens`        |
-| CI Snapshot      | Export diffed in test runner via Vitest        |
-| Model ID         | All completions/judgments include `model`      |
-| Prompt Version   | Every task + step inherits locked `version`    |
-| Rubric Version   | Required per judgment for reproducibility      |
+### Backend
 
----
+- [ ] `ReviewerAnalyticsService.ts`
 
-## 🧪 Required Tests
+  - [ ] Reviewer accuracy, rubric usage
+  - [ ] Drift detection per reviewerId
 
-- [ ] `scoreStep.spec.ts` — judgment score handler (unit)
-- [ ] `StepScoringPanel.test.tsx` — UI interaction + a11y
-- [ ] `generateDataset.spec.ts` — snapshot test for export integrity
-- [ ] `parseSteps.spec.ts` — tokenization & normalization coverage
-- [ ] `taskForm.test.tsx` — prompt form render + validation
-- [ ] E2E test: Full pipeline from `task.json` → `jsonl` row
+- [ ] `reviewerDriftIndex.ts`, `rubricUsageHeatmap.ts`
+
+### Frontend
+
+- [ ] `ReviewerStats.tsx`
+
+  - [ ] Table view: tasks scored, avg, drift
+
+- [ ] `evaluate/history/page.tsx`
+  - [ ] Filtered list of past judgments
 
 ---
 
-## ✅ Done Criteria
+## 🔐 Enterprise Readiness + Observability
 
-- [x] Task → Completion → Step → Judgment → Export is functional
-- [x] All schema forms pass validation
-- [x] All tests + lint + typecheck pass
-- [x] Export is `.jsonl`, reproducible, versioned, CI-safe
-- [x] Every step tied to `task.version`, `rubricVersion`, `model`
-- [x] All rows traceable back to reviewer, prompt, and schema lineage
-- [x] No mock data or placeholder glue in runtime paths
+- [ ] `requireReviewer.ts` — token-scope gating
+- [ ] `requireRubricVersion.ts` — lock rubric drift
+- [ ] `LogReviewEvent.ts` — required per action
+- [ ] `ReviewerTokens` table — enforce scope
+- [ ] `.jsonl` export must match spec in CI
+- [ ] All reviewer actions traced and filterable
+- [ ] All schema types must use Zod
+
+---
+
+## 🧪 Testing Matrix
+
+- [ ] `taskForm.test.tsx`
+- [ ] `scoreStep.spec.ts`
+- [ ] `StepScoringPanel.test.tsx`
+- [ ] `export-endpoint.test.ts`
+- [ ] `reviewer-analytics.spec.ts`
+- [ ] `parseSteps.spec.ts`
+- [ ] `generateDataset.spec.ts`
+- [ ] E2E: task → llm → parse → score → export
+
+---
