@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --coverage",
+    "test:schemas": "vitest run tests/frontend/schemas",
     "format": "prettier --write .",
     "scaffold": "node scripts/scaffold.js",
     "docs:dev": "vitepress dev docs",

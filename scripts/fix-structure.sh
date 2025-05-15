@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 
 # This script checks for schema.md files in docs/features/*/
@@ -20,10 +18,14 @@ BACKEND_SCHEMAS="$ROOT/backend/schemas"
 find "$DOCS_FEATURES" -mindepth 2 -maxdepth 2 -type f -name 'schema.md' | while read -r SCHEMA_MD; do
     FEATURE_DIR="$(dirname "$SCHEMA_MD")"
     FEATURE="$(basename "$FEATURE_DIR")"
-    # 1. Create schema.yaml if missing
+    # 1. Migrate schema.md to schema.yaml if needed
     SCHEMA_YAML="$FEATURE_DIR/schema.yaml"
-    if [[ ! -f "$SCHEMA_YAML" ]]; then
-        echo "# TODO: Migrate from schema.md to structured schema.yaml format." > "$SCHEMA_YAML"
+    if [[ -f "$SCHEMA_MD" && ! -f "$SCHEMA_YAML" ]]; then
+        mv "$SCHEMA_MD" "$SCHEMA_YAML"
+        echo "✅ Migrated $SCHEMA_MD to $SCHEMA_YAML"
+    elif [[ ! -f "$SCHEMA_YAML" ]]; then
+        echo "# TODO: Define structured schema" > "$SCHEMA_YAML"
+        echo "🆕 Created blank $SCHEMA_YAML"
     fi
 
     # 2. Ensure frontend/schemas/<feature>/
