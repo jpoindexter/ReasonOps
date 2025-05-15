@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "lib": ["ES2022", "DOM"],
+    "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Node",
     "baseUrl": ".",
@@ -18,12 +19,18 @@
       "@validators/*": ["backend/validators/*"],
       "@shared/*": ["shared/*"],
       "@types/*": ["shared/types/*"],
-
       "@frontend/*": ["frontend/*"],
       "@features-frontend/*": ["frontend/features/*"],
       "@schemas-frontend/*": ["frontend/schemas/*"],
       "@shared-frontend/*": ["frontend/shared/*"],
-      "@ui/*": ["frontend/shared/ui/ui/*"]
+      "@ui/*": ["frontend/shared/ui/ui/*"],
+      "@hooks/*": ["frontend/hooks/*"],
+      "@components/*": ["frontend/components/*"],
+      "@styles/*": ["frontend/styles/*"],
+      "@app/*": ["frontend/app/*"],
+      "@docs/*": ["docs/*"],
+      "@tests/*": ["tests/*"],
+      "@scripts/*": ["scripts/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -38,15 +45,17 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "types": []
+    "types": [],
+    "isolatedModules": true
   },
   "include": [
     "frontend/**/*",
     "backend/**/*",
     "shared/**/*",
     "tests/**/*",
-    "docs/.vitepress/**/*",
-    "reasonops-docs/**/*"
+    "docs/**/*",
+    "scripts/**/*",
+    "vite.config.ts"
   ],
   "exclude": ["dist", "node_modules"]
 }

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Authentication",
+    "status": "not started",
+    "schema": "schemas/platform/access",
+    "backend": "backend/guards",
+    "frontend": "frontend/app/(auth)",
+    "docs": "docs/platform/access",
+    "tests": "tests/backend/api/auth",
+    "dependsOn": []
+  },
+  {
+    "name": "Task Management",
+    "status": "not started",
+    "schema": "schemas/task",
+    "backend": "backend/features/task",
+    "frontend": "frontend/features/task",
+    "docs": "docs/features/task",
+    "tests": "tests/frontend/integration/TaskForm.test.tsx",
+    "dependsOn": ["Authentication"]
+  },
+  {
+    "name": "Step Evaluation",
+    "status": "not started",
+    "schema": "schemas/step",
+    "backend": "backend/features/step",
+    "frontend": "frontend/features/step",
+    "docs": "docs/features/scoring/step-annotator",
+    "tests": "tests/frontend/integration/StepForm.test.tsx",
+    "dependsOn": ["Task Management"]
+  },
+  {
+    "name": "Reviewer Analytics",
+    "status": "not started",
+    "schema": "schemas/reviewer",
+    "backend": "backend/features/reviewer",
+    "frontend": "frontend/features/dashboard/components",
+    "docs": "docs/features/admin/reviewer-metrics",
+    "tests": "tests/backend/api/reviewer",
+    "dependsOn": ["Step Evaluation"]
+  },
+  {
+    "name": "Export Flow",
+    "status": "not started",
+    "schema": "schemas/completion",
+    "backend": "backend/exporters/jsonl",
+    "frontend": "frontend/features/dashboard/components/export-panel",
+    "docs": "docs/features/export",
+    "tests": "tests/backend/exporters",
+    "dependsOn": ["Task Management"]
+  },
+  {
+    "name": "Dashboard Core",
+    "status": "not started",
+    "schema": "schemas/reviewer",
+    "backend": "backend/features/reviewer",
+    "frontend": "frontend/features/dashboard",
+    "docs": "docs/features/dashboard",
+    "tests": "tests/frontend/integration/Dashboard.test.tsx",
+    "dependsOn": ["Reviewer Analytics"]
+  }
+]

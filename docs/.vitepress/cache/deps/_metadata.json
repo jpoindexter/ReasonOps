@@ -1,43 +1,43 @@
 {
-  "hash": "d0b5abfc",
+  "hash": "739aea0a",
   "configHash": "98f43acb",
-  "lockfileHash": "e8557b84",
-  "browserHash": "3311f1a8",
+  "lockfileHash": "975bbc62",
+  "browserHash": "77422c0f",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.5.14_typescript@5.8.3/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "cb1cb4b6",
+      "fileHash": "1a4a5799",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@7.7.6/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "f8d1b869",
+      "fileHash": "e3798b81",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@12.8.2_typescript@5.8.3/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "85996cb3",
+      "fileHash": "dd31d863",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/.pnpm/@vueuse+integrations@12.8.2_focus-trap@7.6.4_typescript@5.8.3/node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "7c5cfbfe",
+      "fileHash": "ee445c78",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/.pnpm/mark.js@8.11.1/node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "73ea6731",
+      "fileHash": "ed4c7c3f",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/.pnpm/minisearch@7.1.2/node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "aa110f79",
+      "fileHash": "e831f10d",
       "needsInterop": false
     }
   },

@@ -1,112 +1,142 @@
+import { promises as fs } from 'fs';
+import path from 'path';
 
+type Capability = {
+  name: string;
+  status: string;
+  schema: string;
+  backend: string;
+  frontend: string;
+  docs: string;
+  tests: string;
+};
 
-#!/bin/bash
+const TRACKER_PATH = path.resolve('docs/features/_tracker.md');
 
-#
-# Migrate backend/frontend to Palintar-style modular structure
-#
+const capabilities: Capability[] = [
+  {
+    name: 'Task Editor',
+    status: '✅ Complete',
+    schema: 'schemas/task/task.ts',
+    backend: 'backend/features/task/route.ts',
+    frontend: 'frontend/features/task/page.tsx',
+    docs: 'docs/features/task/index.md',
+    tests: 'tests/frontend/TaskForm.test.tsx',
+  },
+  {
+    name: 'Judgment Flow',
+    status: '🚧 In Progress',
+    schema: 'schemas/judgment/judgment.ts',
+    backend: 'TODO',
+    frontend: 'frontend/features/step/components/StepScoringPanel.tsx',
+    docs: 'docs/features/judgment/index.md',
+    tests: 'TODO',
+  },
+  {
+    name: 'Reviewer Analytics',
+    status: '🛠 Planned',
+    schema: 'schemas/reviewer/reviewer.ts',
+    backend: 'backend/features/reviewer/ReviewerStatsService.ts',
+    frontend: 'frontend/features/dashboard/components/ReviewerAccuracyChart.tsx',
+    docs: 'docs/features/dashboard/index.md',
+    tests: 'TODO',
+  },
+  {
+    name: 'Rubric Tooltips',
+    status: '✅ Complete',
+    schema: '(shared schema)',
+    backend: '(not applicable)',
+    frontend: 'frontend/features/rubric/components/RubricTooltip.tsx',
+    docs: 'docs/features/rubric/index.md',
+    tests: 'TODO',
+  },
+  {
+    name: 'Diff Compare View',
+    status: '✅ Complete',
+    schema: '(uses step schema)',
+    backend: '(not applicable)',
+    frontend: 'frontend/features/compare/components/DiffInlineView.tsx',
+    docs: 'docs/features/compare/index.md',
+    tests: 'TODO',
+  },
+  {
+    name: 'Step Rewrite Panel',
+    status: '🛠 Planned',
+    schema: 'TODO',
+    backend: 'TODO',
+    frontend: 'TODO',
+    docs: 'TODO',
+    tests: 'TODO',
+  },
+  {
+    name: 'Export Dataset Flow',
+    status: '🛠 Planned',
+    schema: 'TODO',
+    backend: 'TODO',
+    frontend: 'TODO',
+    docs: 'TODO',
+    tests: 'TODO',
+  },
+  {
+    name: 'Auto-Judgment Queue',
+    status: '🛠 Planned',
+    schema: 'TODO',
+    backend: 'TODO',
+    frontend: 'TODO',
+    docs: 'TODO',
+    tests: 'TODO',
+  },
+  {
+    name: 'Snapshot Validation',
+    status: '🛠 Planned',
+    schema: 'TODO',
+    backend: 'TODO',
+    frontend: 'TODO',
+    docs: 'TODO',
+    tests: 'TODO',
+  },
+  {
+    name: 'Versioning Strategy',
+    status: '🛠 Planned',
+    schema: 'TODO',
+    backend: 'TODO',
+    frontend: 'TODO',
+    docs: 'TODO',
+    tests: 'TODO',
+  },
+  {
+    name: 'Reviewer Agreement Heatmap',
+    status: '🛠 Planned',
+    schema: 'TODO',
+    backend: 'TODO',
+    frontend: 'TODO',
+    docs: 'TODO',
+    tests: 'TODO',
+  },
+];
 
-# Root path
-ROOT="$(dirname "$0")/.."
-set -e
+const renderTracker = (capabilities: Capability[]) => {
+  const rows = capabilities.map((cap) =>
+    `| ${cap.name.padEnd(27)} | ${cap.status.padEnd(13)} | ${cap.schema.padEnd(28)} | ${cap.backend.padEnd(50)} | ${cap.frontend.padEnd(65)} | ${cap.docs.padEnd(30)} | ${cap.tests.padEnd(30)} |`
+  );
+  return [
+    '| Capability                 | Status         | Schema                       | Backend                                           | Frontend                                                         | Docs                             | Tests                            |',
+    '| -------------------------- | -------------- | ---------------------------- | ------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------- | -------------------------------- |',
+    ...rows,
+  ].join('\n');
+};
 
-echo "Restructuring ReasonOps for Palintar-style modular backend/frontend..."
+async function main() {
+  const header = '# ✅ ReasonOps Feature Delivery Tracker\n\nAssociated automated tests ensuring quality. Palintar/SAP-style capability tracking.\n\n';
+  const table = renderTracker(capabilities);
+  const full = `${table}\n\n${capabilities.map(cap => {
+    return `## ${cap.status} ${cap.name}\n\n- Status: ${cap.status}\n- Schema: ${cap.schema}\n- Backend: ${cap.backend}\n- Frontend: ${cap.frontend}\n- Docs: ${cap.docs}\n- Tests: ${cap.tests}\n\n---\n`;
+  }).join('\n')}`;
+  await fs.writeFile(TRACKER_PATH, `${header}${full}`, 'utf-8');
+  console.log(`Wrote updated tracker to ${TRACKER_PATH}`);
+}
 
-# --- BACKEND ---
-
-mkdir -p "$ROOT/backend/features"
-mkdir -p "$ROOT/backend/platform"
-
-echo "Moving backend feature modules..."
-if [ -d "$ROOT/backend/api/compare" ]; then
-  mv "$ROOT/backend/api/compare" "$ROOT/backend/features/compare"
-fi
-if [ -d "$ROOT/backend/api/completion" ]; then
-  mv "$ROOT/backend/api/completion" "$ROOT/backend/features/completion"
-fi
-if [ -d "$ROOT/backend/api/judgment" ]; then
-  mv "$ROOT/backend/api/judgment" "$ROOT/backend/features/judgment"
-fi
-if [ -d "$ROOT/backend/api/step" ]; then
-  mv "$ROOT/backend/api/step" "$ROOT/backend/features/step"
-fi
-if [ -d "$ROOT/backend/api/task" ]; then
-  mv "$ROOT/backend/api/task" "$ROOT/backend/features/task"
-fi
-
-if [ -f "$ROOT/backend/services/ReviewerAgreementService.ts" ]; then
-  mv "$ROOT/backend/services/ReviewerAgreementService.ts" "$ROOT/backend/features/reviewer/"
-fi
-if [ -f "$ROOT/backend/services/ReviewerService.ts" ]; then
-  mv "$ROOT/backend/services/ReviewerService.ts" "$ROOT/backend/features/reviewer/"
-fi
-if [ -f "$ROOT/backend/services/ReviewerStatsService.ts" ]; then
-  mv "$ROOT/backend/services/ReviewerStatsService.ts" "$ROOT/backend/features/reviewer/"
-fi
-
-if [ -d "$ROOT/backend/audit" ]; then
-  mv "$ROOT/backend/audit" "$ROOT/backend/platform/audit"
-fi
-if [ -d "$ROOT/backend/analytics" ]; then
-  mv "$ROOT/backend/analytics" "$ROOT/backend/platform/analytics"
-fi
-if [ -d "$ROOT/backend/config" ]; then
-  mv "$ROOT/backend/config" "$ROOT/backend/platform/config"
-fi
-if [ -d "$ROOT/backend/jobs" ]; then
-  mv "$ROOT/backend/jobs" "$ROOT/backend/platform/jobs"
-fi
-if [ -d "$ROOT/backend/metrics" ]; then
-  mv "$ROOT/backend/metrics" "$ROOT/backend/platform/metrics"
-fi
-if [ -d "$ROOT/backend/queues" ]; then
-  mv "$ROOT/backend/queues" "$ROOT/backend/platform/queues"
-fi
-
-# --- FRONTEND ---
-
-mkdir -p "$ROOT/frontend/features"
-
-echo "Moving frontend feature modules..."
-if [ -d "$ROOT/frontend/app/task" ]; then
-  mv "$ROOT/frontend/app/task" "$ROOT/frontend/features/task"
-fi
-if [ -d "$ROOT/frontend/app/evaluate" ]; then
-  mv "$ROOT/frontend/app/evaluate" "$ROOT/frontend/features/evaluate"
-fi
-if [ -d "$ROOT/frontend/app/admin" ]; then
-  mv "$ROOT/frontend/app/admin" "$ROOT/frontend/features/admin"
-fi
-
-if [ -d "$ROOT/frontend/components/compare" ]; then
-  mv "$ROOT/frontend/components/compare" "$ROOT/frontend/features/compare/components"
-fi
-if [ -d "$ROOT/frontend/components/dashboard" ]; then
-  mv "$ROOT/frontend/components/dashboard" "$ROOT/frontend/features/dashboard/components"
-fi
-if [ -d "$ROOT/frontend/components/rubric" ]; then
-  mv "$ROOT/frontend/components/rubric" "$ROOT/frontend/features/rubric/components"
-fi
-if [ -d "$ROOT/frontend/components/panels/step" ]; then
-  mv "$ROOT/frontend/components/panels/step" "$ROOT/frontend/features/step/components"
-fi
-
-# Preserve shared components
-mkdir -p "$ROOT/frontend/shared/ui"
-if [ -d "$ROOT/frontend/components/ui" ]; then
-  mv "$ROOT/frontend/components/ui" "$ROOT/frontend/shared/ui"
-fi
-if [ -d "$ROOT/frontend/components/layout" ]; then
-  mv "$ROOT/frontend/components/layout" "$ROOT/frontend/shared/layout"
-fi
-if [ -d "$ROOT/frontend/components/feedback" ]; then
-  mv "$ROOT/frontend/components/feedback" "$ROOT/frontend/shared/feedback"
-fi
-
-# --- Clean Up Empty Directories ---
-find "$ROOT/backend/api" -type d -empty -delete
-find "$ROOT/frontend/app" -type d -empty -delete
-find "$ROOT/frontend/components/panels" -type d -empty -delete
-
-echo "Palintar-style modular structure applied."
-echo "Migration complete. Please run: pnpm run lint:fix && pnpm run typecheck"
+main().catch(err => {
+  console.error(err);
+  process.exit(1);
+});
