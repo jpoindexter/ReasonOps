@@ -1,0 +1,31 @@
+# Palantir-style Access Matrix
+version: 1
+modules:
+  - name: features
+    roles: [admin, reviewer, analyst]
+  - name: models
+    roles: [admin, engineer]
+  - name: schema
+    roles: [engineer, analyst]
+  - name: api
+    roles: [engineer]
+  - name: prompts
+    roles: [researcher, analyst]
+  - name: platform
+    roles: [admin, engineer]
+  - name: licensing
+    roles: [admin]
+  - name: metrics
+    roles: [analyst]
+  - name: strategy
+    roles: [executive, admin]
+  - name: deployment
+    roles: [devops, admin]
+  - name: security
+    roles: [admin, security]
+  - name: guides
+    roles: [all]
+  - name: examples
+    roles: [all]
+  - name: tasklist
+    roles: [admin]

@@ -6,38 +6,24 @@
     "baseUrl": ".",
     "outDir": "dist",
     "incremental": true,
-    "tsBuildInfoFile": ".tsbuildinfo", 
+    "tsBuildInfoFile": ".tsbuildinfo",
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "paths": {
-      "@backend/*": ["backend/*"],
-      "@backend/api/*": ["backend/api/*"],
-      "@backend/config/*": ["backend/config/*"],
-      "@backend/analytics/*": ["backend/analytics/*"],
-      "@backend/events/*": ["backend/events/*"],
-      "@backend/exporters/*": ["backend/exporters/*"],
-      "@backend/jobs/*": ["backend/jobs/*"],
-      "@backend/lib/*": ["backend/lib/*"],
-      "@backend/lib/llm/*": ["backend/lib/llm/*"],
-      "@backend/lib/parsing/*": ["backend/lib/parsing/*"],
-      "@backend/lib/scoring/*": ["backend/lib/scoring/*"],
-      "@backend/metrics/*": ["backend/lib/metrics/*"],
-      "@backend/schemas/*": ["backend/schemas/*"],
-      "@backend/services/*": ["backend/services/*"],
+      "@features/*": ["backend/features/*"],
+      "@platform/*": ["backend/platform/*"],
+      "@schemas/*": ["backend/schemas/*"],
+      "@lib/*": ["backend/lib/*"],
+      "@utils/*": ["backend/utils/*"],
+      "@validators/*": ["backend/validators/*"],
+      "@shared/*": ["shared/*"],
+      "@types/*": ["shared/types/*"],
+
       "@frontend/*": ["frontend/*"],
-      "@frontend/components/*": ["frontend/components/*"],
-      "@frontend/components/layout/*": ["frontend/components/layout/*"],
-      "@frontend/components/panels/*": ["frontend/components/panels/*"],
-      "@frontend/components/ui": ["frontend/components/ui/index.ts"],
-      "@frontend/components/ui/button": ["frontend/components/ui/button"],
-      "@frontend/components/ui/input": ["frontend/components/ui/input"],
-      "@frontend/components/ui/label": ["frontend/components/ui/label"],
-      "@frontend/components/ui/slider": ["frontend/components/ui/slider"],
-      "@frontend/components/ui/textarea": ["frontend/components/ui/textarea"],
-      "@frontend/hooks/*": ["frontend/hooks/*"],
-      "@frontend/lib/*": ["frontend/lib/*"],
-      "@frontend/schemas/*": ["frontend/schemas/*"],
-      "@frontend/types/*": ["frontend/types/*"]
+      "@features-frontend/*": ["frontend/features/*"],
+      "@schemas-frontend/*": ["frontend/schemas/*"],
+      "@shared-frontend/*": ["frontend/shared/*"],
+      "@ui/*": ["frontend/shared/ui/ui/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -62,8 +48,5 @@
     "docs/.vitepress/**/*",
     "reasonops-docs/**/*"
   ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "exclude": ["dist", "node_modules"]
 }

@@ -68,4 +68,10 @@ export default defineConfig({
       copyright: 'Copyright © 2025 THEFT Studio',
     },
   },
+  markdown: {
+    theme: {
+      light: 'github-light',
+      dark: 'github-dark',
+    },
+  },
 });
