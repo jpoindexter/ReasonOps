@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+ReasonOps is a platform for evaluating reasoning quality in AI — step-by-step. It helps users inspect, score, tag, and export logical traces to improve reliability.
+
 # 📘 ReasonOps API Reference
 
 This directory provides developer-facing documentation for all public HTTP routes within the ReasonOps platform. Each route is version-locked, schema-validated, and auditable through exported datasets.

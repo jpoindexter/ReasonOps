@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+Each reasoning step in ReasonOps captures a discrete unit of logic in an AI trace. Steps are judged on their contribution to overall coherence, truth alignment, and justification.
+
 # 🪜 Step API Reference
 
 This document defines the ReasonOps API for extracting reasoning steps from a model-generated Completion. Steps are logical units used for granular scoring, fallacy detection, and downstream evaluation exports.

@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+ReasonOps is a platform for evaluating reasoning quality in AI — step-by-step. It helps users inspect, score, tag, and export logical traces to improve reliability.
+
 # 🧱 ReasonOps Schema System Overview
 
 This document provides a structured index of the ReasonOps schema system — defining all data entities, evaluation flows, and validation logic across the platform.

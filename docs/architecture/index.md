@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+Every architectural choice in ReasonOps is shaped by a single goal: supporting reliable, traceable, step-wise judgment of AI reasoning. The platform is purpose-built for this task.
+
 # Uarchitecture Overview
 
 ## Purpose

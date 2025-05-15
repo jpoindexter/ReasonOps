@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+Judgments in ReasonOps are structured evaluations of reasoning quality, not just output correctness. They include tags, scores, and commentary about where logic succeeded or broke down.
+
 # Ujudgment Overview
 
 ## Purpose

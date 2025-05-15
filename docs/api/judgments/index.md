@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+Judgments in ReasonOps are structured evaluations of reasoning quality, not just output correctness. They include tags, scores, and commentary about where logic succeeded or broke down.
+
 # 📝 Judgment API Reference
 
 This document defines the API endpoint used to submit a `Judgment` — a score and optional comment assigned to a `Step` in a model-generated reasoning chain. Judgments may be submitted by human reviewers or LLM scoring agents.

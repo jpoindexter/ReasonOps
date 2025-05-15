@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+ReasonOps is a platform for evaluating reasoning quality in AI — step-by-step. It helps users inspect, score, tag, and export logical traces to improve reliability.
+
 # 🧪 Example Data for ReasonOps
 
 This folder contains production-grade example payloads used throughout the ReasonOps evaluation pipeline. These examples help developers, test writers, and auditors understand how each layer of the system processes data from task → completion → steps → judgment → export.

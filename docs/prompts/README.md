@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+ReasonOps is a platform for evaluating reasoning quality in AI — step-by-step. It helps users inspect, score, tag, and export logical traces to improve reliability.
+
 # ✍️ Prompt Engineering Guide (ReasonOps)
 
 This document outlines the structured approach to prompt design and scoring logic for LLM completions in ReasonOps. It includes prompt design patterns, scoring instructions, and integration notes for Claude, GPT, and other LLMs.

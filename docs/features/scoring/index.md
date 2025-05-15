@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+Scoring tools in ReasonOps enforce structured, transparent judgment of AI reasoning — not just correctness. Rubrics and scoring dimensions help capture logic quality, justification, and alignment.
+
 # Uscoring Overview
 
 ## Purpose

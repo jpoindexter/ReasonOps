@@ -1,3 +1,6 @@
+> 🧠 ReasonOps Context  
+Exporting in ReasonOps allows users to extract structured evaluations of reasoning — including logic tags, trace-level scores, and annotated metadata for retraining or analysis.
+
 # 📤 Export API Reference
 
 This document defines the ReasonOps API for exporting completed tasks, model responses, and evaluation data in JSONL format. The export system powers downstream fine-tuning, QA audit, benchmarking, and dataset sharing.
