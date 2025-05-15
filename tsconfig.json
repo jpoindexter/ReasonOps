@@ -3,7 +3,7 @@
     "lib": ["ES2022", "DOM"],
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "outDir": "dist",
     "incremental": true,
@@ -55,7 +55,9 @@
     "tests/**/*",
     "docs/**/*",
     "scripts/**/*",
-    "vite.config.ts"
+    "vite.config.ts",
+    "postcss.config.ts",
+    "tailwind.config.ts"
   ],
   "exclude": ["dist", "node_modules"]
 }
