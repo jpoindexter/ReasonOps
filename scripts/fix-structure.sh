@@ -1,142 +1,84 @@
-import { promises as fs } from 'fs';
-import path from 'path';
 
-type Capability = {
-  name: string;
-  status: string;
-  schema: string;
-  backend: string;
-  frontend: string;
-  docs: string;
-  tests: string;
-};
 
-const TRACKER_PATH = path.resolve('docs/features/_tracker.md');
+#!/bin/bash
 
-const capabilities: Capability[] = [
-  {
-    name: 'Task Editor',
-    status: '✅ Complete',
-    schema: 'schemas/task/task.ts',
-    backend: 'backend/features/task/route.ts',
-    frontend: 'frontend/features/task/page.tsx',
-    docs: 'docs/features/task/index.md',
-    tests: 'tests/frontend/TaskForm.test.tsx',
-  },
-  {
-    name: 'Judgment Flow',
-    status: '🚧 In Progress',
-    schema: 'schemas/judgment/judgment.ts',
-    backend: 'TODO',
-    frontend: 'frontend/features/step/components/StepScoringPanel.tsx',
-    docs: 'docs/features/judgment/index.md',
-    tests: 'TODO',
-  },
-  {
-    name: 'Reviewer Analytics',
-    status: '🛠 Planned',
-    schema: 'schemas/reviewer/reviewer.ts',
-    backend: 'backend/features/reviewer/ReviewerStatsService.ts',
-    frontend: 'frontend/features/dashboard/components/ReviewerAccuracyChart.tsx',
-    docs: 'docs/features/dashboard/index.md',
-    tests: 'TODO',
-  },
-  {
-    name: 'Rubric Tooltips',
-    status: '✅ Complete',
-    schema: '(shared schema)',
-    backend: '(not applicable)',
-    frontend: 'frontend/features/rubric/components/RubricTooltip.tsx',
-    docs: 'docs/features/rubric/index.md',
-    tests: 'TODO',
-  },
-  {
-    name: 'Diff Compare View',
-    status: '✅ Complete',
-    schema: '(uses step schema)',
-    backend: '(not applicable)',
-    frontend: 'frontend/features/compare/components/DiffInlineView.tsx',
-    docs: 'docs/features/compare/index.md',
-    tests: 'TODO',
-  },
-  {
-    name: 'Step Rewrite Panel',
-    status: '🛠 Planned',
-    schema: 'TODO',
-    backend: 'TODO',
-    frontend: 'TODO',
-    docs: 'TODO',
-    tests: 'TODO',
-  },
-  {
-    name: 'Export Dataset Flow',
-    status: '🛠 Planned',
-    schema: 'TODO',
-    backend: 'TODO',
-    frontend: 'TODO',
-    docs: 'TODO',
-    tests: 'TODO',
-  },
-  {
-    name: 'Auto-Judgment Queue',
-    status: '🛠 Planned',
-    schema: 'TODO',
-    backend: 'TODO',
-    frontend: 'TODO',
-    docs: 'TODO',
-    tests: 'TODO',
-  },
-  {
-    name: 'Snapshot Validation',
-    status: '🛠 Planned',
-    schema: 'TODO',
-    backend: 'TODO',
-    frontend: 'TODO',
-    docs: 'TODO',
-    tests: 'TODO',
-  },
-  {
-    name: 'Versioning Strategy',
-    status: '🛠 Planned',
-    schema: 'TODO',
-    backend: 'TODO',
-    frontend: 'TODO',
-    docs: 'TODO',
-    tests: 'TODO',
-  },
-  {
-    name: 'Reviewer Agreement Heatmap',
-    status: '🛠 Planned',
-    schema: 'TODO',
-    backend: 'TODO',
-    frontend: 'TODO',
-    docs: 'TODO',
-    tests: 'TODO',
-  },
-];
+# This script checks for schema.md files in docs/features/*/
+# and for each, creates a corresponding schema.yaml with a migration comment.
+# For each such feature, it ensures frontend/schemas/<feature>/schema.ts and form.ts exist,
+# and backend/schemas/<feature>/schema.ts and form.ts exist, creating them with stubs if missing.
 
-const renderTracker = (capabilities: Capability[]) => {
-  const rows = capabilities.map((cap) =>
-    `| ${cap.name.padEnd(27)} | ${cap.status.padEnd(13)} | ${cap.schema.padEnd(28)} | ${cap.backend.padEnd(50)} | ${cap.frontend.padEnd(65)} | ${cap.docs.padEnd(30)} | ${cap.tests.padEnd(30)} |`
-  );
-  return [
-    '| Capability                 | Status         | Schema                       | Backend                                           | Frontend                                                         | Docs                             | Tests                            |',
-    '| -------------------------- | -------------- | ---------------------------- | ------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------- | -------------------------------- |',
-    ...rows,
-  ].join('\n');
-};
+set -e
 
-async function main() {
-  const header = '# ✅ ReasonOps Feature Delivery Tracker\n\nAssociated automated tests ensuring quality. Palintar/SAP-style capability tracking.\n\n';
-  const table = renderTracker(capabilities);
-  const full = `${table}\n\n${capabilities.map(cap => {
-    return `## ${cap.status} ${cap.name}\n\n- Status: ${cap.status}\n- Schema: ${cap.schema}\n- Backend: ${cap.backend}\n- Frontend: ${cap.frontend}\n- Docs: ${cap.docs}\n- Tests: ${cap.tests}\n\n---\n`;
-  }).join('\n')}`;
-  await fs.writeFile(TRACKER_PATH, `${header}${full}`, 'utf-8');
-  console.log(`Wrote updated tracker to ${TRACKER_PATH}`);
-}
+# Root directory
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-main().catch(err => {
-  console.error(err);
-  process.exit(1);
+DOCS_FEATURES="$ROOT/docs/features"
+FRONTEND_SCHEMAS="$ROOT/frontend/schemas"
+BACKEND_SCHEMAS="$ROOT/backend/schemas"
+
+# For each docs/features/<feature>/schema.md
+find "$DOCS_FEATURES" -mindepth 2 -maxdepth 2 -type f -name 'schema.md' | while read -r SCHEMA_MD; do
+    FEATURE_DIR="$(dirname "$SCHEMA_MD")"
+    FEATURE="$(basename "$FEATURE_DIR")"
+    # 1. Create schema.yaml if missing
+    SCHEMA_YAML="$FEATURE_DIR/schema.yaml"
+    if [[ ! -f "$SCHEMA_YAML" ]]; then
+        echo "# TODO: Migrate from schema.md to structured schema.yaml format." > "$SCHEMA_YAML"
+    fi
+
+    # 2. Ensure frontend/schemas/<feature>/
+    FRONTEND_DIR="$FRONTEND_SCHEMAS/$FEATURE"
+    mkdir -p "$FRONTEND_DIR"
+    # Create schema.ts if missing
+    SCHEMA_TS="$FRONTEND_DIR/schema.ts"
+    if [[ ! -f "$SCHEMA_TS" ]]; then
+        cat > "$SCHEMA_TS" <<EOF
+import { z } from 'zod';
+
+export const schema = z.object({
+  // TODO: define schema
 });
+EOF
+    fi
+    # Create form.ts if missing
+    FORM_TS="$FRONTEND_DIR/form.ts"
+    if [[ ! -f "$FORM_TS" ]]; then
+        cat > "$FORM_TS" <<EOF
+import { schema } from './schema';
+
+export type FormValues = z.infer<typeof schema>;
+
+export const defaultValues: Partial<FormValues> = {
+  // TODO: fill in defaults
+};
+EOF
+    fi
+
+    # 3. Ensure backend/schemas/<feature>/
+    BACKEND_DIR="$BACKEND_SCHEMAS/$FEATURE"
+    mkdir -p "$BACKEND_DIR"
+    # Create schema.ts if missing
+    SCHEMA_TS_B="$BACKEND_DIR/schema.ts"
+    if [[ ! -f "$SCHEMA_TS_B" ]]; then
+        cat > "$SCHEMA_TS_B" <<EOF
+import { z } from 'zod';
+
+export const schema = z.object({
+  // TODO: define schema
+});
+EOF
+    fi
+    # Create form.ts if missing
+    FORM_TS_B="$BACKEND_DIR/form.ts"
+    if [[ ! -f "$FORM_TS_B" ]]; then
+        cat > "$FORM_TS_B" <<EOF
+import { schema } from './schema';
+
+export type FormValues = z.infer<typeof schema>;
+
+export const defaultValues: Partial<FormValues> = {
+  // TODO: fill in defaults
+};
+EOF
+    fi
+done
