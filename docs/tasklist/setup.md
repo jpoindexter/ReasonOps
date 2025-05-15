@@ -1,4 +1,13 @@
 ---
+title: Project Setup & Onboarding
+description: Full setup, scaffolding, and contributor onboarding process for ReasonOps platform.
+sidebar_label: Setup
+tags:
+  - setup
+  - onboarding
+  - scaffolding
+  - parity++
+---
 
 ## 🧱 Shell Environment & Cross-Platform Notes
 

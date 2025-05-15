@@ -6,7 +6,7 @@
     "baseUrl": ".",
     "outDir": "dist",
     "incremental": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
+    "tsBuildInfoFile": ".tsbuildinfo", 
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "paths": {
@@ -52,6 +52,18 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "types": ["@testing-library/jest-dom"]
-  }
+    "types": []
+  },
+  "include": [
+    "frontend/**/*",
+    "backend/**/*",
+    "shared/**/*",
+    "tests/**/*",
+    "docs/.vitepress/**/*",
+    "reasonops-docs/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }
