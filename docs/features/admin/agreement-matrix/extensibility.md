@@ -13,3 +13,5 @@ updated: '2025-05-16T10:33:34.916Z'
 visibility: public
 ---
 # Agreement Matrix Extensibility & Overrides
+
+> **Stub:** This file is a stub and needs expansion.

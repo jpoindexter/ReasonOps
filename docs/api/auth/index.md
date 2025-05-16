@@ -63,3 +63,12 @@ Roles will be embedded in JWT claims or stored in Supabase tables for RBAC enfor
 - [`/docs/schema/audit.md`](../schema/audit.md) – scoring traceability
 - [`/docs/schema/judgment/model.md`](../schema/judgment/model.md) – `createdBy` attribution
 - [`/docs/DEPLOYMENT.md`](../DEPLOYMENT.md) – setting auth keys in production
+
+## Auto-generated Links
+
+- [[../schema/audit.md]]
+- [[../schema/judgment/model.md]]
+- [[../DEPLOYMENT.md]]
+- [[../schema/audit.md]]
+- [[../schema/judgment/model.md]]
+- [[../DEPLOYMENT.md]]

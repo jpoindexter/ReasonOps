@@ -14,3 +14,5 @@ visibility: public
 ---
 # Inline Rubric Help
 // TODO: Tooltip UX for rubric usage per step
+
+> **Stub:** This file is a stub and needs expansion.

@@ -14,3 +14,5 @@ visibility: public
 ---
 # Rubric Versioning
 // TODO: Locking behavior, changelogs, version rollback UX
+
+> **Stub:** This file is a stub and needs expansion.

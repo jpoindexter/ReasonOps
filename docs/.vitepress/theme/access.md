@@ -18,3 +18,9 @@ visibility: public
 | Reviewer | ✅        | ❌        | View only        |
 | Admin    | ✅        | ✅        | Full permissions |
 | Observer | ✅        | ❌        | Read-only        |
+
+## Auto-generated Links
+
+- [[Reviewer]]
+- [[Admin]]
+- [[Observer]]

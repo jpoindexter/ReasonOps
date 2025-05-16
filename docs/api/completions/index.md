@@ -85,3 +85,16 @@ Additional runtime fields (e.g. `temperature`, `version`, `systemPrompt`) can be
 - [`/docs/schema/completion/model.md`](../schema/completion/model.md)
 - [`/docs/schema/task/model.md`](../schema/task/model.md)
 - [`/docs/schema/step/model.md`](../schema/step/model.md)
+
+## Auto-generated Links
+
+- [[../schema/completion/model.md]]
+- [[../schema/task/model.md]]
+- [[../schema/step/model.md]]
+- [[../api/completion/handler.md]]
+- [[../api/completion/api_logic.md]]
+- [[../ui/completion/renderer.md]]
+- [[../processing/step_extractor.md]]
+- [[../validation/completion_validator.md]]
+- [[../evaluation/completion_evaluator.md]]
+- [[../dashboard/completion_dashboard.md]]

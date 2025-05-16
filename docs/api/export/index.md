@@ -76,3 +76,11 @@ See: [`/docs/schema/dataset-format.md`](../schema/dataset-format.md)
 - Add new fields to `metadata` only if backward-compatible
 - All exports should be testable via snapshot comparison
 ---
+
+## Auto-generated Links
+
+- [[Export API Reference]]
+- [[Export Format]]
+- [[Security Notes]]
+- [[Usage]]
+- [[Export Rules]]

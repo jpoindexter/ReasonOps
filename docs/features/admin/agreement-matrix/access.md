@@ -13,3 +13,5 @@ updated: '2025-05-16T10:33:34.916Z'
 visibility: public
 ---
 # Role-Based Access and Logging
+
+> **Stub:** This file is a stub and needs expansion.

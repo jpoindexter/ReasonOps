@@ -21,3 +21,9 @@ Brief description of what this module or feature does in ReasonOps.
 - [Schema](./schema.md)
 - [UI](./ui.md)
 - [Access](./access.md)
+
+## Auto-generated Links
+
+- [[Schema|schema.md]]
+- [[UI|ui.md]]
+- [[Access|access.md]]

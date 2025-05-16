@@ -80,3 +80,11 @@ All scores are audit-traced via the `createdBy` field and stored as immutable re
 For scoring logic, see the scoring guides in:
 - [`/schema/step/scoring.md`](../schema/step/scoring.md)
 - [`/schema/judgment/scoring.md`](../schema/judgment/scoring.md)
+
+## Auto-generated Links
+
+- [[linked/doc/paths]]
+- [[schema/step/model.md]]
+- [[schema/judgment/model.md]]
+- [[schema/judgment/scoring.md]]
+- [[schema/step/scoring.md]]

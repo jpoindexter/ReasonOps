@@ -14,3 +14,5 @@ visibility: public
 ---
 # Feature Flags
 // TODO: List and explain all runtime flags, toggles, and plan-gated features
+
+> **Stub:** This file is a stub and needs expansion.

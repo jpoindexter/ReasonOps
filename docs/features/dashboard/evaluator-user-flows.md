@@ -16,3 +16,5 @@ visibility: public
 - View assigned evaluations
 - Start/stop tasks
 - Submit scores and feedback
+
+> **Stub:** This file is a stub and needs expansion.

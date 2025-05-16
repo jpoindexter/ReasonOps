@@ -18,3 +18,13 @@ visibility: public
 | Reviewer | ✅        | ❌        | View only        |
 | Admin    | ✅        | ✅        | Full permissions |
 | Observer | ✅        | ❌        | Read-only        |
+
+## Auto-generated Links
+
+- [[Validation/Reviewer]]
+- [[Validation/Administrator]]
+- [[Evaluation/Template]]
+- [[Evaluation/Report]]
+- [[Dashboarding/Flows/Reviewer_View]]
+- [[Dashboarding/Flows/Administrator_Management]]
+- [[Dashboarding/Flows/Observer_Read-Only]]

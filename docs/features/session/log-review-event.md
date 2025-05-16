@@ -14,3 +14,5 @@ visibility: public
 ---
 # Session Logging
 // TODO: Capture each scoring/reviewer action with task+step+rubric+timestamp
+
+> **Stub:** This file is a stub and needs expansion.

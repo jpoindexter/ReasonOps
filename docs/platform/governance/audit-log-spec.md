@@ -14,3 +14,5 @@ visibility: public
 ---
 # Audit Logging
 // TODO: Specify how rubric edits, scoring actions, and exports are logged
+
+> **Stub:** This file is a stub and needs expansion.

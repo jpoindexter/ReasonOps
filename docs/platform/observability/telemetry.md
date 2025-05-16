@@ -14,3 +14,5 @@ visibility: public
 ---
 # System Telemetry
 // TODO: LLM agent latency, scoring crashes, queue state
+
+> **Stub:** This file is a stub and needs expansion.
