@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "schema/audit/index.md",
+                "file": "GETTING_STARTED.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "GETTING_STARTED"
             }
           }
         ]
@@ -183,18 +183,21 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "cd634248c2c05868",
+  "active": "4412fc91d887e5bf",
   "lastOpenFiles": [
+    "ROADMAP.md",
+    "README.md",
+    "index.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "schema/audit/index.md",
     "schema/audit/ui.md",
     "schema/audit/schema.md",
     "schema/audit/access.md",
     "schema/audit/audit-log-format.md",
-    "schema/audit/index.md",
     "use-cases/ai-support/ai-support.md",
     "use-cases/ai-support/ai-assist-layer.md",
     "use-cases/ai-support/_index.md",
-    "CONTRIBUTING.md",
-    "CHANGELOG.md",
     "INDEX.md",
     "Untitled.canvas",
     "GETTING_STARTED.md",
@@ -208,7 +211,6 @@
     "strategy/index.md",
     "strategy/access.md",
     "tasklist/schema.md",
-    "README.md",
     "platform/access/role-matrix.md"
   ]
 }
