@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧩 Guide: StepScoringPanel
 
 The `StepScoringPanel` is the primary UI surface for applying rubric-based judgments to parsed reasoning steps. This guide explains how it works, how to extend it, and how it links to the ReasonOps backend and export pipeline.

@@ -1,3 +1,8 @@
+---
+title: "_index"
+status: "draft"
+---
+
 # Meta Observability
 
 > This directory contains ReasonOps use cases for **meta observability**.

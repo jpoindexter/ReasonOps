@@ -1,3 +1,8 @@
+---
+title: "examples"
+status: "draft"
+---
+
 # 📝 Judgment Schema — Example Payloads
 
 This document contains realistic example JSON objects for the `Judgment` entity. Judgments represent evaluations of reasoning steps from either human reviewers or automated LLM agents. These examples show how Judgments are formed, stored, and differentiated by origin.

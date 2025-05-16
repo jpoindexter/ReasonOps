@@ -1,3 +1,8 @@
+---
+title: "examples"
+status: "draft"
+---
+
 # 🪜 Step Schema — Example Payloads
 
 This document provides real-world example JSON objects for the `Step` entity. Steps are the fundamental unit of logic extracted from a Completion and are used to evaluate model reasoning quality.

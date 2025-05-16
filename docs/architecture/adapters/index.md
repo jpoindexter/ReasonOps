@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🔌 ReasonOps LLM Adapter Architecture
 
 This document outlines the architecture of the ReasonOps LLM adapter system — a core module responsible for routing prompts, managing model-specific behaviors, and standardizing completion outputs across providers.

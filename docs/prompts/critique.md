@@ -1,3 +1,8 @@
+---
+title: "critique"
+status: "draft"
+---
+
 # 🪞 Critique Prompting Guide
 
 This document defines how ReasonOps uses prompts to elicit critiques of model reasoning. Critique prompting enables LLMs or human reviewers to identify flaws, fallacies, and improvement opportunities within individual reasoning steps or full completions.

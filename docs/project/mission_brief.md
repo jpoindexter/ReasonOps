@@ -1,3 +1,8 @@
+---
+title: "mission_brief"
+status: "draft"
+---
+
 # 🎯 Mission Brief: ReasonOps
 
 ## What is the Core Problem?

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧪 Local Development Setup
 
 This guide describes how to run ReasonOps locally in a secure, testable, and production-similar environment. It covers environment setup, Supabase emulation, testing, and developer workflow integration.

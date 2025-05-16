@@ -1,3 +1,8 @@
+---
+title: "_tracker"
+status: "draft"
+---
+
 | Capability                 | Status         | Schema                       | Backend                                           | Frontend                                                         | Docs                             | Tests                            |
 | -------------------------- | -------------- | ---------------------------- | ------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------- | -------------------------------- |
 | Task Editor                | ✅ Complete    | schemas/task/task.ts         | backend/features/task/route.ts                    | frontend/features/task/page.tsx                                  | docs/features/task/index.md      | tests/frontend/TaskForm.test.tsx |

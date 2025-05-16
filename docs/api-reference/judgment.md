@@ -1,3 +1,8 @@
+---
+title: "judgment"
+status: "draft"
+---
+
 # 🧾 API Reference: Submit Judgment
 
 Submit a step-level evaluation judgment (manual or model-generated). This endpoint accepts a scored step response and stores it for export, audit, and critique.

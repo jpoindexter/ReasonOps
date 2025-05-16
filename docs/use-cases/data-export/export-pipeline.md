@@ -1,3 +1,8 @@
+---
+title: "export-pipeline"
+status: "draft"
+---
+
 # User Story: Export Pipeline
 
 ## 🧠 ReasonOps Context

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "INDEX.md",
+                "file": "schema/audit/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "INDEX"
+              "title": "index"
             }
           }
         ]
@@ -150,6 +150,20 @@
               "icon": "lucide-list",
               "title": "Outline of INDEX"
             }
+          },
+          {
+            "id": "2ffcc09559ceab3f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
           }
         ]
       }
@@ -165,16 +179,25 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false
     }
   },
-  "active": "4412fc91d887e5bf",
+  "active": "cd634248c2c05868",
   "lastOpenFiles": [
-    "Untitled.canvas",
-    "INDEX.md",
-    "GETTING_STARTED.md",
+    "schema/audit/ui.md",
+    "schema/audit/schema.md",
+    "schema/audit/access.md",
+    "schema/audit/audit-log-format.md",
+    "schema/audit/index.md",
+    "use-cases/ai-support/ai-support.md",
+    "use-cases/ai-support/ai-assist-layer.md",
+    "use-cases/ai-support/_index.md",
     "CONTRIBUTING.md",
     "CHANGELOG.md",
+    "INDEX.md",
+    "Untitled.canvas",
+    "GETTING_STARTED.md",
     "security/index.md",
     "security/disclosure.md",
     "security/auth.md",

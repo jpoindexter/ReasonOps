@@ -1,3 +1,8 @@
+---
+title: "disclosure"
+status: "draft"
+---
+
 # 🛡 Vulnerability Disclosure Policy
 
 ReasonOps values the input of security researchers and ethical hackers in identifying potential vulnerabilities in our system. This document outlines our coordinated disclosure policy, in alignment with industry standards such as ISO 29147 and NIST SP 800-115.

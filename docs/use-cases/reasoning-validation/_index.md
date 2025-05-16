@@ -1,3 +1,8 @@
+---
+title: "_index"
+status: "draft"
+---
+
 # Reasoning Validation
 
 > This directory contains ReasonOps use cases for **reasoning validation**.

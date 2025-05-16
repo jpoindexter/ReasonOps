@@ -1,3 +1,8 @@
+---
+title: "auth"
+status: "draft"
+---
+
 # 🔐 Authentication & Access Control
 
 This document defines the authentication system, reviewer roles, and security policies for accessing ReasonOps APIs and UI interfaces. All logic is enforced via Supabase Auth + Row-Level Security (RLS) with role-based session tokens.

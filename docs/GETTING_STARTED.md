@@ -1,3 +1,8 @@
+---
+title: "GETTING_STARTED"
+status: "draft"
+---
+
 # 🚀 Getting Started with ReasonOps
 
 Welcome to the ReasonOps platform — a modular, full-stack system for evaluating and improving LLM-generated reasoning. This guide walks you through cloning, setting up, running, and contributing to the codebase.

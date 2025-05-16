@@ -1,3 +1,8 @@
+---
+title: "capability-map"
+status: "draft"
+---
+
 # ReasonOps Capability Map
 
 This document outlines the high-level capabilities of the ReasonOps system. It follows modern enterprise architecture patterns to ensure secure, modular, scalable systems across functional domains and actors.

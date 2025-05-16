@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 📡 ReasonOps API Reference Index
 
 This index documents all API endpoints exposed by the ReasonOps platform. It is organized by resource type and aligns with internal schema logic and platform evaluation workflows.

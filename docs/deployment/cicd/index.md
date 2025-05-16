@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🔁 CI/CD for ReasonOps
 
 This document outlines the Continuous Integration and Continuous Deployment (CI/CD) strategy for ReasonOps. The CI/CD system automates testing, builds, and deployments across environments — ensuring the codebase remains stable, test-covered, and audit-safe.

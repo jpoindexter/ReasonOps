@@ -1,3 +1,8 @@
+---
+title: "ROADMAP"
+status: "draft"
+---
+
 # 🗺 ReasonOps Production Roadmap (v1+)
 
 This roadmap defines the phased execution path for ReasonOps as a production-grade, reasoning evaluation platform. It includes core logic, UI scaffolding, export integrity, scoring, prompt versioning, reviewer analytics, dataset delivery, enterprise auditability, snapshot validation, diffing, and schema version enforcement.

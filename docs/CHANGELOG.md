@@ -1,3 +1,8 @@
+---
+title: "CHANGELOG"
+status: "draft"
+---
+
 # 📦 Changelog
 
 All notable changes to ReasonOps will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/).

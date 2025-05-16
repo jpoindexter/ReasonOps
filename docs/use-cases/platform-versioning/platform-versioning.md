@@ -1,3 +1,8 @@
+---
+title: "platform-versioning"
+status: "draft"
+---
+
 # User Story: Versioning Governance
 
 ## 🧠 ReasonOps Context

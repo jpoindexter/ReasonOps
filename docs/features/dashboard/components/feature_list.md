@@ -1,3 +1,8 @@
+---
+title: "feature_list"
+status: "draft"
+---
+
 # Evaluation Dashboard – Component Feature Map (Enterprise-Grade)
 
 This document outlines every visible component on the Evaluation Dashboard, including its purpose, behavior, contract, and usability rationale. This reflects enterprise-grade fidelity and supports rapid development of the ReasonOps MVP.

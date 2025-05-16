@@ -1,3 +1,8 @@
+---
+title: "rubrics-gpt"
+status: "draft"
+---
+
 # 🧠 GPT-Specific Scoring Rubric
 
 This document defines the scoring rubric and structured prompt format used when GPT-4 or GPT-3.5 is used to evaluate reasoning steps within ReasonOps. It ensures consistency, traceability, and structured outputs compatible with audit and export pipelines.

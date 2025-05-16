@@ -1,3 +1,8 @@
+---
+title: "rubric-logic"
+status: "draft"
+---
+
 # User Story: Rubric Management
 
 ## 🧠 ReasonOps Context

@@ -1,3 +1,8 @@
+---
+title: "audit"
+status: "draft"
+---
+
 # 🔍 ReasonOps Audit & Traceability Protocol
 
 This document outlines the auditability and compliance guarantees within the ReasonOps platform. As a system designed to evaluate and log human and AI judgment over model reasoning, ReasonOps enforces strict immutability, reviewer traceability, and versioned evaluation data for audit and safety compliance.

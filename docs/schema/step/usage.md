@@ -1,3 +1,8 @@
+---
+title: "usage"
+status: "draft"
+---
+
 # 🪜 Step Usage Guide
 
 This document outlines how `Step` entities are created, parsed, rendered, and used within ReasonOps. Each Step represents a single unit of logic extracted from a model-generated Completion and is the atomic element for scoring and reasoning evaluation.

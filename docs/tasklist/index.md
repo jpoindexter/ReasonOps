@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # ✅ ReasonOps Task System
 
 This directory defines the complete modular task breakdown for the ReasonOps platform. All project-level tasks are grouped and structured to support a monorepo, production-grade architecture with full LLM evaluation pipelines.

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧪 Benchmark Integrity & Anti-Contamination Policy
 
 This document explains how ReasonOps ensures trustworthy, reproducible evaluations for reasoning benchmarks. It outlines how we guard against data leakage, overfitting, prompt abuse, and schema drift — aligning with best practices used by frontier labs like Scale AI and Anthropic.

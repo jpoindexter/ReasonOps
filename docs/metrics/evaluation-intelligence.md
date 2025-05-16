@@ -1,3 +1,8 @@
+---
+title: "evaluation-intelligence"
+status: "draft"
+---
+
 # 🧠 Evaluation Intelligence Metrics (PARITY++ Layer)
 
 This document defines advanced reasoning metrics for ReasonOps that power reviewer analytics, rubric evolution, and LLM evaluation benchmarking. These metrics go beyond basic score tracking to offer explainable, team-scale insights into the reasoning process.

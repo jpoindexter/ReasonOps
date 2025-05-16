@@ -1,3 +1,8 @@
+---
+title: "LICENSE"
+status: "draft"
+---
+
 MIT License
 
 Copyright (c) 2025 THEFT Studio

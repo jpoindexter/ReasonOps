@@ -1,3 +1,8 @@
+---
+title: "schema"
+status: "draft"
+---
+
 # Schema: environment
 
 ## JSON Structure

@@ -1,3 +1,8 @@
+---
+title: "schema"
+status: "draft"
+---
+
 # Schema: comparison
 
 ## JSON Structure

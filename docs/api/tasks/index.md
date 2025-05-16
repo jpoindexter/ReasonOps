@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧾 Task API Reference
 
 This document defines the ReasonOps API endpoint for creating a new reasoning task. A Task serves as the starting point for all reasoning evaluations, LLM completions, and scoring workflows.

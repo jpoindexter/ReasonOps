@@ -1,3 +1,8 @@
+---
+title: "usage"
+status: "draft"
+---
+
 # 📄 Completion Usage Guide
 
 This document outlines how `Completion` entities are generated, managed, and used throughout the ReasonOps platform.

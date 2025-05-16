@@ -1,3 +1,8 @@
+---
+title: "model"
+status: "draft"
+---
+
 # 🧾 Task Model
 
 The `Task` entity represents a user-defined reasoning challenge intended for LLM evaluation. It is the core unit of input to ReasonOps, and the anchor point for completions, evaluations, and scoring workflows.

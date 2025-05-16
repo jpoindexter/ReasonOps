@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # ▲ ReasonOps Vercel Deployment Guide
 
 This document provides a production-ready deployment strategy for ReasonOps using Vercel. Vercel is the recommended platform for fast CI/CD integration, zero-config scaling, and instant preview environments.

@@ -1,3 +1,8 @@
+---
+title: "step"
+status: "draft"
+---
+
 # 🧾 API Reference: Get Steps from Completion
 
 Returns a list of normalized reasoning steps derived from a previously submitted completion. This endpoint is used to evaluate and score each logical unit of an LLM-generated response.

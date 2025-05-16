@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 > 🧠 ReasonOps Context  
 Tasks in ReasonOps define reasoning objectives and expected logical boundaries. Evaluators assess how AI output aligns to these task definitions — step by step.
 

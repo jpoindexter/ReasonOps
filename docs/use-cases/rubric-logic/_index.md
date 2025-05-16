@@ -1,3 +1,8 @@
+---
+title: "_index"
+status: "draft"
+---
+
 # Rubric Logic
 
 > This directory contains ReasonOps use cases for **rubric logic**.

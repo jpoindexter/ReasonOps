@@ -1,3 +1,8 @@
+---
+title: "task"
+status: "draft"
+---
+
 # 🧾 API Reference: Create Task
 
 Creates a new evaluation task for reasoning-based judgment. A task defines a prompt, instructions, metadata, and a version scope for all attached completions and step scoring.

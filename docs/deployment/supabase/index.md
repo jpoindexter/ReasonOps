@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧩 Supabase Deployment & Configuration
 
 This document outlines how to set up and integrate Supabase for ReasonOps in local, staging, and production environments. Supabase provides the Postgres database, optional auth, and storage layer powering ReasonOps data workflows.

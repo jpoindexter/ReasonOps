@@ -1,3 +1,8 @@
+---
+title: "rubrics-claude"
+status: "draft"
+---
+
 # 🧠 Claude-Specific Scoring Rubric
 
 This document defines the scoring rubric and structured prompt format used when Claude is acting as a step-level reasoning evaluator within ReasonOps. This supports consistent, explainable, and reproducible judgments across tasks.

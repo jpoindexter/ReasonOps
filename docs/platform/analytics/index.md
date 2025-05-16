@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # Analytics & Observability Framework
 
 ## Purpose

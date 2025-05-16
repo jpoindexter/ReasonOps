@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧠 Completion API Reference
 
 This document defines the ReasonOps API endpoint responsible for generating model completions from a submitted `Task`. A Completion represents the full text response returned by a selected LLM (Claude, GPT, or Ollama) given a Task's `prompt`.

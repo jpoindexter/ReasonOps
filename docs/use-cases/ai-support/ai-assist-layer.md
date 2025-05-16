@@ -1,3 +1,8 @@
+---
+title: "ai-assist-layer"
+status: "draft"
+---
+
 # User Story: Ai Assist Layer
 
 ## 🧠 ReasonOps Context

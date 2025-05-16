@@ -1,3 +1,8 @@
+---
+title: "scoring"
+status: "draft"
+---
+
 # 🧠 Scoring Prompt Guide
 
 This document defines the standardized format, structure, and usage of prompts used to evaluate LLM reasoning steps in ReasonOps. Scoring prompts enable both human and automated systems (e.g., Claude, GPT) to assess reasoning quality in a structured and reproducible format.

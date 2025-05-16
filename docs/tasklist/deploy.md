@@ -1,3 +1,8 @@
+---
+title: "deploy"
+status: "draft"
+---
+
 # 🚀 Deployment Checklist (Enterprise-Grade)
 
 This document defines the production-grade deployment and release process for ReasonOps. It ensures consistent infrastructure, auditability, and a clean MVP launch standard.

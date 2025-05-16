@@ -1,3 +1,8 @@
+---
+title: "mvp-file-map"
+status: "draft"
+---
+
 # MVP File Map
 
 This document maps each phase of the MVP to the exact files and directories involved in ReasonOps. Use this as a source of truth for navigation and implementation tracking.

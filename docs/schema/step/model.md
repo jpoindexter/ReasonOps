@@ -1,3 +1,8 @@
+---
+title: "model"
+status: "draft"
+---
+
 # 🪜 Step Model
 
 The `Step` entity represents a single reasoning unit parsed from a model-generated `Completion`. Steps allow granular evaluation of logic, clarity, and coherence — enabling human or LLM-based scoring of individual reasoning segments.

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🔐 ReasonOps Environment Variable Reference
 
 This document defines all required and optional environment variables for ReasonOps across development, staging, and production environments. These variables control API access, authentication, model invocation, and telemetry behavior.

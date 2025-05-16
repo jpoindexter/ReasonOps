@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🚀 ReasonOps Deployment Architecture
 
 This directory defines the deployment strategy and infrastructure management practices for ReasonOps. It covers local development, cloud deployment, environment variables, CI/CD, secret handling, and monitoring.

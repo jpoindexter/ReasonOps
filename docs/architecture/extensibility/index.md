@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧩 ReasonOps Extensibility Architecture
 
 This document outlines the extensibility strategy for ReasonOps — allowing for modular evaluation workflows, plugin adapters, and future integrations with custom scoring engines, model adapters, and export workflows.

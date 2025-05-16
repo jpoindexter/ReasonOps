@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # Reviewer Agreement Matrix
 
 The Reviewer Agreement Matrix is an admin-facing heatmap tool designed to surface task-level disagreement zones and reviewer reliability patterns. It is a key component of quality assurance and inter-reviewer calibration.

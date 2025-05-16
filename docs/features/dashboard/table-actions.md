@@ -1,3 +1,8 @@
+---
+title: "table-actions"
+status: "draft"
+---
+
 # Table Actions
 
 Describes UI actions available in the dashboard list view:

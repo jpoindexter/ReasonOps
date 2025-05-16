@@ -1,3 +1,8 @@
+---
+title: "_index"
+status: "draft"
+---
+
 # Ai Support
 
 > This directory contains ReasonOps use cases for **ai support**.

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 📚 ReasonOps Guides
 
 This folder contains detailed walkthroughs and implementation guides for internal and external ReasonOps contributors. These documents help explain how to extend, customize, or reason about system components beyond what the API or schema references offer.

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🏗 ReasonOps On-Prem Deployment Guide
 
 This document outlines the strategy for deploying ReasonOps in on-premise, self-managed, or private cloud environments. It supports custom hosting scenarios outside of Vercel, including Docker, NGINX, Railway, Render, or ECS.

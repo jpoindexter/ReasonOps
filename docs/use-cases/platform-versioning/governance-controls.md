@@ -1,3 +1,8 @@
+---
+title: "governance-controls"
+status: "draft"
+---
+
 # User Story: Governance Controls
 
 ## 🧠 ReasonOps Context

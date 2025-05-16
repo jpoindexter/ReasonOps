@@ -1,3 +1,8 @@
+---
+title: "system"
+status: "draft"
+---
+
 # Analytics Architecture (Enterprise-Ready)
 
 // TODO: Track reviewer scoring stats, funnels, heatmaps, QA reports

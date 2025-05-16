@@ -1,3 +1,8 @@
+---
+title: "reasoning-metrics"
+status: "draft"
+---
+
 # User Story: Reasoning Metrics
 
 ## 🧠 ReasonOps Context

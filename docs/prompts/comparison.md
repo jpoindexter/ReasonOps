@@ -1,3 +1,8 @@
+---
+title: "comparison"
+status: "draft"
+---
+
 # ⚖️ Multi-Model & Response Comparison Prompts
 
 This document defines how ReasonOps supports prompt design for comparing multiple LLM completions — either across different models or prompt variants. This enables head-to-head benchmarking, preference tuning, or judgment-based selection of better reasoning.

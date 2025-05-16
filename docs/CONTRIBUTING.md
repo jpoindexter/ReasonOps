@@ -1,3 +1,8 @@
+---
+title: "CONTRIBUTING"
+status: "draft"
+---
+
 # 🤝 Contributing to ReasonOps
 
 Welcome to the ReasonOps team. This document outlines our contributor guidelines, tooling expectations, and merge contract.

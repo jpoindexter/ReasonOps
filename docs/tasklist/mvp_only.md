@@ -1,3 +1,8 @@
+---
+title: "mvp_only"
+status: "draft"
+---
+
 # 🚀 ReasonOps MVP Checklist: Enterprise Execution Edition
 
 > ℹ️ **See Also**:  

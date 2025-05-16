@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 > 🧠 ReasonOps Context  
 ReasonOps is a platform for evaluating reasoning quality in AI — step-by-step. It helps users inspect, score, tag, and export logical traces to improve reliability.
 

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🔐 ReasonOps Auth API (Planned)
 
 This document defines the planned authentication and access control API surface for ReasonOps. While current endpoints are open for development, these auth layers will govern user access, team roles, scoring attribution, and secure API usage in production.

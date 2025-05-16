@@ -1,3 +1,8 @@
+---
+title: "ollama-model-map"
+status: "draft"
+---
+
 # 🧠 Ollama Model Integration (Local LLMs for ReasonOps)
 
 ReasonOps supports using local models via Ollama to power:

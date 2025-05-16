@@ -1,3 +1,8 @@
+---
+title: "scoring"
+status: "draft"
+---
+
 # 📝 Judgment Scoring Guide
 
 This document defines how reasoning `Step`s are evaluated in ReasonOps using the `Judgment` entity. Judgments are assigned by either human reviewers or AI scoring agents to assess the logical quality of individual reasoning steps in a Completion.

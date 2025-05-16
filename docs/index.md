@@ -1,3 +1,8 @@
+---
+title: "INDEX"
+status: "draft"
+---
+
 # 📚 ReasonOps Documentation Index
 
 Welcome to the ReasonOps enterprise documentation suite. This index provides categorized access to platform architecture, evaluation workflows, reviewer tools, scoring models, and governance specifications.

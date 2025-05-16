@@ -1,3 +1,8 @@
+---
+title: "_index"
+status: "draft"
+---
+
 # Platform Versioning
 
 > This directory contains ReasonOps use cases for **platform versioning**.

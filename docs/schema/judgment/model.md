@@ -1,3 +1,8 @@
+---
+title: "model"
+status: "draft"
+---
+
 # 📝 Judgment Model
 
 The `Judgment` entity represents the structured evaluation of a single reasoning `Step`. Judgments allow ReasonOps to score each step in a multi-step LLM completion using human reviewers or automated LLM-based agents.

@@ -1,3 +1,8 @@
+---
+title: "examples"
+status: "draft"
+---
+
 # 🧾 Task Schema — Example Payloads
 
 This document provides real-world JSON examples for the `Task` entity. Tasks define what to evaluate, which model to run, and how completions are tracked and scored.

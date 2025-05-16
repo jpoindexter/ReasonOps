@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧱 ReasonOps Architecture Overview
 
 This directory defines the architectural foundation of ReasonOps — a production-grade platform for evaluating LLM-generated reasoning.

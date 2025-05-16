@@ -1,3 +1,8 @@
+---
+title: "task"
+status: "draft"
+---
+
 # 📝 Task Prompt Design Guide
 
 This document defines the standards and patterns for designing task-level prompts in ReasonOps. A Task prompt initiates an LLM response and anchors all subsequent reasoning, scoring, and evaluation workflows.

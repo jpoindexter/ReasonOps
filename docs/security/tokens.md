@@ -1,3 +1,8 @@
+---
+title: "tokens"
+status: "draft"
+---
+
 # 🔑 Reviewer Tokens & API Key Management
 
 This document describes how ReasonOps manages scoped access to its APIs using secure, reviewer-tied tokens. Tokens are used to authenticate programmatic agents such as LLMs, evaluation bots, or CI exports.

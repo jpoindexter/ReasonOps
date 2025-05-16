@@ -1,3 +1,8 @@
+---
+title: "error-tagging"
+status: "draft"
+---
+
 # User Story: Error Tagging
 
 ## 🧠 ReasonOps Context

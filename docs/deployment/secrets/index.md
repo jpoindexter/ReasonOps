@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🔐 ReasonOps Secrets Management
 
 This document outlines best practices for managing API keys, authentication tokens, and environment secrets across local, staging, and production environments in ReasonOps.

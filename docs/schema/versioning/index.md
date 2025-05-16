@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🗂️ ReasonOps Schema + Data Versioning Guide
 
 This document defines the versioning strategy for the ReasonOps schema and reasoning data pipeline. It ensures immutability, auditability, and compatibility across UI, API, evaluation, and dataset workflows.

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 📊 ReasonOps Dashboard — Full Feature Specification
 
 This document provides an enterprise-grade, production-ready breakdown of all dashboard-level features in ReasonOps. It includes component behavior, filter options, user role visibility, and connected data logic.

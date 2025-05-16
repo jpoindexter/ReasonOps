@@ -1,3 +1,8 @@
+---
+title: "scoring"
+status: "draft"
+---
+
 # 🪜 Step Scoring Guide
 
 This document outlines how reasoning `Step`s are evaluated in the ReasonOps platform. Each Step is scored to assess the logical soundness, clarity, and truthfulness of the model's reasoning — either by human reviewers or AI scoring agents.

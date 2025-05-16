@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 📊 ReasonOps Monitoring & Observability
 
 This document outlines the monitoring, logging, and observability strategy for ReasonOps across staging and production environments. These systems ensure platform health, uptime, scoring traceability, and issue response readiness.

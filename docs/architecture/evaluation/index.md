@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧠 ReasonOps Evaluation Architecture
 
 This document describes the reasoning evaluation layer in ReasonOps — how AI-generated completions are parsed, scored, and exported as structured, trustable data for fine-tuning and model assessment.

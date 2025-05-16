@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 > 🧠 ReasonOps Context  
 ReasonOps is a judgment-first evaluation platform built to answer one question: did this AI reason well? Strategy here aligns all tooling to that mission.
 

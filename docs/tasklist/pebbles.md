@@ -1,3 +1,8 @@
+---
+title: "pebbles"
+status: "draft"
+---
+
 # 🪨 Midlayer Infrastructure Tasks ("Pebbles")
 
 This module defines the full ReasonOps task track for frontend components, adapters, and export infrastructure. These tasks sit between core logic (rocks) and polish (sand) and form the execution bridge between model evaluation and product delivery.

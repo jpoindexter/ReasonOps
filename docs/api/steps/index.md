@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 > 🧠 ReasonOps Context  
 Each reasoning step in ReasonOps captures a discrete unit of logic in an AI trace. Steps are judged on their contribution to overall coherence, truth alignment, and justification.
 

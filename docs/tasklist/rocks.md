@@ -1,3 +1,8 @@
+---
+title: "rocks"
+status: "draft"
+---
+
 # 🧱 Core System Tasks ("Rocks")
 
 This track covers ReasonOps' core reasoning engine, including LLM orchestration, scoring services, API interfaces, and step judgment pipelines. These modules must function end-to-end, meet schema guarantees, and integrate cleanly with dataset output and audit systems.

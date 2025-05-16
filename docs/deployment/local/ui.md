@@ -1,3 +1,8 @@
+---
+title: "ui"
+status: "draft"
+---
+
 # UI Component & Telemetry Integration: Local Deployment Specification
 
 ## Overview

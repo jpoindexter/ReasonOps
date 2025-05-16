@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🧠 ReasonOps Platform Specification (PARITY++)
 
 This document defines the core architecture and feature map for ReasonOps as a full-featured, AI-native, reviewer-first LLM evaluation platform. It reflects parity with LangSmith, Labelbox, and HumanLoop — plus additional Figma-style UX, extensibility, and reasoning intelligence capabilities.

@@ -1,3 +1,8 @@
+---
+title: "index"
+status: "draft"
+---
+
 # 🔗 ReasonOps Entity Relationships
 
 This document defines the core relationships between schema entities in ReasonOps. Understanding these links is critical for reasoning pipelines, UI rendering, scoring logic, and export formatting.

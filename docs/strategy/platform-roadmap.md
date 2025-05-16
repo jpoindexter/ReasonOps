@@ -1,3 +1,8 @@
+---
+title: "platform-roadmap"
+status: "draft"
+---
+
 # 🧠 ReasonOps Platform Roadmap (PARITY++ Master Spec)
 
 This roadmap defines all critical features for building ReasonOps as a category-defining reasoning evaluation platform. It includes features from core human-AI evaluation flows, reviewer collaboration, extensibility infrastructure, and long-term ecosystem plays.

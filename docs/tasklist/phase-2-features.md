@@ -1,3 +1,8 @@
+---
+title: "phase-2-features"
+status: "draft"
+---
+
 # 🚀 ReasonOps — Phase 2 Feature Roadmap
 
 This document captures the next wave of ReasonOps features beyond the MVP launch. These features enable platform scalability, team collaboration, reviewer extensibility, and enterprise monetization — supporting our vision as the Figma for LLM reasoning evaluation.

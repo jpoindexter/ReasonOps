@@ -1,3 +1,8 @@
+---
+title: "scoring-rubric-implementation"
+status: "draft"
+---
+
 # User Story: Scoring Rubric Implementation
 
 ## 🧠 ReasonOps Context

@@ -1,4 +1,5 @@
 ---
+status: "draft"
 title: Project Setup & Onboarding
 description: Full setup, scaffolding, and contributor onboarding process for ReasonOps platform.
 sidebar_label: Setup
