@@ -1,24 +1,26 @@
-# Build output
+# Build outputs
 .next/
 dist/
 out/
+.vite/
+.vercel/
 
-# Cypress (if used)
+# Cypress
 cypress/screenshots/
 cypress/videos/
 
-# Editor folders
+# Editor
 .idea/
 .vscode/
+*.code-workspace
 
-# Env files
+# Environment variables
 .env
-.env.development.local
 .env.local
-.env.production.local
-.env.test.local
+.env.*.local
 
 # Logs
+lerna-debug.log
 npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
@@ -27,122 +29,22 @@ yarn-error.log*
 # Node modules
 node_modules/
 
-# OS files
+# OS/system files
 .DS_Store
 Thumbs.db
 
-# Playwright (if used)
+# Playwright
 playwright-report/
 test-results/
 
-# Supabase local files
+# Supabase
 supabase/.temp/
 supabase/migrations/.history/
 
 # Testing
 coverage/
 .nyc_output/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Vim swap files
-*.swp
-*.swo
-
-# Turbo repo cache (optional monorepo support)
-.turbo/
-# OS/system files
-.DS_Store
-Thumbs.db
-
-# Dependency directories
-node_modules/
-
-# Build output
-.next/
-dist/
-out/
-.vite/
-.vercel/
-
-# Editor configs
-.idea/
-.vscode/
-*.code-workspace
-
-# Env vars
-.env
-.env.*.local
-
-# Logs
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log
-
-# TypeScript
-*.tsbuildinfo
-
-# Test outputs
-coverage/
-.nyc_output/
-playwright-report/
-test-results/
 vitest-report.html
-
-# Test frameworks
-cypress/screenshots/
-cypress/videos/
-supabase/.temp/
-supabase/migrations/.history/
-
-# Monorepo / TurboRepo / Task runners
-.turbo/
-.cache/
-.pnpm-store/
-# Build output
-.next/
-dist/
-out/
-.vite/
-.vercel/
-
-# Test outputs
-coverage/
-.nyc_output/
-playwright-report/
-test-results/
-vitest-report.html
-
-# Test frameworks
-cypress/screenshots/
-cypress/videos/
-
-# Editor folders and configs
-.idea/
-.vscode/
-*.code-workspace
-
-# Env files
-.env
-.env.local
-.env.*.local
-
-# Logs
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log
-
-# Node modules
-node_modules/
-
-# OS/system files
-.DS_Store
-Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
@@ -151,11 +53,10 @@ Thumbs.db
 *.swp
 *.swo
 
-# Supabase
-supabase/.temp/
-supabase/migrations/.history/
-
 # Monorepo / TurboRepo / Task runners
 .turbo/
 .cache/
 .pnpm-store/
+
+# Matomo vendor packages
+matomo/vendor/
