@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mariadb:10.5
+    container_name: matomo-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: reasonops
+      MYSQL_USER: jpoindexter
+      MYSQL_PASSWORD: strongpass
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  matomo:
+    image: matomo:latest
+    container_name: matomo
+    ports:
+      - '8080:80'
+    volumes:
+      - matomo-data:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      MATOMO_DATABASE_HOST: mysql
+      MATOMO_DATABASE_ADAPTER: MYSQL
+      MATOMO_DATABASE_TABLES_PREFIX: matomo_
+      MATOMO_DATABASE_USERNAME: jpoindexter
+      MATOMO_DATABASE_PASSWORD: dontforgetme
+      MATOMO_DATABASE_DBNAME: reasonops
+
+volumes:
+  mysql-data:
+  matomo-data:

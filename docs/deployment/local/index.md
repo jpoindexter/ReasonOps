@@ -23,6 +23,7 @@ Running ReasonOps locally enables:
 | pnpm              | >=8.x              |
 | Supabase CLI      | >=1.100.0          |
 | Ollama (optional) | Local model server |
+| Matomo (optional) | Self-hosted        |
 
 ---
 
@@ -46,6 +47,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=dev-anon-key
 OPENAI_API_KEY=sk-abc...
 CLAUDE_API_KEY=sk-abc...
 DEPLOY_ENV=local
+NEXT_PUBLIC_DISABLE_ANALYTICS=false
 ```
 
 > ⚠️ Do not commit `.env.local` — it is Git-ignored by default.
@@ -105,6 +107,41 @@ Includes:
 - Schema validation tests (Zod)
 - UI snapshots (Vitest + Testing Library)
 - Export format conformance tests
+
+---
+
+## 🔒 Audit & Observability
+
+ReasonOps supports secure, production-grade telemetry in local development environments:
+
+- **Analytics Platform:** Matomo (self-hosted or on-prem)
+- **Tracker Implementation:** `shared/lib/analytics.ts`
+- **Runtime Type Validation:** All tracked events use Zod schemas for strict shape validation
+- **Secure Transmission:** Events are POSTed to `http://localhost:8080/matomo.php` (use HTTPS in prod)
+- **Stability Guarantees:** Analytics failures are captured silently, ensuring uninterrupted UX
+- **Environment Control:** Analytics can be toggled with a `.env.local` variable
+
+### Verify Local Analytics
+
+1. Start the Matomo container (`docker-compose up -d`)
+2. Visit [http://localhost:8080](http://localhost:8080) and check the dashboard
+3. Trigger sample events via:
+
+   ```ts
+   import { trackEvent } from '@shared/lib/analytics';
+
+   trackEvent({ name: 'Page Viewed', properties: { route: '/dashboard' } });
+   ```
+
+### Disable Analytics in Dev
+
+Add the following to `.env.local`:
+
+```env
+NEXT_PUBLIC_DISABLE_ANALYTICS=true
+```
+
+This disables all outbound telemetry for local testing or privacy isolation.
 
 ---
 

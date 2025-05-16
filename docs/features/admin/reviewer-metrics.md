@@ -71,7 +71,7 @@ All graphs include:
 
 ---
 
-## SAP Enterprise Standards
+## ✅ Enterprise Requirements
 
 ✅ Role-based visibility  
 ✅ Filter + slice support  

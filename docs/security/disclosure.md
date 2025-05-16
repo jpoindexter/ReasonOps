@@ -1,6 +1,6 @@
 # 🛡 Vulnerability Disclosure Policy
 
-ReasonOps values the input of security researchers and ethical hackers in identifying potential vulnerabilities in our system. This document outlines our coordinated disclosure policy.
+ReasonOps values the input of security researchers and ethical hackers in identifying potential vulnerabilities in our system. This document outlines our coordinated disclosure policy, in alignment with industry standards such as ISO 29147 and NIST SP 800-115.
 
 ---
 
@@ -11,6 +11,8 @@ If you discover a security vulnerability, please report it via email:
 ```
 security@reasonops.io
 ```
+
+We support encrypted submissions. Request our PGP key by emailing `security@reasonops.io` with subject: `PGP Request`.
 
 Include as much detail as possible, such as:
 
@@ -24,14 +26,14 @@ Include as much detail as possible, such as:
 
 ## ⏱ Response Process
 
-| Stage               | Timeline                                       |
-| ------------------- | ---------------------------------------------- |
-| Acknowledgement     | Within 3 business days                         |
-| Triage + validation | Within 7 business days                         |
-| Fix deployment      | Within 30 days (or sooner for critical issues) |
-| Credit / disclosure | Public changelog (if permitted)                |
+| Stage               | Timeline                                             |
+| ------------------- | ---------------------------------------------------- |
+| Acknowledgement     | Within 1 business day (automated), 3 days (manual)   |
+| Triage + validation | Within 5 business days (priority-based)              |
+| Fix deployment      | Within 14 days for critical, 30 days max             |
+| Credit / disclosure | Public changelog and CVE registration (if permitted) |
 
-We commit to keeping you informed throughout the process.
+Each step is logged and tracked in our internal audit workflow. High severity reports may trigger escalation to our Incident Response Committee within 24 hours.
 
 ---
 
@@ -45,7 +47,9 @@ We welcome reports for:
 - CSRF, SSRF, XSS
 - RLS misconfigurations
 - Export path leakage
-- Any other behavior that violates expected security boundaries
+- Misuse of service accounts
+- Abuse of evaluation or export mechanisms
+- Any behavior that violates expected security or governance boundaries
 
 ---
 
@@ -61,15 +65,28 @@ The following are not considered security issues:
 
 ---
 
-## 🧾 Licensing & Safe Harbor
+## 🧾 Licensing, Safe Harbor & Compliance
 
 We consider good-faith security research to be exempt from any violation of our Acceptable Use Policy or license agreement.
 
-By disclosing responsibly, you are granted:
+By disclosing responsibly:
 
-- Safe harbor from DMCA or licensing enforcement
-- Credit in release notes (if desired)
-- Acknowledgement as part of our security improvement cycle
+- You are granted Safe Harbor from DMCA and licensing enforcement.
+- Your findings are logged in our internal audit register.
+- Credit in release notes and security bulletins (if desired).
+- Compliance is reviewed under ISO 29147-aligned protocols.
+- All disclosures are archived and accessible during SOC 2 / ISO 27001 audits.
+
+---
+
+## 🔐 Compliance & Audit Trail
+
+All disclosures are:
+
+- Assigned a unique identifier and timestamp
+- Retained for a minimum of 24 months
+- Audited quarterly by internal security operations
+- Included in external assessments if customer-facing systems are impacted
 
 ---
 

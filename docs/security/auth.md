@@ -11,6 +11,17 @@ This document defines the authentication system, reviewer roles, and security po
 - Sessions: JWT token-based with auto-refresh
 - Session retrieval: `supabase.auth.getSession()`
 
+## 🧩 Multi-Tiered Auth Architecture
+
+ReasonOps uses a tiered auth system to support operational safety, analytics, and cross-tenant guarantees:
+
+- **Primary Auth Layer**: Supabase Auth (email/password or magic link) with rotating JWTs
+- **Session Middleware**: JWTs parsed at app shell and edge API, decoded roles attached to request context
+- **Operational Context**: Every session includes an `orgId`, `reviewerId`, and time-signed `sessionScope` validated via middleware
+- **Internal Services**: Auth headers validated in Fastify/Edge handlers with explicit role+resource checks
+
+This ensures decoupled privilege validation, isolatable audit logs, and forward compatibility with workload-based tokens.
+
 ---
 
 ## 👥 Role-Based Access Control (RBAC)
@@ -39,6 +50,7 @@ For service access (LLM, agents, internal tools), ReasonOps supports **reviewer-
 - Stored in `reviewer_tokens` table
 - Tokens are attached to `reviewerId` + usage scope
 - Managed in Supabase Studio or internal admin tools
+- All tokens are scope-restricted and time-bound; misuse is detected and revoked via Postgres triggers
 
 ---
 
@@ -51,6 +63,8 @@ Each Supabase table defines RLS policies. Examples:
 - `judgments`: Reviewer must match the `step.reviewerId`
 
 RLS is enforced automatically by Supabase on all direct table access from frontend or API.
+
+Each policy includes structured comments and is validated with automated tests against privilege escalation. Change approvals require dual-role signoff (admin + security lead) in CI before deployment.
 
 ---
 
@@ -70,3 +84,13 @@ RLS is enforced automatically by Supabase on all direct table access from fronte
 - [tokens.md](./tokens.md) — Token structure, generation, and revocation
 - [deployment/env.md](../deployment/env.md) — Secure `.env` management
 - [judgment.md](../api-reference/judgment.md) — Authenticated scoring endpoint
+
+---
+
+## 🧮 Audit & Traceability
+
+- Every auth token use is logged to a `token_usage_log` table with timestamp, IP, user agent, and matched rule
+- Admins can replay access attempts via internal audit dashboards
+- Reviewer data access is wrapped in an `access_log` Postgres function that appends signed context
+
+These controls allow ReasonOps to meet enterprise standards for traceability, incident response, and regulatory audit.

@@ -1,0 +1,676 @@
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % touch docker-compose.yml
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % docker-compose up -d
+WARN[0000] /Users/jasonpoindexter/Documents/GitHub/ReasonOps/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Running 9/9
+ ✔ mysql Pulled                                       5.4s 
+   ✔ 6cf7fc23f330 Pull complete                       0.6s 
+   ✔ 40586c3e1976 Pull complete                       0.6s 
+   ✔ 8d4f5f48dd26 Pull complete                       0.3s 
+   ✔ ecd83b6c3544 Pull complete                       2.0s 
+   ✔ 8f6b9b5adf18 Pull complete                       0.7s 
+   ✔ e3cdbb02b6a8 Pull complete                       0.6s 
+   ✔ 2cee1b6df15e Pull complete                       2.1s 
+   ✔ 95ffc3e5b4d5 Pull complete                       3.2s 
+[+] Running 4/5
+ ✔ Network reasonops_default       Created            0.0s 
+ ✔ Volume "reasonops_mysql-data"   Created            0.0s 
+ ✔ Volume "reasonops_matomo-data"  Created            0.0s 
+ ✔ Container matomo-mysql          Created            0.2s 
+ ⠋ Container matomo                Creating           0.0s 
+Error response from daemon: Conflict. The container name "/matomo" is already in use by container "649486c45c75fdbfdb1856b885dcb173e7b99446953ee65c00aa0556aae4d627". You have to remove (or rename) that container to be able to reuse that name.
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % docker rm -f matomo
+matomo
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % docker-compose up -d
+WARN[0000] /Users/jasonpoindexter/Documents/GitHub/ReasonOps/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Running 2/2
+ ✔ Container matomo        Star...                    0.2s 
+ ✔ Container matomo-mysql  Started                    0.1s 
+jasonpoindexter@Jasons-MacBook-Pro ReasonOps % cd docs
+jasonpoindexter@Jasons-MacBook-Pro docs % tree
+.
+├── access.md
+├── api
+│   ├── access.md
+│   ├── auth
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── completions
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── export
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── index.md
+│   ├── judgments
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── README
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── schema.md
+│   ├── steps
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── tasks
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   └── ui.md
+├── api-reference
+│   ├── access.md
+│   ├── index.md
+│   ├── judgment
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── judgment.md
+│   ├── README.md
+│   ├── schema.md
+│   ├── step
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── step.md
+│   ├── task
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── task.md
+│   └── ui.md
+├── architecture
+│   ├── access.md
+│   ├── adapters
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── evaluation
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── export
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── extensibility
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── index.md
+│   ├── README
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── reasonops-platform-spec
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── schema.md
+│   ├── ui.md
+│   └── versioning
+│       ├── access.md
+│       ├── index.md
+│       ├── schema.md
+│       └── ui.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── deployment
+│   ├── access.md
+│   ├── cicd
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── env
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── index.md
+│   ├── local
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── monitoring
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── on-prem
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── README
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── schema.md
+│   ├── secrets
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── supabase
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── ui.md
+│   └── vercel
+│       ├── access.md
+│       ├── index.md
+│       ├── schema.md
+│       └── ui.md
+├── examples
+│   ├── access.md
+│   ├── completion.json
+│   ├── index.md
+│   ├── judgment.json
+│   ├── README.md
+│   ├── schema.md
+│   ├── steps.json
+│   ├── task.json
+│   └── ui.md
+├── features
+│   ├── _tracker.md
+│   ├── access.md
+│   ├── admin
+│   │   ├── access.md
+│   │   ├── agreement-matrix
+│   │   │   ├── access.md
+│   │   │   ├── extensibility.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── index.md
+│   │   ├── reviewer-metrics
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── reviewer-metrics.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── capability-map.md
+│   ├── dashboard
+│   │   ├── access.md
+│   │   ├── components
+│   │   │   ├── access.md
+│   │   │   ├── export-panel
+│   │   │   │   ├── access.md
+│   │   │   │   ├── index.md
+│   │   │   │   ├── schema.md
+│   │   │   │   └── ui.md
+│   │   │   ├── export-panel.md
+│   │   │   ├── feature_list.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   ├── task-list
+│   │   │   │   ├── access.md
+│   │   │   │   ├── index.md
+│   │   │   │   ├── schema.md
+│   │   │   │   └── ui.md
+│   │   │   ├── task-list.md
+│   │   │   └── ui.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── export
+│   │   ├── access.md
+│   │   ├── export-ci-snapshot
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── export-ci-snapshot.md
+│   │   ├── export-readiness
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── export-readiness.md
+│   │   ├── index.md
+│   │   ├── jsonl-preview
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── jsonl-preview.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── feature-spec
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── index.md
+│   ├── onboarding
+│   │   ├── access.md
+│   │   ├── flow
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── flow.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── reviewer
+│   │   ├── access.md
+│   │   ├── calibration-mode
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── calibration-mode.md
+│   │   ├── history-viewer
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── history-viewer.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── rubric
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── inline-help
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── inline-help.md
+│   │   ├── rubric-versioning
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── rubric-versioning.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── schema.md
+│   ├── scoring
+│   │   ├── access.md
+│   │   ├── confidence-toggles
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── confidence-toggles.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   ├── score-consensus
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── score-consensus.md
+│   │   ├── step-annotator
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── step-annotator.md
+│   │   └── ui.md
+│   ├── search
+│   │   ├── access.md
+│   │   ├── global-search
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── global-search.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── session
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── log-review-event
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── log-review-event.md
+│   │   ├── logout-behavior
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── logout-behavior.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   └── ui.md
+│   ├── showcase
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── schema.yaml
+│   │   ├── share-links
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── share-links.md
+│   │   └── ui.md
+│   └── ui.md
+├── GETTING_STARTED.md
+├── guides
+│   ├── access.md
+│   ├── advanced
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── inter-reviewer-agreement.md
+│   │   ├── reviewer-analytics.md
+│   │   ├── schema.md
+│   │   ├── snapshot-validation.md
+│   │   ├── ui.md
+│   │   └── versioning-strategy.md
+│   ├── benchmark-integrity
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── export-flow
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── index.md
+│   ├── README
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── schema.md
+│   ├── scoring-panel
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   └── ui.md
+├── index.md
+├── licensing
+│   ├── access.md
+│   ├── index.md
+│   ├── LICENSE.md
+│   ├── schema.md
+│   └── ui.md
+├── metrics
+│   ├── access.md
+│   ├── evaluation-intelligence.md
+│   ├── index.md
+│   ├── schema.md
+│   └── ui.md
+├── models
+│   ├── access.md
+│   ├── index.md
+│   ├── ollama-model-map.md
+│   ├── schema.md
+│   └── ui.md
+├── platform
+│   ├── access
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── org-invites.md
+│   │   ├── role-matrix.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── access.md
+│   ├── analytics
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── posthog
+│   │   │   ├── access.md
+│   │   │   ├── index.md
+│   │   │   ├── schema.md
+│   │   │   └── ui.md
+│   │   ├── schema.md
+│   │   ├── system.md
+│   │   └── ui.md
+│   ├── billing
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── plan-tiers.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── config
+│   │   ├── access.md
+│   │   ├── env-modes.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── environment
+│   │   ├── access.md
+│   │   ├── feature-flags.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── governance
+│   │   ├── access.md
+│   │   ├── audit-log-spec.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── index.md
+│   ├── observability
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   ├── telemetry.md
+│   │   └── ui.md
+│   ├── schema.md
+│   ├── teams
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── reviewer-hierarchy.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   └── ui.md
+├── project
+│   └── mission_brief.md
+├── prompts
+│   ├── access.md
+│   ├── comparison.md
+│   ├── critique.md
+│   ├── index.md
+│   ├── README.md
+│   ├── rubrics-claude.md
+│   ├── rubrics-gpt.md
+│   ├── schema.md
+│   ├── scoring.md
+│   ├── task.md
+│   └── ui.md
+├── README.md
+├── ROADMAP.md
+├── schema
+│   ├── access.md
+│   ├── audit
+│   │   ├── access.md
+│   │   ├── audit-log-format.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── audit.md
+│   ├── comparison
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── model-version.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── completion
+│   │   ├── access.md
+│   │   ├── examples.md
+│   │   ├── index.md
+│   │   ├── model.md
+│   │   ├── schema.md
+│   │   ├── ui.md
+│   │   └── usage.md
+│   ├── dataset-format
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── index.md
+│   ├── judgment
+│   │   ├── access.md
+│   │   ├── examples.md
+│   │   ├── index.md
+│   │   ├── model.md
+│   │   ├── schema.md
+│   │   ├── scoring.md
+│   │   └── ui.md
+│   ├── README
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── relationships
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── reviewer
+│   │   ├── access.md
+│   │   ├── index.md
+│   │   ├── schema.md
+│   │   └── ui.md
+│   ├── schema.md
+│   ├── step
+│   │   ├── access.md
+│   │   ├── examples.md
+│   │   ├── index.md
+│   │   ├── model.md
+│   │   ├── schema.md
+│   │   ├── scoring.md
+│   │   ├── ui.md
+│   │   └── usage.md
+│   ├── task
+│   │   ├── access.md
+│   │   ├── examples.md
+│   │   ├── index.md
+│   │   ├── model.md
+│   │   ├── schema.md
+│   │   ├── ui.md
+│   │   └── usage.md
+│   ├── ui.md
+│   └── versioning
+│       ├── access.md
+│       ├── index.md
+│       ├── schema.md
+│       └── ui.md
+├── schema.md
+├── security
+│   ├── access.md
+│   ├── auth.md
+│   ├── disclosure.md
+│   ├── index.md
+│   ├── schema.md
+│   ├── SECURITY.md
+│   ├── tokens.md
+│   └── ui.md
+├── strategy
+│   ├── access.md
+│   ├── index.md
+│   ├── platform-roadmap.md
+│   ├── schema.md
+│   └── ui.md
+├── tasklist
+│   ├── access.md
+│   ├── deploy.md
+│   ├── index.md
+│   ├── mvp_only.md
+│   ├── mvp-file-map.md
+│   ├── pebbles.md
+│   ├── phase-2-features.md
+│   ├── rocks.md
+│   ├── sand.md
+│   ├── schema.md
+│   ├── setup.md
+│   ├── tracker.json
+│   └── ui.md
+├── ui.md
+└── use-cases
+    ├── ai-support
+    │   ├── _index.md
+    │   ├── ai-assist-layer.md
+    │   └── ai-support.md
+    ├── data-export
+    │   ├── _index.md
+    │   ├── data-export.md
+    │   └── export-pipeline.md
+    ├── error-analysis
+    │   ├── _index.md
+    │   └── error-tagging.md
+    ├── integration-ux
+    │   ├── _index.md
+    │   ├── integration-ux.md
+    │   └── tooling-interfaces.md
+    ├── meta-observability
+    │   ├── _index.md
+    │   ├── meta-observability.md
+    │   └── reasoning-metrics.md
+    ├── platform-versioning
+    │   ├── _index.md
+    │   ├── governance-controls.md
+    │   └── platform-versioning.md
+    ├── reasoning-validation
+    │   ├── _index.md
+    │   ├── evaluation-judgment-surface.md
+    │   ├── rubric-versioning-management.md
+    │   └── scoring-rubric-implementation.md
+    ├── reasoning-workflow
+    │   ├── _index.md
+    │   ├── evaluation-flow.md
+    │   └── reasoning-workflow.md
+    ├── review-process
+    │   ├── _index.md
+    │   ├── human-review.md
+    │   └── review-process.md
+    ├── reviewer-calibration
+    │   ├── _index.md
+    │   ├── calibration-controls.md
+    │   ├── evaluator-onboarding-process.md
+    │   ├── reviewer-calibration-workflow.md
+    │   └── reviewer-calibration.md
+    └── rubric-logic
+        ├── _index.md
+        ├── rubric-logic.md
+        └── rubric-management.md
+
+112 directories, 532 files
+jasonpoindexter@Jasons-MacBook-Pro docs % 

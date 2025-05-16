@@ -14,7 +14,7 @@
 
 # ✅ ReasonOps Feature Delivery Tracker
 
-Associated automated tests ensuring quality. Palintar/SAP-style capability tracking.
+Associated automated tests ensuring quality. Capability delivery is tracked across the full stack.
 
 ---
 

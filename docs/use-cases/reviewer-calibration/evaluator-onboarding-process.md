@@ -4,7 +4,7 @@
 
 ## 🎯 Objective
 
-- Establish a robust evaluator onboarding process that ensures high-quality and consistent evaluations across all users by providing comprehensive training, clear guidelines, and reliable auditing mechanisms.
+- Design and enforce a comprehensive evaluator onboarding process with operational rigor, enabling consistent, high-quality evaluations through structured training, rubric certification, audit-complete workflows, and SLA-grade tracking.
 
 ## 🧑‍💻 User Role(s)
 
@@ -12,21 +12,21 @@
 
 ## ✅ Acceptance Criteria
 
-- [ ] Detailed step-by-step onboarding process documented and accessible.
-- [ ] Full comprehension of rubric dimensions demonstrated by evaluators.
-- [ ] Scoring integrity maintained through standardized procedures.
-- [ ] Complete audit trail available for all evaluation activities.
-- [ ] Evaluators can successfully complete interactive training modules and evaluation simulations.
+- [ ] Onboarding SOP documented with verifiable checkpoints and version control.
+- [ ] Rubric comprehension demonstrated via scored scenario-based assessment (pass threshold ≥ 90%).
+- [ ] Scoring integrity maintained through inter-rater reliability > 0.85.
+- [ ] Immutable audit trail logged for every onboarding interaction and decision point.
+- [ ] Evaluators complete training modules and evaluation simulations with automated verification and error flagging.
 
 ## 📍 Steps to Implement
 
-1. Develop and document detailed onboarding materials, including rubric explanations and scoring guidelines.
-2. Create interactive training modules and evaluation simulations for hands-on learning.
-3. Define and implement onboarding APIs and schemas to support evaluator registration and progress tracking.
-4. Integrate scoring and tagging logic aligned with rubric standards.
-5. Establish audit logging mechanisms to capture evaluator actions and decisions.
-6. Implement analytics to monitor onboarding effectiveness and evaluator performance.
-7. Provide data export functionality for audit and review purposes.
+1. Draft onboarding SOP (standard operating procedure) with version control and timestamped checkpoints.
+2. Build interactive training modules tied to scenario grading logic.
+3. Define evaluator onboarding APIs with schema validation and automated milestone tracking.
+4. Integrate rubric-scoring pipelines with error thresholds and alerting.
+5. Capture structured audit logs with deterministic replayability of evaluator actions.
+6. Deploy analytics hooks for completion, progression velocity, and rubric performance.
+7. Provide exportable, queryable onboarding snapshots for compliance and QA review.
 
 ## 🔗 Dependencies & Integration Points
 
@@ -44,17 +44,17 @@
 
 ## 🧪 Testing & Validation
 
-- Conduct manual reviews of evaluator onboarding progress and rubric comprehension.
-- Implement automated tests verifying onboarding workflows and API integrations.
-- Measure inter-rater reliability (IRR) to ensure scoring consistency.
-- Validate audit logs for completeness and accuracy.
+- Run scored onboarding simulations and require ≥ 90% rubric alignment.
+- Execute unit and integration tests on onboarding APIs, training modules, and audit logging.
+- Measure IRR (inter-rater reliability) pre- and post-onboarding to detect training efficacy.
+- Perform log integrity audits on onboarding sessions using deterministic checksums.
 
 ## 📊 Metrics & Observability
 
-- Onboarding effectiveness measured by completion rates and assessment scores.
-- Scoring accuracy tracked through IRR and error rates.
-- Evaluator retention and engagement rates over time.
-- Audit trail completeness and timeliness.
+- Completion rate (target ≥ 95% within 5 days of evaluator registration).
+- IRR drift tracking (weekly deltas < 5%).
+- Evaluator dropout rate and module retry frequency.
+- Audit trail coverage (% of sessions with ≥ 3 checkpoints logged).
 
 ## 🔄 Feedback Loop
 

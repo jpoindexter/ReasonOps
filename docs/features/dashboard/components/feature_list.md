@@ -1,10 +1,10 @@
-# Evaluation Dashboard – Component Feature Map (Palantir-Level)
+# Evaluation Dashboard – Component Feature Map (Enterprise-Grade)
 
-This document outlines every visible component on the Evaluation Dashboard, with its purpose, behavior, contract, and usability rationale. This reflects Palantir-level fidelity and supports rapid development of the ReasonOps MVP.
+This document outlines every visible component on the Evaluation Dashboard, including its purpose, behavior, contract, and usability rationale. This reflects enterprise-grade fidelity and supports rapid development of the ReasonOps MVP.
 
 ---
 
-## 🧠 FULL ACTION MAP – EVALUATION DASHBOARD (PALANTIR-GRADE)
+## 🧠 FULL ACTION MAP – EVALUATION DASHBOARD (ENTERPRISE-GRADE)
 
 This section enumerates every distinct user-performable action in the Evaluation Dashboard. It reflects a task-oriented model of ReasonOps behavior, organized by intent, not by UI element. This ensures a complete understanding of available functionality from a workflow and system control perspective.
 

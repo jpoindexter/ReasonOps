@@ -2,7 +2,7 @@
 
 ## 🧠 ReasonOps Context
 
-This user story is part of the ReasonOps Palantir-level evaluation platform. It defines the core scoring rubric logic used across judgment workflows. The rubric allows AI and human evaluators to apply consistent, version-controlled criteria across step and task evaluation panels. It supports dynamic calibration, inline annotations, error detection, consensus scoring, and auditability to ensure accurate and explainable outputs.
+This user story is part of the ReasonOps high-assurance evaluation platform. It defines the core scoring rubric logic used across judgment workflows. The rubric allows AI and human evaluators to apply consistent, version-controlled criteria across step and task evaluation panels. It supports dynamic calibration, inline annotations, error detection, consensus scoring, and auditability to ensure accurate and explainable outputs.
 
 ## 🎯 Objective
 
