@@ -1,18 +1,22 @@
 ---
-title: "pebbles"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.999Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: pebbles
+type: doc
+updated: '2025-05-16T10:33:34.999Z'
+visibility: public
 ---
-
 # 🪨 Midlayer Infrastructure Tasks ("Pebbles")
-
 This module defines the full ReasonOps task track for frontend components, adapters, and export infrastructure. These tasks sit between core logic (rocks) and polish (sand) and form the execution bridge between model evaluation and product delivery.
-
 ---
-
 ## 🧠 PARITY++ Metric & Agent Infrastructure (Post-MVP)
-
 ### `backend/metrics/`
-
 - [ ] `computeReviewerMetrics.ts`
 - [ ] `reviewerDriftIndex.ts`
 - [ ] `rubricUsageHeatmap.ts`
@@ -22,37 +26,26 @@ This module defines the full ReasonOps task track for frontend components, adapt
 - [ ] `semanticRegressionDetector.ts`
 - [ ] `rubricScoreDrift.ts`
 - [ ] `rubricAdoptionRate.ts`
-
 ### `backend/services/`
-
 - [ ] `ReviewerInsightsService.ts`
 - [ ] `RubricAnalysisService.ts`
 - [ ] `ReviewerConsensusService.ts`
 - [ ] `ReviewerCollaborationService.ts`
-
 ### `backend/agents/`
-
 - [ ] `AutoEvaluatorAgent.ts`
 - [ ] `CritiqueRewriteAgent.ts`
 - [ ] `RubricExplainerAgent.ts`
 - [ ] `PromptSummarizerAgent.ts`
 - [ ] `AgentExecutionService.ts`
-
 ### `frontend/components/review/`
-
 - [ ] `ThreadsPanel.tsx`
 - [ ] `ConsensusBadge.tsx`
-
 ### `backend/exporters/finetune/`
-
 - [ ] `generateTrainJSONL.ts`
 - [ ] `taskCompletionJoin.ts`
 - [ ] `stepJudgmentJoin.ts`
-
 ## 🧱 UI Routes & Page Surfaces
-
 ### `frontend/app/`
-
 - [ ] `app/task/page.tsx`
   - [ ] Render task input form with Zod validation
   - [ ] Pre-fill if route includes `?preset=...`
@@ -63,13 +56,9 @@ This module defines the full ReasonOps task track for frontend components, adapt
 - [ ] `app/compare/page.tsx`
   - [ ] Accept two completions and show pairwise scoring
   - [ ] Allow side-by-side step judgment
-
 ---
-
 ## 🧩 Frontend Panels & UI Components
-
 ### `frontend/components/panels/`
-
 - [ ] `StepScoringPanel.tsx`
   - [ ] Accept step[] and emit judgment[]
   - [ ] Wire to `judgmentForm.ts`
@@ -77,42 +66,30 @@ This module defines the full ReasonOps task track for frontend components, adapt
 - [ ] `TaskListPanel.tsx`
   - [ ] Show history of task runs
   - [ ] Link to `evaluate/` and `compare/`
-
 ### `frontend/components/ui/`
-
 - [ ] `Button.tsx`
   - [ ] Accept `variant`, `size`, `disabled` props
   - [ ] Allow icon slot and focus outline
 - [ ] `Input.tsx`
   - [ ] Styled input with error state
   - [ ] Accept forwardRef and aria labels
-
 ---
-
 ## 📑 Form Validation + Hooks
-
 ### `frontend/schemas/`
-
 - [ ] `taskForm.ts`
   - [ ] Zod: `title`, `prompt`, `version`, `metadata`
 - [ ] `judgmentForm.ts`
   - [ ] Zod: `stepId`, `score`, `comment`, `confidence`
-
 ### `frontend/hooks/`
-
 - [ ] `useTask.ts`
   - [ ] Provide task context
   - [ ] Include `saveTask`, `loadTask`, `resetTask`
 - [ ] `useScorePanel.ts`
   - [ ] Track form state, current step index
   - [ ] Map form inputs to Zod output
-
 ---
-
 ## 🔌 Adapter Integration
-
 ### `backend/adapters/`
-
 - [ ] `ClaudeAdapter.ts`
   - [ ] Accept prompt + metadata
   - [ ] Retry on model error
@@ -122,26 +99,18 @@ This module defines the full ReasonOps task track for frontend components, adapt
 - [ ] `SupabaseAdapter.ts`
   - [ ] Read/write task, step, judgment tables
   - [ ] Map Zod input to SQL-safe insert object
-
 ---
-
 ## 📤 Export Preview + Bridge Code
-
 ### `backend/exporters/preview/`
-
 - [ ] `previewExport.ts`
   - [ ] Accept taskId and simulate JSONL output
   - [ ] Return test-safe summary string
 - [ ] `compareExportSchemas.ts`
   - [ ] Validate current output against saved schema hash
   - [ ] Fail CI if export format changed without approval
-
 ---
-
 ## 📚 Documentation Expectations
-
 - [ ] Add `/docs/prompts/presets.md` for standard task templates
 - [ ] Add `/docs/export/preview.md` for preview UI logic and matching dataset spec
 - [ ] Ensure all forms and UI schemas are referenced in `GETTING_STARTED.md`
-
 ---

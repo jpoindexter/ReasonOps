@@ -1,16 +1,21 @@
 ---
-title: "mvp-file-map"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.998Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: mvp-file-map
+type: doc
+updated: '2025-05-16T10:33:34.998Z'
+visibility: public
 ---
-
 # MVP File Map
-
 This document maps each phase of the MVP to the exact files and directories involved in ReasonOps. Use this as a source of truth for navigation and implementation tracking.
-
 ---
-
 ## 🧩 Task Creation
-
 | Feature             | File                                     |
 | ------------------- | ---------------------------------------- |
 | Task form schema    | `frontend/schemas/task/form.ts`          |
@@ -22,11 +27,8 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Task service logic  | `backend/services/TaskService.ts`        |
 | Task tests          | `tests/frontend/TaskForm.test.tsx`       |
 | Task test fixture   | `tests/fixtures/task.json`               |
-
 ---
-
 ## 🔄 Step + Completion Evaluation
-
 | Feature               | File                                                   |
 | --------------------- | ------------------------------------------------------ |
 | Step parse handler    | `backend/handlers/parseSteps.ts`                       |
@@ -38,11 +40,8 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Step schema           | `frontend/schemas/step/schema.ts`                      |
 | Step scoring diff     | `backend/lib/scoring/diffSteps.ts`                     |
 | Comparison schema     | `backend/schemas/comparison.ts`                        |
-
 ---
-
 ## 🧠 Judgment Review
-
 | Feature                  | File                                              |
 | ------------------------ | ------------------------------------------------- |
 | Judgment form schema     | `frontend/schemas/judgment/form.ts`               |
@@ -53,11 +52,8 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Judgment tests           | `tests/frontend/components/JudgmentForm.test.tsx` |
 | Reviewer schema          | `backend/schemas/reviewer.ts`                     |
 | Reviewer guard           | `backend/guards/requireRubricVersion.ts`          |
-
 ---
-
 ## 📤 Export Dataset
-
 | Feature              | File                                         |
 | -------------------- | -------------------------------------------- |
 | JSONL exporter logic | `backend/exporters/jsonl/generateDataset.ts` |
@@ -67,11 +63,8 @@ This document maps each phase of the MVP to the exact files and directories invo
 | JSONL validator      | `backend/lib/schema/validateExport.ts`       |
 | Export snapshot test | `backend/validators/snapshot.ts`             |
 | Audit export event   | `backend/audit/LogReviewEvent.ts`            |
-
 ---
-
 ## 📊 Reviewer Analytics
-
 | Feature                    | File                                              |
 | -------------------------- | ------------------------------------------------- |
 | Accuracy tracking logic    | `backend/metrics/trackReviewerAccuracy.ts`        |
@@ -81,33 +74,24 @@ This document maps each phase of the MVP to the exact files and directories invo
 | Reviewer history page      | `frontend/app/evaluate/history/page.tsx`          |
 | Reviewer history service   | `backend/services/EvaluationHistoryService.ts`    |
 | History schema             | `backend/schemas/history.ts`                      |
-
 ---
-
 ## 🛡️ Traceability + Admin
-
 | Feature              | File                                        |
 | -------------------- | ------------------------------------------- |
 | Audit log schema     | `docs/schema/audit/audit-log-format.md`     |
 | Reviewer versioning  | `backend/guards/requireRubricVersion.ts`    |
 | Admin dashboard page | `frontend/app/admin/page.tsx`               |
 | Admin service logic  | `backend/admin/ReviewerAnalyticsService.ts` |
-
 ---
-
 ## 🧪 Testing & Validation
-
 | Feature                  | File                                         |
 | ------------------------ | -------------------------------------------- |
 | Schema test fixtures     | `tests/fixtures/`                            |
 | Component tests          | `tests/frontend/components/ui/*.test.tsx`    |
 | Snapshot coverage config | `vitest.config.ts`                           |
 | Testing utilities        | `frontend/lib/test-utils.ts` (if applicable) |
-
 ---
-
 ## 🧭 Phase 2: AI Agents & Reviewer Collaboration (Scaffolded)
-
 | Feature                    | File                                            |
 | -------------------------- | ----------------------------------------------- |
 | Reviewer drift metric      | `backend/metrics/reviewerDriftIndex.ts`         |

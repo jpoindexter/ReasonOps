@@ -1,15 +1,21 @@
 ---
-title: "schema"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.995Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: schema
+type: doc
+updated: '2025-05-16T10:33:34.995Z'
+visibility: public
 ---
-
 # Schema: security
-
 ## JSON Structure
-
 ```ts
 import { z } from 'zod';
-
 export const SecuritySchema = z.object({
   policyId: z.string().uuid().describe('Unique identifier for this security policy'),
   policyName: z.string().min(3).max(100).describe('Human-readable name of the policy'),
@@ -52,7 +58,6 @@ export const SecuritySchema = z.object({
         .describe('Optional list of CIDR blocks allowed to access systems'),
     })
     .describe('Role-based access control enforcement'),
-
   encryptionPolicy: z
     .object({
       atRest: z.enum(['aes256', 'kms', 'custom']).describe('Encryption method for data at rest'),
@@ -60,7 +65,6 @@ export const SecuritySchema = z.object({
       keyRotationDays: z.number().min(1).describe('Interval for rotating encryption keys in days'),
     })
     .describe('Encryption enforcement policy'),
-
   compliance: z
     .object({
       standards: z
@@ -72,9 +76,7 @@ export const SecuritySchema = z.object({
     .describe('Regulatory and audit compliance'),
 });
 ```
-
 ## Field Reference
-
 | Field              | Type                        | Description                                     |
 | ------------------ | --------------------------- | ----------------------------------------------- |
 | `policyId`         | string (UUID)               | Unique identifier for this security policy      |

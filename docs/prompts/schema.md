@@ -1,10 +1,18 @@
 ---
-title: "schema"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.977Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: schema
+type: doc
+updated: '2025-05-16T10:33:34.977Z'
+visibility: public
 ---
-
 # Schema: prompts
-
 ## JSON Structure
 ```ts
 const Schema = z.object({
@@ -12,10 +20,7 @@ const Schema = z.object({
   // ...
 });
 ```
-
 ## Field Reference
-
 | Field       | Type     | Description              |
 |-------------|----------|--------------------------|
 | `fieldName` | string   | What this field captures |
-

@@ -1,29 +1,29 @@
 ---
-title: "task"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.893Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: task
+type: doc
+updated: '2025-05-16T10:33:34.893Z'
+visibility: public
 ---
-
 # 🧾 API Reference: Create Task
-
 Creates a new evaluation task for reasoning-based judgment. A task defines a prompt, instructions, metadata, and a version scope for all attached completions and step scoring.
-
 ---
-
 ## 📮 Endpoint
-
 **POST** `/api/task`
-
 ### Required Headers
-
 ```
 Authorization: Bearer <api-key>
 Content-Type: application/json
 ```
-
 ---
-
 ## 📥 Request Body (Zod Schema: `taskFormSchema`)
-
 ```ts
 {
   title: string;
@@ -32,11 +32,8 @@ Content-Type: application/json
   metadata?: Record<string, string>;
 }
 ```
-
 ---
-
 ## 🧪 Example Request
-
 ```json
 {
   "title": "Climate impact reasoning",
@@ -48,11 +45,8 @@ Content-Type: application/json
   }
 }
 ```
-
 ---
-
 ## 📤 Example Response
-
 ```json
 {
   "status": "ok",
@@ -60,20 +54,14 @@ Content-Type: application/json
   "createdAt": "2025-05-13T15:25:44Z"
 }
 ```
-
 ---
-
 ## ✅ Validation Rules
-
 - `title` must be ≤ 100 characters
 - `prompt` must be non-empty
 - `version` optional, defaults to latest project version
 - `metadata` is key-value map, max 10 entries
-
 ---
-
 ## 📚 Related Docs
-
 - [Zod schema](../../schema/task/model.md)
 - [Step parsing logic](../../../backend/lib/parsing/parseCompletion.ts)
 - [UI form](../../../frontend/app/task/page.tsx)

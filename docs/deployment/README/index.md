@@ -1,38 +1,36 @@
 ---
-title: "index"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.904Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: index
+type: doc
+updated: '2025-05-16T10:33:34.904Z'
+visibility: public
 ---
-
 # 🚀 ReasonOps Deployment Architecture
-
 This directory defines the deployment strategy and infrastructure management practices for ReasonOps. It covers local development, cloud deployment, environment variables, CI/CD, secret handling, and monitoring.
-
 ---
-
 ## 🧠 Purpose
-
 The ReasonOps deployment system supports:
-
 - Local developer setup and testing
 - Staging and production builds (via Vercel or custom)
 - Secure environment and secret management
 - On-premise and cloud-native scaling
 - Continuous integration and observability workflows
-
 ---
-
 ## 🌍 Environments
-
 | Environment  | Description                                    |
 | ------------ | ---------------------------------------------- |
 | `local`      | Developer workstation or emulator              |
 | `staging`    | Vercel Preview or CI-triggered branch          |
 | `production` | Main deploy to live domain (e.g. reasonops.ai) |
-
 ---
-
 ## 📁 Deployment Modules
-
 | File                               | Description                                    |
 | ---------------------------------- | ---------------------------------------------- |
 | [`local.md`](./local.md)           | Full local dev setup, Supabase emulator, tests |
@@ -43,11 +41,8 @@ The ReasonOps deployment system supports:
 | [`cicd.md`](./cicd.md)             | CI pipelines, GitHub Actions, PR gates         |
 | [`monitoring.md`](./monitoring.md) | Logging, health checks, analytics              |
 | [`on-prem.md`](./on-prem.md)       | Docker, NGINX, self-hosted and ECS flows       |
-
 ---
-
 ## 🛠 Stack Summary
-
 | Layer      | Tech                                          |
 | ---------- | --------------------------------------------- |
 | Frontend   | Next.js (App Router)                          |
@@ -56,33 +51,22 @@ The ReasonOps deployment system supports:
 | API        | Next.js API Routes                            |
 | CI/CD      | GitHub Actions + Vercel                       |
 | Monitoring | Vercel Analytics, log stream, optional Sentry |
-
 ---
-
 ## 🔐 Security Principles
-
 - Never commit `.env.local` or secrets to source control
 - Use `.env` for CI + `.env.production` in cloud runners
 - API keys injected via Vercel dashboard or runner secrets
 - Validate `DEPLOY_ENV` on startup to avoid accidental test runs in prod
-
 ---
-
 ## 🧪 Testing Integration
-
 - CI ensures schema + export conformance
 - Developers run tests locally with `pnpm test`
 - Coverage tracked in `vitest.config.ts` and gated via CI
-
 ---
-
 ## ✅ Contributor Guidelines
-
 - When adding a new deployment method (e.g. ECS), create a new `*.md` in this folder
 - Update this README index to reflect available environments
 - Test changes in `staging` before `production`
 - Log all errors and startup events using the shared logger (`lib/logger.ts`)
-
 ---
-
 This folder defines the full deployment lifecycle of ReasonOps — from local CLI to cloud-scale evaluation infrastructure.

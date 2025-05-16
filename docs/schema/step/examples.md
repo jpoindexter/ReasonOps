@@ -1,18 +1,22 @@
 ---
-title: "examples"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.989Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: examples
+type: doc
+updated: '2025-05-16T10:33:34.989Z'
+visibility: public
 ---
-
 # 🪜 Step Schema — Example Payloads
-
 This document provides real-world example JSON objects for the `Step` entity. Steps are the fundamental unit of logic extracted from a Completion and are used to evaluate model reasoning quality.
-
 Each example below reflects different levels of reasoning complexity, annotation style, and potential metadata.
-
 ---
-
 ## ✅ Example 1: Basic Step (no type)
-
 ```json
 {
   "id": "step_001",
@@ -23,13 +27,9 @@ Each example below reflects different levels of reasoning complexity, annotation
   "updatedAt": "2025-05-12T08:30:01Z"
 }
 ```
-
 > This is a straightforward reasoning statement with no optional `type` or metadata provided.
-
 ---
-
 ## ✅ Example 2: Step with `type` classification
-
 ```json
 {
   "id": "step_002",
@@ -41,13 +41,9 @@ Each example below reflects different levels of reasoning complexity, annotation
   "updatedAt": "2025-05-12T08:30:02Z"
 }
 ```
-
 > This step has been labeled as a "justification" type — useful in logic-specific workflows or future multi-agent tuning.
-
 ---
-
 ## ✅ Example 3: Complex Step with Metadata
-
 ```json
 {
   "id": "step_003",
@@ -64,15 +60,10 @@ Each example below reflects different levels of reasoning complexity, annotation
   }
 }
 ```
-
 > This step includes metadata from an automatic parsing process, which can be used to evaluate the extraction pipeline or prompt structure.
-
 ---
-
 ## 🔁 Notes
-
 - `position` must always be sequential and scoped per Completion
 - `metadata` is optional but recommended for advanced parsing, confidence, or audit use
 - `type` can be omitted or used to support structured prompting or training
-
 For the full schema definition, see [`model.md`](./model.md).

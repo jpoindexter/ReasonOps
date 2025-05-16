@@ -1,16 +1,21 @@
 ---
-title: "ROADMAP"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.878Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: ROADMAP
+type: doc
+updated: '2025-05-16T10:33:34.878Z'
+visibility: public
 ---
-
 # 🗺 ReasonOps Production Roadmap (v1+)
-
 This roadmap defines the phased execution path for ReasonOps as a production-grade, reasoning evaluation platform. It includes core logic, UI scaffolding, export integrity, scoring, prompt versioning, reviewer analytics, dataset delivery, enterprise auditability, snapshot validation, diffing, and schema version enforcement.
-
 ---
-
 ## ✅ Phase 1: MVP Core System (✅ Complete)
-
 | Area     | Feature                                                                |
 | -------- | ---------------------------------------------------------------------- |
 | Schema   | Zod models for Task, Completion, Step, Judgment                        |
@@ -20,11 +25,8 @@ This roadmap defines the phased execution path for ReasonOps as a production-gra
 | Export   | `generateDataset.ts` + JSONL v1.0.0                                    |
 | Examples | `task.json`, `completion.json`, `steps.json`, `judgment.json`          |
 | Docs     | Full production suite in `docs/`, including schema, tasklist, security |
-
 ---
-
 ## 🚧 Phase 2: Tooling + Developer Experience
-
 | Area        | Feature                                               |
 | ----------- | ----------------------------------------------------- |
 | Test Infra  | Vitest + coverage + CI enforcement (≥ 90%)            |
@@ -34,11 +36,8 @@ This roadmap defines the phased execution path for ReasonOps as a production-gra
 | Scaffolders | `scripts/scaffold.ts` for new routes, panels, schemas |
 | CI Pipeline | Typecheck, lint, export verify, auth token checks     |
 | ENV         | Hardened `.env.local` + CI secret enforcement         |
-
 ---
-
 ## 🧠 Phase 3: Evaluation Logic Expansion
-
 | Area               | Feature                                                           |
 | ------------------ | ----------------------------------------------------------------- |
 | AI Scoring         | Claude / GPT-based auto-judging + `model` + `rubricVersion` trace |
@@ -50,11 +49,8 @@ This roadmap defines the phased execution path for ReasonOps as a production-gra
 | Step Types         | Step classification (reasoning vs assertion vs hallucination)     |
 | Snapshot Engine    | Version diffing, hash compare, semantic mismatch validation       |
 | Rubric Drift       | Rubric version guards + model-version alignment (`requireRubric`) |
-
 ---
-
 ## 📦 Phase 4: Production-Level App Features
-
 | Area                      | Feature                                                           |
 | ------------------------- | ----------------------------------------------------------------- |
 | Auth & RBAC               | Reviewer/admin scoped tokens + Supabase user access controls      |
@@ -71,11 +67,8 @@ This roadmap defines the phased execution path for ReasonOps as a production-gra
 | History Viewer            | EvaluationHistoryService + /evaluate/history screen               |
 | Prompt Replay Evaluator   | Replay prompt against archived models to compare version drift    |
 | Rubric Builder UI         | Visual rubric editor with version preview                         |
-
 ---
-
 ## 🔌 Phase 5: Ecosystem + Open Source
-
 | Area                   | Feature                                                         |
 | ---------------------- | --------------------------------------------------------------- |
 | OSS Mode               | Public split of schema, scoring lib, export utils               |
@@ -85,11 +78,8 @@ This roadmap defines the phased execution path for ReasonOps as a production-gra
 | Docs Portal            | Live schema + prompt explorer + route tester                    |
 | Bridge Mode            | Export to ClearOps, FineTuneOps, or external LLM eval platforms |
 | Governance Layer       | Version freeze, rubric tagging, integrity snapshot hashes       |
-
 ---
-
 ## 🧭 Long-Term Vision
-
 - Human-LLM scoring blend with traceable justification
 - Audit-grade `.jsonl` lineage + CI-diffable datasets
 - Rubric evolution tracking and regression monitoring

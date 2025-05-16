@@ -1,18 +1,22 @@
 ---
-title: "examples"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.991Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: examples
+type: doc
+updated: '2025-05-16T10:33:34.991Z'
+visibility: public
 ---
-
 # 🧾 Task Schema — Example Payloads
-
 This document provides real-world JSON examples for the `Task` entity. Tasks define what to evaluate, which model to run, and how completions are tracked and scored.
-
 Each example reflects a valid `Task` object at various lifecycle stages and includes realistic metadata to support traceability, dataset generation, and workflow tagging.
-
 ---
-
 ## ✅ Example 1: Draft Task
-
 ```json
 {
   "id": "task_001",
@@ -29,13 +33,9 @@ Each example reflects a valid `Task` object at various lifecycle stages and incl
   }
 }
 ```
-
 > This task has been defined and saved, but no completions have been generated. It is in the initial `draft` state.
-
 ---
-
 ## ✅ Example 2: Completed Task (model = GPT)
-
 ```json
 {
   "id": "task_002",
@@ -53,13 +53,9 @@ Each example reflects a valid `Task` object at various lifecycle stages and incl
   }
 }
 ```
-
 > This task has one or more completions. It is ready for evaluation, and may be compared across models or exported for scoring.
-
 ---
-
 ## ✅ Example 3: Reviewed Task with Extended Metadata
-
 ```json
 {
   "id": "task_003",
@@ -77,13 +73,9 @@ Each example reflects a valid `Task` object at various lifecycle stages and incl
   }
 }
 ```
-
 > This task has been reviewed and scored. It is now locked for export, audit, or dataset integration.
-
 ---
-
 ## ✅ Example 4: External Workflow Integration
-
 ```json
 {
   "id": "task_004",
@@ -102,13 +94,8 @@ Each example reflects a valid `Task` object at various lifecycle stages and incl
   }
 }
 ```
-
 > This task was triggered from an external workflow engine. Metadata links it to a broader system context for traceability and audit alignment.
-
 ---
-
 ## 🔄 Versioning Best Practice
-
 When editing a Task’s `prompt`, `model`, or scoring configuration, increment the `version` field and store the new Task alongside the previous. Never overwrite previous versions — ReasonOps assumes append-only history.
-
 See the canonical schema in [`/docs/schema/task/model.md`](../model.md)

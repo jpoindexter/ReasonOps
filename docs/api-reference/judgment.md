@@ -1,29 +1,29 @@
 ---
-title: "judgment"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.891Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: judgment
+type: doc
+updated: '2025-05-16T10:33:34.891Z'
+visibility: public
 ---
-
 # 🧾 API Reference: Submit Judgment
-
 Submit a step-level evaluation judgment (manual or model-generated). This endpoint accepts a scored step response and stores it for export, audit, and critique.
-
 ---
-
 ## 📮 Endpoint
-
 **POST** `/api/judgment`
-
 ### Required Headers
-
 ```
 Content-Type: application/json
 Authorization: Bearer <api-key>
 ```
-
 ---
-
 ## 📥 Request Body (Zod Schema: `judgmentFormSchema`)
-
 ```ts
 {
   stepId: string;
@@ -33,11 +33,8 @@ Authorization: Bearer <api-key>
   model?: 'claude' | 'gpt' | 'human'; // optional
 }
 ```
-
 ---
-
 ## 🧪 Example Request
-
 ```json
 {
   "stepId": "step_feb811",
@@ -47,11 +44,8 @@ Authorization: Bearer <api-key>
   "model": "claude"
 }
 ```
-
 ---
-
 ## 📤 Example Response
-
 ```json
 {
   "status": "ok",
@@ -59,20 +53,14 @@ Authorization: Bearer <api-key>
   "submittedAt": "2025-05-13T15:12:22Z"
 }
 ```
-
 ---
-
 ## ✅ Validation Rules
-
 - `stepId` must exist in DB (foreign key)
 - `score` must match rubric enum
 - `comment` required if score ≠ "clear"
 - `confidence` must be a float ≤ 1.0
-
 ---
-
 ## 📚 Related Docs
-
 - [Zod schema](../../schema/judgment/model.md)
 - [Scoring service logic](../../../backend/lib/scoring/scoreStep.ts)
 - [StepScoringPanel UI](../../../frontend/components/panels/StepScoringPanel.tsx)

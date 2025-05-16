@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GETTING_STARTED.md",
+                "file": "features/dashboard/flows/mvp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GETTING_STARTED"
+              "title": "mvp"
             }
           }
         ]
@@ -183,13 +183,18 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "4412fc91d887e5bf",
+  "active": "cd634248c2c05868",
   "lastOpenFiles": [
+    "features/dashboard/flows/index.md",
+    "features/dashboard/flows/evaluator/index.md",
+    "features/dashboard/flows/admin/index.md",
+    "features/_tracker.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "GETTING_STARTED.md",
     "ROADMAP.md",
     "README.md",
     "index.md",
-    "CONTRIBUTING.md",
-    "CHANGELOG.md",
     "schema/audit/index.md",
     "schema/audit/ui.md",
     "schema/audit/schema.md",
@@ -200,17 +205,12 @@
     "use-cases/ai-support/_index.md",
     "INDEX.md",
     "Untitled.canvas",
-    "GETTING_STARTED.md",
     "security/index.md",
     "security/disclosure.md",
     "security/auth.md",
     "security/access.md",
     "strategy/ui.md",
     "strategy/schema.md",
-    "strategy/platform-roadmap.md",
-    "strategy/index.md",
-    "strategy/access.md",
-    "tasklist/schema.md",
-    "platform/access/role-matrix.md"
+    "strategy/platform-roadmap.md"
   ]
 }

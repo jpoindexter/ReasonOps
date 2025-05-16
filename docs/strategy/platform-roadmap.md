@@ -1,16 +1,21 @@
 ---
-title: "platform-roadmap"
-status: "draft"
+author: ReasonOps System
+created: '2025-05-16T10:33:34.996Z'
+links: []
+status: draft
+tags:
+  - reasonops
+  - obsidian
+  - enterprise
+title: platform-roadmap
+type: doc
+updated: '2025-05-16T10:33:34.996Z'
+visibility: public
 ---
-
 # 🧠 ReasonOps Platform Roadmap (PARITY++ Master Spec)
-
 This roadmap defines all critical features for building ReasonOps as a category-defining reasoning evaluation platform. It includes features from core human-AI evaluation flows, reviewer collaboration, extensibility infrastructure, and long-term ecosystem plays.
-
 ---
-
 ## ✅ Layer 1: Core Evaluation MVP
-
 | Feature                                | Category        | Status     |
 | -------------------------------------- | --------------- | ---------- |
 | Step-by-step scoring w/ rubric         | Evaluation Loop | ✅ Live    |
@@ -22,11 +27,8 @@ This roadmap defines all critical features for building ReasonOps as a category-
 | Reviewer tokens + role system          | SaaS / Infra    | ✅ Live    |
 | Audit logs per judgment                | Governance      | ✅ Live    |
 | Evaluation snapshot CI                 | Governance      | ✅ Live    |
-
 ---
-
 ## 🔁 Layer 2: Platform Features
-
 | Feature                            | Category             | Status         |
 | ---------------------------------- | -------------------- | -------------- |
 | AI scoring agents (rubric-aligned) | Agent Infrastructure | ✅ Scaffolded  |
@@ -40,11 +42,8 @@ This roadmap defines all critical features for building ReasonOps as a category-
 | CLI tool for eval + export         | Developer Tools      | ❌ Planned     |
 | Local model integration via Ollama | Agent Infrastructure | 🟡 In Progress |
 | Work queues + task assignment      | Reviewer UX          | ❌ Planned     |
-
 ---
-
 ## 🌐 Layer 3: Ecosystem & Extensibility
-
 | Feature                                 | Category        | Status     |
 | --------------------------------------- | --------------- | ---------- |
 | Plugin SDK for scorers / metrics        | Ecosystem       | ❌ Planned |
@@ -54,11 +53,8 @@ This roadmap defines all critical features for building ReasonOps as a category-
 | Prompt-replay evaluator (version drift) | PromptOps       | ❌ Planned |
 | HuggingFace / Trulens integrations      | Ecosystem       | ❌ Planned |
 | Evaluation schema registry              | Ecosystem       | ❌ Planned |
-
 ---
-
 ## 🚀 Layer 4: Innovation & Intelligence
-
 | Feature                                   | Category             | Status     |
 | ----------------------------------------- | -------------------- | ---------- |
 | Reasoning heatmaps (step-level analytics) | Metrics              | ❌ Planned |
@@ -68,10 +64,7 @@ This roadmap defines all critical features for building ReasonOps as a category-
 | Evaluation ROI dashboards                 | Admin Intelligence   | ❌ Planned |
 | Predictive evaluation planner             | Research             | ❌ Planned |
 | Industry-specific eval templates          | Community            | ❌ Planned |
-
 ---
-
 This document serves as the master reference for ReasonOps development priorities and parity tracking. See also:
-
 - `phase-2-features.md` — granular UI/infra build targets
 - `reasonops-platform-spec.md` — architectural breakdown
