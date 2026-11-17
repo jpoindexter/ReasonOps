@@ -14,5 +14,4 @@ visibility: public
 ---
 # Global Search
 // TODO: Behavior of task search, autocomplete, scoped filters
-
 > **Stub:** This file is a stub and needs expansion.

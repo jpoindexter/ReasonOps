@@ -14,5 +14,10 @@ visibility: public
 ---
 # Reviewer Teams
 // TODO: Define team/project folders, tier roles, scoped dashboards
-
 > **Stub:** This file is a stub and needs expansion.
+
+## Auto-generated Links
+
+- [[team/project folders]]
+- [[tier roles]]
+- [[scoped dashboards]]

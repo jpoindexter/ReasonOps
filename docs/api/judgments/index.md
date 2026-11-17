@@ -80,10 +80,20 @@ All scores are audit-traced via the `createdBy` field and stored as immutable re
 For scoring logic, see the scoring guides in:
 - [`/schema/step/scoring.md`](../schema/step/scoring.md)
 - [`/schema/judgment/scoring.md`](../schema/judgment/scoring.md)
+## Auto-generated Links
+- [[linked/doc/paths]]
+- [[schema/step/model.md]]
+- [[schema/judgment/model.md]]
+- [[schema/judgment/scoring.md]]
+- [[schema/step/scoring.md]]
+
+## User Stories
+- As a user, I want to submit a structured score for a single Step via POST so that I can provide feedback on the reasoning quality of different steps in a model-generated reasoning chain.
+- As a developer, I want to implement validation and database logic for Judgment API submission so that I can ensure data integrity and maintain consistency across our systems.
+- As a system administrator, I want to trigger an API call on score submit so that I can automate the process of generating audit logs for every score submission. This will improve efficiency and reduce manual workload.
 
 ## Auto-generated Links
 
-- [[linked/doc/paths]]
 - [[schema/step/model.md]]
 - [[schema/judgment/model.md]]
 - [[schema/judgment/scoring.md]]

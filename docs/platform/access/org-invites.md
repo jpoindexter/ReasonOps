@@ -14,5 +14,4 @@ visibility: public
 ---
 # Org Invitation Flow
 // TODO: Define user invite, join, leave, and reassignment behavior
-
 > **Stub:** This file is a stub and needs expansion.

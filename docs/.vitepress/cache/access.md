@@ -18,6 +18,10 @@ visibility: public
 | Reviewer | ✅        | ❌        | View only        |
 | Admin    | ✅        | ✅        | Full permissions |
 | Observer | ✅        | ❌        | Read-only        |
+## Auto-generated Links
+- [[Validation Concepts]]
+- [[Evaluation Process]]
+- [[Dashboard Flows]]
 
 ## Auto-generated Links
 

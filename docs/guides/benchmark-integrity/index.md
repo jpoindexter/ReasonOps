@@ -105,3 +105,11 @@ All exports:
 - [`dataset-format.md`](../schema/dataset-format.md)
 - [`judgment.json`](../examples/judgment.json)
 - [`scoreStep.ts`](../../backend/lib/scoring/scoreStep.ts)
+
+## Auto-generated Links
+
+- [[../../backend/exporters/jsonl/generateDataset.ts]]
+- [[../../docs/prompts/]]
+- [[../schema/dataset-format.md]]
+- [[../examples/judgment.json]]
+- [[../../backend/lib/scoring/scoreStep.ts]]

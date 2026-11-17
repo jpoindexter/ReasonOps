@@ -104,3 +104,8 @@ Plugins will support:
 | `embedding-router`       | Experimental   |
 ---
 This architecture ensures ReasonOps remains modular, testable, and ready for LLM evaluation at any scale or integration depth.
+
+## User Stories
+- As a user, I want to be able to register new LLM adapter plugins so that the system can support different types of Large Language Models (LLMs).
+- As a developer, I want to replace the sentence-splitting parser with a custom one so that it aligns better with my specific use case.
+- As an evaluator, I want drop-in replacement for using LLM-based judgment inference and prompt-controlled scoring rubric so that it provides more flexibility in evaluation process.

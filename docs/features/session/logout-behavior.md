@@ -14,5 +14,4 @@ visibility: public
 ---
 # Logout Behavior
 // TODO: Secure Supabase session invalidation, redirect logic
-
 > **Stub:** This file is a stub and needs expansion.

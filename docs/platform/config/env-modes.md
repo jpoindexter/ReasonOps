@@ -14,5 +14,4 @@ visibility: public
 ---
 # Environment Modes
 // TODO: Sandbox vs Production vs Staging runtime mode definition
-
 > **Stub:** This file is a stub and needs expansion.

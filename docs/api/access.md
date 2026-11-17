@@ -18,9 +18,7 @@ visibility: public
 | Reviewer | ✅        | ❌        | View only        |
 | Admin    | ✅        | ✅        | Full permissions |
 | Observer | ✅        | ❌        | Read-only        |
-
 ## Auto-generated Links
-
 - [[Validation/Reviewer]]
 - [[Validation/Administrator]]
 - [[Evaluation/Template]]

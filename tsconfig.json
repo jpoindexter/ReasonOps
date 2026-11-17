@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "lib": ["ES2022", "DOM"],
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "outDir": "dist",
     "incremental": true,
@@ -32,7 +33,6 @@
       "@tests/*": ["tests/*"],
       "@scripts/*": ["scripts/*"]
     },
-    "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowJs": false,
     "forceConsistentCasingInFileNames": true,

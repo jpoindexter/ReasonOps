@@ -14,5 +14,10 @@ visibility: public
 ---
 # Role Matrix
 // TODO: Enumerate all permissions per platform role (Reviewer, Admin, Observer)
-
 > **Stub:** This file is a stub and needs expansion.
+
+## Auto-generated Links
+
+- [[Reviewer]]
+- [[Admin]]
+- [[Observer]]

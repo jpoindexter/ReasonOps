@@ -91,3 +91,9 @@ Each export batch includes a `formatVersion` tag in the metadata file.
 | -------------- | -------------------------------------------------------------------- |
 | `1.0.0`        | Initial public version — 1 Task → 1 Completion → N Steps with scores |
 All exported files must be compatible with the schema defined here. Updates will be reflected in `versioning.md`.
+
+## User Stories
+- As a user, I want to have an easy-to-read format for storing and sharing LLM evaluation datasets so that I can support automated fine-tuning and scoring pipelines.
+- As a data scientist, I need the structured export of evaluated LLM completions in JSON Lines (JSONL) format because it allows for efficient processing and analysis by machines.
+- As a researcher, I want to be able to share these datasets publicly or internally without compromising user privacy or model identities due to compliance with data protection regulations.
+- As an AI development team, we need the capability to track logic performance across different models for comparison purposes and identify patterns that could inform future ML model decisions.

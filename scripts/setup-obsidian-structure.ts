@@ -1,12 +1,12 @@
-import cliProgress from 'cli-progress';
 import pLimit from 'p-limit';
 import { setTimeout as wait } from 'timers/promises';
-import path, { dirname } from 'path';
+import * as path from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import fs from 'fs/promises';
+import * as fs from 'fs/promises';
 import matter from 'gray-matter';
 import { exec } from 'child_process';
-import util from 'util';
+import * as util from 'util';
 
 const execAsync = util.promisify(exec);
 
@@ -23,14 +23,6 @@ const __dirname = dirname(__filename);
 const DOCS_ROOT = path.resolve(__dirname, '../docs');
 const TEMPLATE_PATH = path.join(DOCS_ROOT, 'templates', 'docs_template.md');
 const LOGS_DIR = path.resolve(__dirname, '../logs');
-
-// Dependency guard: Ensure cli-progress is installed
-try {
-  require.resolve('cli-progress');
-} catch {
-  console.error('Missing dependency: cli-progress. Install with `npm install cli-progress`');
-  process.exit(1);
-}
 
 // Enrichment cache
 const ENRICH_CACHE_PATH = path.join(LOGS_DIR, 'enrichment-cache.json');
@@ -406,7 +398,7 @@ const enrichWithAI = async (content: string, topic: string): Promise<string> => 
     );
     const tags = tagOut
       .split(',')
-      .map((t) => t.trim())
+      .map((t: string) => t.trim())
       .filter(Boolean);
     enrichmentCache[`${filePath}-tags`] = Array.isArray(tags) ? tags : [tags];
     // --- End auto-tagging logic ---
@@ -430,8 +422,8 @@ const generateAutoLinksWithAI = async (content: string, filename: string): Promi
     const links: string[] = stdout
       .trim()
       .split('\n')
-      .map((l) => l.trim())
-      .filter((l) => l.startsWith('[[') && l.endsWith(']]'));
+      .map((l: string) => l.trim())
+      .filter((l: string) => l.startsWith('[[') && l.endsWith(']]'));
     if (links.length > 0) {
       // Append links to the bottom of content with a heading
       const appended =
@@ -455,15 +447,14 @@ const generateUserStoriesWithAI = async (content: string, filename: string): Pro
     return stdout
       .trim()
       .split('\n')
-      .map((line) => line.trim())
-      .filter((line) => /^-?\s*As a/.test(line));
+      .map((line: string) => line.trim())
+      .filter((line: string) => /^-?\s*As a/.test(line));
   } catch (err) {
     console.error(`⚠️ Failed to generate user stories for ${filename}:`, err);
     return [];
   }
 };
 
-// Format all markdown files recursively (parallelized with progress bar)
 const formatAllMarkdownFiles = async (baseDir: string): Promise<void> => {
   const files: string[] = [];
 
@@ -478,29 +469,22 @@ const formatAllMarkdownFiles = async (baseDir: string): Promise<void> => {
 
   await collectFiles(baseDir);
 
-  const bar = new cliProgress.SingleBar(
-    {
-      format: 'Formatting [{bar}] {percentage}% | {value}/{total} | {file}',
-      barCompleteChar: '\u2588',
-      barIncompleteChar: '\u2591',
-    },
-    cliProgress.Presets.shades_classic
-  );
-
-  bar.start(files.length, 0, { file: '' });
+  const total = files.length;
+  let count = 0;
 
   const limit = pLimit(4);
   await Promise.all(
-    files.map((filePath, _idx) =>
+    files.map((filePath) =>
       limit(async () => {
-        await wait(25); // brief delay to reduce spamming
-        void formatMarkdownFile(filePath);
-        bar.increment({ file: path.basename(filePath) });
+        await wait(25);
+        await formatMarkdownFile(filePath);
+        count++;
+        if (count % 5 === 0 || count === total) {
+          console.log(`📝 Processed ${count}/${total} files...`);
+        }
       })
     )
   );
-
-  bar.stop();
 };
 
 // Create markdown template file, if not exists

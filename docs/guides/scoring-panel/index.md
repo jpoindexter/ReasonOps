@@ -71,3 +71,20 @@ To extend this panel for new use cases:
 - [`scoreStep.ts`](../../backend/lib/scoring/scoreStep.ts)
 - [`generateDataset.ts`](../../backend/exporters/jsonl/generateDataset.ts)
 - [`judgment.md`](../../docs/api-reference/judgment.md)
+
+## Auto-generated Links
+
+- [[Guide_StepScoringPanel]]
+- [[Component_Location]]
+- [[Purpose]]
+- [[Props_State_Required]]
+- [[Internal_State]]
+- [[Behavior]]
+- [[API_Integration]]
+- [[Testing_Requirements]]
+- [[Extending_the_Panel]]
+- [[Related_Modules_useScorePanel.ts]]
+- [[Related_Modules_judgmentForm.ts]]
+- [[Related_Modules_scoreStep.ts]]
+- [[Related_Modules_generateDataset.ts]]
+- [[Related_Modules_api-reference/judgment.md]]

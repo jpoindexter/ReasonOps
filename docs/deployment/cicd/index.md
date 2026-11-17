@@ -93,3 +93,8 @@ Avoid committing secrets or `.env.*` to the repository.
 - Each PR should link to updated docs when schema/API is affected
 ---
 This CI/CD system enables ReasonOps to scale contributions safely while maintaining audit quality and reproducibility.
+
+## User Stories
+- As a project contributor, I want the GitHub Actions to run automatically whenever there are changes in the codebase so that automated checks can be performed on every commit. This includes linting, type-checking, testing, and building the application.
+- As a project maintainer, I want Vercel (and subsequently GitHub) to manage secrets for environment variables used during runtime so that these variables can be securely injected without compromising their integrity. Additionally, the data contained within these secret variables should not be visible or editable by unauthorized personnel.
+- As a user of ReasonOps platform, I want all new API routes to include unit tests and CI coverage so that changes are tested and approved more promptly. This ensures code quality, and prevents potential bugs from reaching the production environment before they can be identified and addressed. Furthermore, these test cases should also generate snapshots for schema-affecting updates which could later be used as reference for future schema developments or validations.

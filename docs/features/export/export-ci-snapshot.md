@@ -14,5 +14,4 @@ visibility: public
 ---
 # Export CI Snapshot
 // TODO: Export hash generation, validation, regression triggers
-
 > **Stub:** This file is a stub and needs expansion.

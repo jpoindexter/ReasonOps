@@ -79,3 +79,8 @@ In addition to the core ReasonOps schema modules, the following files capture pl
 - [`../tasklist/phase-2-features.md`](../tasklist/phase-2-features.md) — Future UX layers: threads, consensus scoring, plugin agents, multi-model benchmarking
 - [`../architecture/reasonops-platform-spec.md`](../architecture/reasonops-platform-spec.md) — End-to-end ReasonOps architecture: entities, roadmap, roles, AI integrations
 These documents define the future-facing shape of ReasonOps beyond MVP — informing metrics dashboards, collaboration tooling, and LLM-integrated evaluations.
+
+## User Stories
+- As a user, I want to have an overview of the ReasonOps schema system so that I can understand its purpose, architecture, data entities, relationships, scoring mechanisms, and export features.
+- As a developer, I want to review the markdown files linked in this README for understanding and learning about the different modules and their functionalities within the ReasonOps platform.
+- As a user, I want to have access to comprehensive information on how all schemas are implemented using Zod and enforced across the API, database, and UI so that I can validate my understanding of these technologies and ensure they are being applied correctly throughout the system.

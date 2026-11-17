@@ -75,3 +75,8 @@ Created tasks conform to the schema defined in:
 For scoring flow, see:
 - [`/api/completions.md`](./completions.md)
 - [`/schema/step/model.md`](../schema/step/model.md)
+
+## User Stories
+- As a system administrator, I want to create a new Task API endpoint so that ReasonOps can support user requirements for reasoning tasks. This includes providing an interface where users can define the prompt and select the model for each task. The request body should contain fields such as prompt and selected model, which are all required.
+- As a developer implementing this feature, I want to ensure that the endpoint works properly by testing it with different scenarios. For instance, validating that an empty prompt or selecting an unavailable model will return appropriate error messages.
+- As a user of ReasonOps, I want to create new reasoning tasks so that I can evaluate various natural language inputs using selected models. The system should provide unique IDs for each task and initial lifecycle states (e.g., no completions generated), which are returned in the response body. This allows users to track their progress without needing to reference internal database identifiers. Moreover, fields like version and extension could be used for audit traceability.

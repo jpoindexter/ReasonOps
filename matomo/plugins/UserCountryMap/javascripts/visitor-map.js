@@ -1265,7 +1265,7 @@
                         // populate country select
                         var isoCodes = [];
                         $.each(countryData, function (i, country) {
-                            if (!!country.iso) {
+                            if (country.iso) {
                                 isoCodes.push(country.iso);
                                 countrySelect.append('<option value="' + country.iso + '">' + country.name + '</option>');
                             }

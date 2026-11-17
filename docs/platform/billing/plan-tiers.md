@@ -14,5 +14,4 @@ visibility: public
 ---
 # Billing Plan Tiers
 // TODO: Define Free vs Pro vs Enterprise and feature caps
-
 > **Stub:** This file is a stub and needs expansion.

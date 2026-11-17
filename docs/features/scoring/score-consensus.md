@@ -14,5 +14,4 @@ visibility: public
 ---
 # Score Consensus Logic
 // TODO: Multi-reviewer agreement, auto-escalation thresholds
-
 > **Stub:** This file is a stub and needs expansion.

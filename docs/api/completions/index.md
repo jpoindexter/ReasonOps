@@ -85,9 +85,7 @@ Additional runtime fields (e.g. `temperature`, `version`, `systemPrompt`) can be
 - [`/docs/schema/completion/model.md`](../schema/completion/model.md)
 - [`/docs/schema/task/model.md`](../schema/task/model.md)
 - [`/docs/schema/step/model.md`](../schema/step/model.md)
-
 ## Auto-generated Links
-
 - [[../schema/completion/model.md]]
 - [[../schema/task/model.md]]
 - [[../schema/step/model.md]]
@@ -98,3 +96,8 @@ Additional runtime fields (e.g. `temperature`, `version`, `systemPrompt`) can be
 - [[../validation/completion_validator.md]]
 - [[../evaluation/completion_evaluator.md]]
 - [[../dashboard/completion_dashboard.md]]
+
+## User Stories
+- As a user, I want to be able to POST a request with the details of a Task and model for which I need a Completion, so that a completion can be generated based on that task using an LLM.
+- As a developer, I want to ensure all requests are correctly structured by validating the 'Task ID' and 'model' fields in the POST body, so that the system behaves as expected.
+- As a user, I want to receive the completion text returned by the LLM along with the unique Completion ID once the model generation process is complete, so that I can use it for further processing or analysis.

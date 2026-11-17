@@ -16,3 +16,8 @@ visibility: public
 > This directory contains ReasonOps use cases for **platform versioning**.
 - [Governance Controls](./governance-controls.md)
 - [Platform Versioning](./platform-versioning.md)
+
+## Auto-generated Links
+
+- [[./governance-controls.md]]
+- [[./platform-versioning.md]]

@@ -14,5 +14,4 @@ visibility: public
 ---
 # Reviewer Calibration
 // TODO: Define blind scoring, gold label diffing, QA report export
-
 > **Stub:** This file is a stub and needs expansion.

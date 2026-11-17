@@ -14,5 +14,4 @@ visibility: public
 ---
 # Onboarding Flow
 // TODO: Step-by-step identity, rubric, walkthrough flow for new users
-
 > **Stub:** This file is a stub and needs expansion.

@@ -14,5 +14,4 @@ visibility: public
 ---
 # Reviewer History Viewer
 // TODO: Timeline of scored tasks, durations, rubrics used
-
 > **Stub:** This file is a stub and needs expansion.
